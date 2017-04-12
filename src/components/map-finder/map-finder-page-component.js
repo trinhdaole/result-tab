@@ -6,6 +6,7 @@
 import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
+import SearchFilterComponent from '../wrapper/map-finder/search-filter-component'
 
 
 export default class MapFinderPageComponent extends Component {
@@ -33,26 +34,25 @@ export default class MapFinderPageComponent extends Component {
 
 
         return (
-            <div className="container">
+            <div className="mapFinderContainer">
                 {/*<Popup  />*/}
                 <div className="header">
                     <div className="headerTextWrapper">
                         <p className="textHeader">
                             <TextComponent
                                 text    = {'CLUB FINDER'}
-                                style   = {{fontSize:12}}
+                                style   = {{fontSize:12, color:'white'}}
                             />
                         </p>
                         <p className="textHeader">
                             <TextComponent
                                 text    = {'WHERE CAN I PLAY'}
-                                style   = {{fontSize:26, fontWeight:'600'}}
+                                style   = {{fontSize:26, fontWeight:'600',color:'white'}}
                             />
                         </p>
                     </div>
-
-
                 </div>
+                <SearchFilterComponent/>
 
                 <style>{css}</style>
             </div>
@@ -68,7 +68,7 @@ MapFinderPageComponent.propTypes = {
 
 };
 const css = `
-    .container {
+    .mapFinderContainer {
         width:100%;
         height:2000px;
         background-color: rgba(241,245,248,1);
@@ -83,9 +83,7 @@ const css = `
         padding: 15px 0px 0px 0px;
     }
     .textHeader {
-        color:white;
         text-align:center;
-        font-family: Roboto, sans-serif;
     };
     
    
