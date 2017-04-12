@@ -5,6 +5,7 @@
 
 import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
+import TextComponent from '../common/text/text-component'
 
 
 export default class MapFinderPageComponent extends Component {
@@ -32,7 +33,29 @@ export default class MapFinderPageComponent extends Component {
 
 
         return (
-            <Popup  />
+            <div className="container">
+                {/*<Popup  />*/}
+                <div className="header">
+                    <div className="headerTextWrapper">
+                        <p className="textHeader">
+                            <TextComponent
+                                text    = {'CLUB FINDER'}
+                                style   = {{fontSize:12}}
+                            />
+                        </p>
+                        <p className="textHeader">
+                            <TextComponent
+                                text    = {'WHERE CAN I PLAY'}
+                                style   = {{fontSize:26, fontWeight:'600'}}
+                            />
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <style>{css}</style>
+            </div>
 
         );
 
@@ -43,6 +66,27 @@ export default class MapFinderPageComponent extends Component {
 
 MapFinderPageComponent.propTypes = {
 
-
-
 };
+const css = `
+    .container {
+        width:100%;
+        height:2000px;
+        background-color: rgba(241,245,248,1);
+        
+    } 
+    .header {
+        width:100%;
+        height:131px;
+        background-color: rgba(0,154,222,1);
+    }
+    .headerTextWrapper {
+        padding: 15px 0px 0px 0px;
+    }
+    .textHeader {
+        color:white;
+        text-align:center;
+        font-family: Roboto, sans-serif;
+    };
+    
+   
+`;
