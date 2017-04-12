@@ -2,7 +2,9 @@
  * Created by long on 3/24/17.
  */
 import React, {PropTypes} from "react";
-
+import Input from '../../common/input/input-component'
+import Text from   '../../common/text/text-component'
+import Button from '../../common/button/button-component'
 
 export default class MapFindPopupComponent extends React.Component {
 
@@ -10,17 +12,31 @@ export default class MapFindPopupComponent extends React.Component {
         super(props);
 
         this.state = {
-            isHide:this.props.isOnline,
+            isHide:this.props.isHide,
+            inputValue:'',
         };
         this.onClick = this.onClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.isOnline != this.props.isOnline){
+        if(nextProps.isHide != this.props.isHide){
             this.setState({
-                isHide:nextProps.isOnline,
+                isHide:nextProps.isHide,
             });
         }
+    }
+
+    onKeyUp(keyCode){
+        if(keyCode == 13){
+            this.onClick();
+        }
+    }
+
+    onChange(event){
+        this.setState({
+            inputValue: event.target.value
+        });
+        console.log(this.state.inputValue);
     }
 
     onClick() {
@@ -34,21 +50,71 @@ export default class MapFindPopupComponent extends React.Component {
     }
 
     renderPopup(){
-        const {style, textStyle, content, spanContent, spanStyle}= this.props;
+        const {style,title, textStyle, content, spanContent, spanStyle}= this.props;
         if(this.state.isHide == true){
             return null;
         }else{
+            let titleStyle = {
+                                   height:'16px',
+                                  fontSize: '14px',
+                                  color: 'rgba(81,81,81,1)',
+                                  fontFamily: 'Roboto-Medium',
+
+                            };
+            let inputStyle = {
+                                  width:'100%',
+                                  height:'38px',
+                                  fontSize: '12px',
+                                  fontFamily: 'Roboto-Regular',
+                                  border:'none',
+                                  textAlign:'left',
+                                  marginTop: '10px',
+                                  color: 'rgba(81,81,81,1)',
+
+
+            };
+            let buttonStyle = {
+                 textAlign: 'center',
+                 color: 'white',
+                 textTransform: 'uppercase',
+                 backgroundColor: 'rgba(0,154,222,1)',
+                 fontFamily: 'Roboto-Regular',
+                 fontSize: '10px',
+                 width:'40%',
+                 height:'32px',
+                 borderRadius: '40px',
+                 margin: '0 auto',
+
+            };
+
+
             return (
-                <div className="internetLost" style={style}>
-                    <p className="internetLostText" style={textStyle}>
-                        <span style={spanStyle}>
-                            {spanContent}
-                        </span>
-                        {content?content:"No Internet Connection!"}
-                    </p>
-                    <i className="fa fa-times-circle" aria-hidden="true" onClick={this.onClick}/>
+                <div className="modal-wrapper">
+                    <div className="modal-container">
+                        <div className="top-modal">
+                            <Text
+                              style={titleStyle}
+                              text={title?title:'WHERE CAN I PLAY?'}
+                            />
+                            <Input
+                                style={inputStyle}
+                                placeholder='Enter postcode or club name'
+                                onChange={this.onChange}
+                                onKeyUp={this.onKeyUp}
+                            />
+
+                        </div>
+                        <div className="bottom-modal">
+                            <Button
+                                style={buttonStyle}
+                                onClick={this.onClick}
+                                text="Search"
+                            />
+                        </div>
+                    </div>
                     <style>{css}</style>
                 </div>
+
             );
         }
     }
@@ -59,12 +125,12 @@ export default class MapFindPopupComponent extends React.Component {
 }
 
 MapFindPopupComponent.propTypes = {
-    isOnline: PropTypes.bool,
+    isHide: PropTypes.bool,
     onClick: PropTypes.func,
     style: PropTypes.object,
     textStyle: PropTypes.object,
     spanStyle: PropTypes.object,
-    content: PropTypes.string,
+    title: PropTypes.string,
     spanContent: PropTypes.string,
 };
 
@@ -73,29 +139,54 @@ MapFindPopupComponent.defaultProps = {
 };
 
 const css = `
-    .internetLost {
-      height:32px;
-      color:white;
-      text-align:center;
-      position:absolute;
-      z-index:1000;
-      width:100%;
-      background-color:#242424;
-      -webkit-box-shadow: 0px 10px 6px -3px rgba(156,156,156,0.58);
-      -moz-box-shadow: 0px 10px 6px -3px rgba(156,156,156,0.58);
-      box-shadow: 0px 10px 6px -3px rgba(156,156,156,0.58);
-    }
-    
-    p.internetLostText{
-      line-height:32px;
-      font-weight:400;
-    }
-    i.fa-times,.fa-times-circle{
-      color:rgba(255,255,255,.55);
-      position:absolute;
-      top:9px;   
-      right:10px;
-    }
+    .modal-wrapper{
+         background-color: rgba(81,81,81,0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 9999;
+     }
+     .modal-container{
+        width: 80%;
+        background-color: rgba(255,255,255,1);
+        border-radius: 5px;
+        margin: 40% auto
+     }
+     .top-modal{
+        text-align: center;
+        padding: 15px 20px 10px 20px;
+     }
+     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                    color:    #9B9B9B;
+                    opacity:  0.8;
+            }
+     :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    color:    #9B9B9B;
+                    opacity:  0.8;
+            }
+     ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    color:    #9B9B9B;
+                    opacity:  0.8;
+            }
+     :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color:    #9B9B9B;
+                    opacity:  0.8;
+            }
+            
+     .bottom-modal{
+             text-align: center;
+             padding-bottom: 15px;
+     }
+      
+      @media all and (orientation:landscape) { 
+       .modal-container{
+        width: 80%;
+        background-color: rgba(255,255,255,1);
+        border-radius: 5px;
+        margin: 15% auto
+     }
+     }
+     
     
 `;
 
