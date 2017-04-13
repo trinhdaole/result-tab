@@ -41,13 +41,13 @@ export default class MapFinderPageComponent extends Component {
                         <p className="textHeader">
                             <TextComponent
                                 text    = {'CLUB FINDER'}
-                                style   = {{fontSize:12, color:'white'}}
+                                style   = {{fontSize:12, color:'white',fontFamily: 'Roboto-Regular',}}
                             />
                         </p>
                         <p className="textHeader">
                             <TextComponent
                                 text    = {'WHERE CAN I PLAY'}
-                                style   = {{fontSize:26, fontWeight:'600',color:'white'}}
+                                style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto-Regular',}}
                             />
                         </p>
                     </div>
