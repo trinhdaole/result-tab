@@ -26,17 +26,21 @@ export default class MapFindPopupComponent extends React.Component {
         }
     }
 
-    onKeyUp(keyCode){
-        if(keyCode == 13){
-            this.onClick();
-        }
+    onKeyUp(id){
+
+        this.onClick();
+
     }
 
-    onChange(event){
-        this.setState({
-            inputValue: event.target.value
-        });
-        console.log(this.state.inputValue);
+    onChange(id){
+        let item = document.getElementById(id);
+        if (item) {
+            this.setState({
+                inputValue: item.value
+            });
+            console.log(this.state.inputValue);
+        }
+
     }
 
     onClick() {
@@ -50,7 +54,7 @@ export default class MapFindPopupComponent extends React.Component {
     }
 
     renderPopup(){
-        const {style,title, textStyle, content, spanContent, spanStyle}= this.props;
+        const {style,title }= this.props;
         if(this.state.isHide == true){
             return null;
         }else{
@@ -97,6 +101,7 @@ export default class MapFindPopupComponent extends React.Component {
                               text={title?title:'WHERE CAN I PLAY?'}
                             />
                             <Input
+                                id="IdInputPostCode"
                                 style={inputStyle}
                                 placeholder='Enter postcode or club name'
                                 onChange={this.onChange}
@@ -127,11 +132,7 @@ export default class MapFindPopupComponent extends React.Component {
 MapFindPopupComponent.propTypes = {
     isHide: PropTypes.bool,
     onClick: PropTypes.func,
-    style: PropTypes.object,
-    textStyle: PropTypes.object,
-    spanStyle: PropTypes.object,
     title: PropTypes.string,
-    spanContent: PropTypes.string,
 };
 
 
