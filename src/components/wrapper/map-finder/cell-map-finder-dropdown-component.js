@@ -40,25 +40,25 @@ export default class CellMapFinderDropdownComponent extends React.Component {
         let srcIconNoCheck = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAMZJREFUSA3tlzEOgzAMRZPOPQEH6ZFor9SFo3Qu3elFyB7+R6RSQNn4XmpLX8iO5Bd/McQhbJFzjtAdGqEZOivY6w31UCy89YtCB70gdZDRFSgntYCWociKhPa4wbOyQJ88CB7BuelZFeFD8IzStSrrk0Rw1nOOhMuxZFNxsI3PoLjVbrXMAf+5ZNbuG7vVe0dk+X9anWR+thsnWv1tn8tOJoIHWft24yHgrccHn/mDfr0TwPYrTHFjm5yLlWJpY08uhL+lbQF8xaOZsdul2gAAAABJRU5ErkJggg==";
 
         let titleNormalStyle = {
-            height:'16px',
+            backgroundColor: 'transparent',
             fontSize: '8',
             color: 'rgba(0,154,222,1)',
             fontFamily: 'Roboto-Regular',
             marginLeft: '36px',
-            marginRight: '16px',
+            marginRight: '6px',
         };
         let iconCheckStyle = {
             width: '10px',
             height: '10px',
             left: '16px',
-            top: '12px',
+            top: '10px',
             position: 'absolute',
 
         };
         const onClick = (event) => this.onClick(event);
            if(this.state.data){
                return (
-                   <div  className="cell-wrapper" onClick={onClick}>
+                   <div  className="cell-detail-wrapper" onClick={onClick}>
                        <Icon
                            src={this.state.data.check == true ? srcIconCheck : srcIconNoCheck}
                            style={iconCheckStyle}
@@ -87,12 +87,11 @@ CellMapFinderDropdownComponent.propTypes = {
 };
 
 const css = `
-  .cell-wrapper { 
-      background: rgba(0, 154, 222, 0.1);
+  .cell-detail-wrapper {  
       border: none; 
       height: 28px; 
       line-height: 28px;
       text-align: left;
-      position: relative;
+      position: relative; 
     }  
 `;

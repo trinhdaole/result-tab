@@ -114,9 +114,10 @@ export default class MapFinderDropdownComponent extends React.Component {
                         src={srcIconUp}
                         style={iconUpStyle}
                     />
-                    <style>{css}</style>
+
                 </div>
                     {this.renderList()}
+                    <style>{css}</style>
                 </div>
             );
         }else{
@@ -147,11 +148,11 @@ MapFinderDropdownComponent.propTypes = {
 
 const css = `
  .list-expanse-wrapper {
-     
+     background: rgba(0, 154, 222, 0.1);
+     padding-bottom: 10px;
     } 
     
-    .cell-select-wrapper {
-      background: rgba(0, 154, 222, 0.1);
+    .cell-select-wrapper { 
       border: none; 
       color: white;
       height: 32px; 
