@@ -7,8 +7,9 @@ import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
 
-import SearchFilterComponent from '../wrapper/map-finder/search-filter-component'
+import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component'
 import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
+import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component'
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -32,10 +33,7 @@ export default class MapFinderPageComponent extends Component {
 
 
     render() {
-        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
-            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
-            {'value':'Thursday','check':false},{'value':'Friday','check':false},
-            {'value':'Saturday','check':false} ];
+
         return (
 
             <div className="mapFinderContainer">
@@ -70,6 +68,10 @@ export default class MapFinderPageComponent extends Component {
 
     }
     render1(){
+        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
+            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
+            {'value':'Thursday','check':false},{'value':'Friday','check':false},
+            {'value':'Saturday','check':false} ];
       return
       (
         <MapFinderDropdownComponent
