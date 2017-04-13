@@ -6,7 +6,7 @@
 import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
-
+import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -30,34 +30,42 @@ export default class MapFinderPageComponent extends Component {
 
 
     render() {
-
-
+        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
+            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
+            {'value':'Thursday','check':false},{'value':'Friday','check':false},
+            {'value':'Saturday','check':false} ];
         return (
-            <div className="container">
-                {/*<Popup  />*/}
-                <div className="header">
-                    <div className="headerTextWrapper">
-                        <p className="textHeader">
-                            <TextComponent
-                                text    = {'CLUB FINDER'}
-                                style   = {{fontSize:12}}
-                            />
-                        </p>
-                        <p className="textHeader">
-                            <TextComponent
-                                text    = {'WHERE CAN I PLAY'}
-                                style   = {{fontSize:26, fontWeight:'600'}}
-                            />
-                        </p>
-                    </div>
-
-
-                </div>
-
-                <style>{css}</style>
-            </div>
-
+        <MapFinderDropdownComponent
+            groupName="Programs & Competitions"
+            arrObject={arrObject}
+        />
         );
+        // return (
+        //     <div className="container">
+        //
+        //         <div className="header">
+        //             <div className="headerTextWrapper">
+        //                 <p className="textHeader">
+        //                     <TextComponent
+        //                         text    = {'CLUB FINDER'}
+        //                         style   = {{fontSize:12}}
+        //                     />
+        //                 </p>
+        //                 <p className="textHeader">
+        //                     <TextComponent
+        //                         text    = {'WHERE CAN I PLAY'}
+        //                         style   = {{fontSize:26, fontWeight:'600'}}
+        //                     />
+        //                 </p>
+        //             </div>
+        //
+        //
+        //         </div>
+        //
+        //         <style>{css}</style>
+        //     </div>
+        //
+        // );
 
     }
 
