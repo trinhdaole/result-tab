@@ -6,7 +6,7 @@
 import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
-import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
+import SearchFilterComponent from '../wrapper/map-finder/search-filter-component'
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -39,33 +39,30 @@ export default class MapFinderPageComponent extends Component {
             groupName="Programs & Competitions"
             arrObject={arrObject}
         />
+            // <div className="mapFinderContainer">
+            //     {/*<Popup  />*/}
+            //     <div className="header">
+            //         <div className="headerTextWrapper">
+            //             <p className="textHeader">
+            //                 <TextComponent
+            //                     text    = {'CLUB FINDER'}
+            //                     style   = {{fontSize:12, color:'white',fontFamily: 'Roboto-Regular',}}
+            //                 />
+            //             </p>
+            //             <p className="textHeader">
+            //                 <TextComponent
+            //                     text    = {'WHERE CAN I PLAY'}
+            //                     style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto-Regular',}}
+            //                 />
+            //             </p>
+            //         </div>
+            //     </div>
+            //     <SearchFilterComponent/>
+            //
+            //     <style>{css}</style>
+            // </div>
+
         );
-        // return (
-        //     <div className="container">
-        //
-        //         <div className="header">
-        //             <div className="headerTextWrapper">
-        //                 <p className="textHeader">
-        //                     <TextComponent
-        //                         text    = {'CLUB FINDER'}
-        //                         style   = {{fontSize:12}}
-        //                     />
-        //                 </p>
-        //                 <p className="textHeader">
-        //                     <TextComponent
-        //                         text    = {'WHERE CAN I PLAY'}
-        //                         style   = {{fontSize:26, fontWeight:'600'}}
-        //                     />
-        //                 </p>
-        //             </div>
-        //
-        //
-        //         </div>
-        //
-        //         <style>{css}</style>
-        //     </div>
-        //
-        // );
 
     }
 
@@ -76,7 +73,7 @@ MapFinderPageComponent.propTypes = {
 
 };
 const css = `
-    .container {
+    .mapFinderContainer {
         width:100%;
         height:2000px;
         background-color: rgba(241,245,248,1);
@@ -91,9 +88,7 @@ const css = `
         padding: 15px 0px 0px 0px;
     }
     .textHeader {
-        color:white;
         text-align:center;
-        font-family: Roboto, sans-serif;
     };
     
    
