@@ -6,7 +6,8 @@
 import React, {Component, PropTypes} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
-import SearchFilterComponent from '../wrapper/map-finder/search-filter-component'
+import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component'
+import SearchResultComponent from '../wrapper/map-finder/map-finder-result-wrapper-component'
 
 
 export default class MapFinderPageComponent extends Component {
@@ -52,7 +53,11 @@ export default class MapFinderPageComponent extends Component {
                         </p>
                     </div>
                 </div>
-                <SearchFilterComponent/>
+                <SearchFilterComponent
+                    onSearchClick   = {()=> console.log('******   searching .....')}
+                />
+                <SearchResultComponent />
+
 
                 <style>{css}</style>
             </div>
