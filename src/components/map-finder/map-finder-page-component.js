@@ -32,7 +32,7 @@ export default class MapFinderPageComponent extends Component {
 
 
 
-    render() {
+    render1() {
 
         return (
 
@@ -67,13 +67,14 @@ export default class MapFinderPageComponent extends Component {
         );
 
     }
-    render1(){
+
+    render(){
+
         let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
             {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
             {'value':'Thursday','check':false},{'value':'Friday','check':false},
             {'value':'Saturday','check':false} ];
-      return
-      (
+      return (
         <MapFinderDropdownComponent
             groupName="Programs & Competitions"
             arrObject={arrObject}
