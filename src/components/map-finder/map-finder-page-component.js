@@ -32,7 +32,7 @@ export default class MapFinderPageComponent extends Component {
 
 
 
-    render1() {
+    render() {
 
         return (
 
@@ -68,7 +68,7 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
-    render(){
+    render1(){
 
         let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
             {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
