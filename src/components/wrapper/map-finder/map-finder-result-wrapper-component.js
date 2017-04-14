@@ -1,6 +1,8 @@
 import React, { Component,PropTypes } from 'react'
 import TextComponent from '../../common/text/text-component'
-import ToggleButton from '../../common/toggle/toggle-button-component'
+import MapFinderResultList from  './map-finder-result-list-component'
+
+
 export default class SearchResultComponent extends Component {
 
     constructor(props) {
@@ -34,14 +36,18 @@ export default class SearchResultComponent extends Component {
         );
     }
 
+    renderResultConTent(){
+        return(
+            <div className="searchResultContentWrapper">
+                <MapFinderResultList />
+            </div>
+        );
+    }
 
     render() {
-
-
-
         return (
             <div className="searchResultContainer">
-                <div className="searchResultChildElementWrapper">
+                <div className="searchResultElementWrapper">
                     <div className="searchTextWrapper">
                         <TextComponent
                             text={'2 result found'}
@@ -49,8 +55,8 @@ export default class SearchResultComponent extends Component {
                         />
                     </div>
                     {this.renderSliderButton()}
-
                 </div>
+                {this.renderResultConTent()}
                 <style>{css}</style>
             </div>
         )
@@ -72,11 +78,9 @@ const css = `
         border-width: 1px;
         border-color: white;
         border-radius: 4px;
-     
-       
-        
+ 
     }
-    .searchResultChildElementWrapper{
+    .searchResultElementWrapper{
         height:34px;
         position: relative;
         border-bottom-width : 1px;
@@ -111,7 +115,7 @@ const css = `
         color: #ffffff ;
   }
 
- .switch-button-gray{
+    .switch-button-gray{
         border-radius: 40px;
         font-family: Roboto Medium;
         font-size: 10px;
@@ -123,6 +127,11 @@ const css = `
         background: rgb(244,247,250);
         color: rgb(173,173,176);
   }
+    .searchResultContentWrapper{
+       
+        
+    }
+  
 
   
     
