@@ -9,11 +9,27 @@ export default class SearchFilterComponent extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
+        this.state = {
+            inputWidth: '85%',
+        };
 
     }
 
     componentDidMount() {
+        window.addEventListener("orientationchange", this.handleOrientationChange.bind(this), false);
+    }
 
+    handleOrientationChange(){
+        console.log('******  orientation ',screen.orientation)
+        if(screen.orientation.type == 'landscape-primary'){
+            this.setState({
+                inputWidth : '65%'
+            });
+        }else{
+            this.setState({
+                inputWidth : '85%'
+            });
+        }
     }
 
     componentWillUnmount(){
@@ -27,9 +43,11 @@ export default class SearchFilterComponent extends Component {
         this.props.onSearchClick()
     }
 
+
     render() {
+        console.log('*****  this.state.inputWidth  ',this.state.inputWidth)
         let inputStyle = {
-            width:'80%',
+            width:this.state.inputWidth,
             height:'30px',
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,1)',
@@ -58,7 +76,7 @@ export default class SearchFilterComponent extends Component {
                     <div className="searchView">
                         <Input
                             style={inputStyle}
-                            placeholder='Enter postcode or club name'
+                            placeholder=''
                             onChange={this.onChange}
                             onKeyUp={this.onKeyUp}
                         />
@@ -126,14 +144,14 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width: 300px
+        width:80%
         height:238px;
         background-color: rgba(255,255,255,1);
         border-style: solid;
         border-width: 1px;
         border-color: white;
         border-radius: 4px;
-       
+     
         margin: -35px 8px 0 8px;
         
         
@@ -166,8 +184,13 @@ const css = `
         position: relative;
         margin: 14px 8px auto;
         
-     
      }
+     @media all and (orientation:landscape) { 
+       .searchFilterContainer {
+            width:30%
+       
+       }
+     
     
     
    
