@@ -46,6 +46,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
             fontFamily: 'Roboto-Regular',
             marginLeft: '36px',
             marginRight: '6px',
+         
         };
         let iconCheckStyle = {
             width: '10px',
