@@ -67,7 +67,7 @@ export default class MapFinderDropdownComponent extends React.Component {
     render() {
 
 
-
+        const {cellStyle} = this.props;
         let titleNormalStyle = {
             height:'16px',
             fontSize: '10',
@@ -122,7 +122,7 @@ export default class MapFinderDropdownComponent extends React.Component {
             );
         }else{
             return (
-                <div  className="cell-wrapper" onClick={onClick}>
+                <div  className="cell-wrapper" onClick={onClick}  style={cellStyle?cellStyle:{}}>
                     <Text
                         style={titleNormalStyle}
                         text={this.state.groupName?this.state.groupName:''}
@@ -143,6 +143,7 @@ MapFinderDropdownComponent.propTypes = {
     expand: PropTypes.bool,
     groupName: PropTypes.string,
     arrObject: PropTypes.array,
+    cellStyle: PropTypes.object,
 
 };
 

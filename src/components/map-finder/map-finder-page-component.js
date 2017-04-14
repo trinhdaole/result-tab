@@ -74,10 +74,16 @@ export default class MapFinderPageComponent extends Component {
             {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
             {'value':'Thursday','check':false},{'value':'Friday','check':false},
             {'value':'Saturday','check':false} ];
+
+        let cellStyle = {
+            borderBottom: 'none',
+        };
+
       return (
         <MapFinderDropdownComponent
             groupName="Programs & Competitions"
             arrObject={arrObject}
+            cellStyle={cellStyle}
         />
       );
     }
