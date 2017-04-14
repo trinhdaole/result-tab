@@ -1,6 +1,7 @@
 import React, { Component,PropTypes } from 'react'
 import TextComponent from '../../common/text/text-component'
 import MapFinderResultList from  './map-finder-result-list-component'
+import Footer from  './map-finder-footer-component'
 
 
 export default class SearchResultComponent extends Component {
@@ -57,6 +58,7 @@ export default class SearchResultComponent extends Component {
                     {this.renderSliderButton()}
                 </div>
                 {this.renderResultContent()}
+                <Footer />
                 <style>{css}</style>
             </div>
         )
