@@ -3,6 +3,7 @@ import TextComponent from '../../common/text/text-component'
 import Input from '../../common/input/input-component'
 import Button from '../../common/button/button-component'
 import Icon from '../../common/icon/icon-component'
+import  MapFinderDropdownComponent from  './map-finder-dropdown-component'
 
 export default class SearchFilterComponent extends Component {
 
@@ -45,6 +46,10 @@ export default class SearchFilterComponent extends Component {
 
 
     render() {
+        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
+            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
+            {'value':'Thursday','check':false},{'value':'Friday','check':false},
+            {'value':'Saturday','check':false} ];
         console.log('*****  this.state.inputWidth  ',this.state.inputWidth)
         let inputStyle = {
             width:this.state.inputWidth,
@@ -93,41 +98,22 @@ export default class SearchFilterComponent extends Component {
 
                 </div>
 
-                <div className="searchFilerChildElementWrapper">
-                    <p className="searchTextWrapper">
-                        <TextComponent
-                            text={'Waiting for dropdown'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
-                        />
-                    </p>
-                </div>
-
-                <div className="searchFilerChildElementWrapper">
-                    <p className="searchTextWrapper">
-                        <TextComponent
-                            text={'Waiting for dropdown'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
-                        />
-                    </p>
-                </div>
-
-                <div className="searchFilerChildElementWrapper">
-                    <p className="searchTextWrapper">
-                        <TextComponent
-                            text={'Waiting for dropdown'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
-                        />
-                    </p>
-                </div>
-
-                <div className="searchFilerChildElementNoBorder">
-                    <p className="searchTextWrapper">
-                        <TextComponent
-                            text={'Waiting for dropdown'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
-                        />
-                    </p>
-                </div>
+                <MapFinderDropdownComponent
+                    groupName="Programs & Competitions"
+                    arrObject={arrObject}
+                />
+                <MapFinderDropdownComponent
+                    groupName="Format"
+                    arrObject={arrObject}
+                />
+                <MapFinderDropdownComponent
+                    groupName="Gender"
+                    arrObject={arrObject}
+                />
+                <MapFinderDropdownComponent
+                    groupName="Day Of The Week"
+                    arrObject={arrObject}
+                />
 
 
 
@@ -145,11 +131,10 @@ SearchFilterComponent.propTypes = {
 const css = `
     .searchFilterContainer {
         width:80%
-        height:238px;
+        height:230px;
         background-color: rgba(255,255,255,1);
-        border-style: solid;
-        border-width: 1px;
-        border-color: white;
+        
+        
         border-radius: 4px;
      
         margin: -35px 8px 0 8px;

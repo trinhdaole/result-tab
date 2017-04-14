@@ -165,7 +165,6 @@ const css = `
       background: white;
       border: none;
       border-bottom: 1px solid #EAEAEA;
-      border-top: 1px solid #EAEAEA;
       color: white;
       height: 32px; 
       line-height: 32px;
