@@ -21,7 +21,7 @@ export default class SearchResultComponent extends Component {
     }
 
     renderSliderButton(){
-        let showList = false;
+
         return(
             <div className="sliderButton">
                 <div
@@ -36,7 +36,7 @@ export default class SearchResultComponent extends Component {
         );
     }
 
-    renderResultConTent(){
+    renderResultContent(){
         return(
             <div className="searchResultContentWrapper">
                 <MapFinderResultList />
@@ -51,12 +51,12 @@ export default class SearchResultComponent extends Component {
                     <div className="searchTextWrapper">
                         <TextComponent
                             text={'2 result found'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
+                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)'}}
                         />
                     </div>
                     {this.renderSliderButton()}
                 </div>
-                {this.renderResultConTent()}
+                {this.renderResultContent()}
                 <style>{css}</style>
             </div>
         )
@@ -69,9 +69,7 @@ SearchResultComponent.propTypes = {
 
 
 const css = `
-    .searchResultContainer {
-       
-        height:238px;
+    .searchResultContainer { 
         margin: 16px 4px 0 4px;
         background-color: white;
         border-style: solid;
@@ -82,7 +80,7 @@ const css = `
     }
     .searchResultElementWrapper{
         height:34px;
-        position: relative;
+        
         border-bottom-width : 1px;
         border-bottom-style : solid;
         border-bottom-color : rgba(234,234,234,1);
@@ -131,6 +129,14 @@ const css = `
        
         
     }
+    @media all and (orientation:landscape) { 
+       .searchResultContainer {
+            width:66%;
+            float:right;
+            margin-top:-230px;
+            
+       
+       }
   
 
   

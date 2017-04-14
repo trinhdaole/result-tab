@@ -136,7 +136,7 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width:80%
+        width:70%
         height:230px;
         background-color: rgba(255,255,255,1);
         

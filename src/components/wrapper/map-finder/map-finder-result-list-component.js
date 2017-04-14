@@ -59,11 +59,7 @@ export default class MapFinderResultListComponent extends Component {
 
 
     render() {
-
-        //let resultListData = {place:'Liverpool',description:'Beauty City'}
-
         return (
-
             <div className="mapFinderResultListContainer">
                 {this.renderList()}
                 <style>{css}</style>
@@ -80,19 +76,9 @@ MapFinderResultListComponent.propTypes = {
 const css = `
     .mapFinderResultListContainer {
        
-        height:150px;
-        
-         
+      
     }
-    .mapFinderResultListElement{
-        height:50px;
-        
-        background-color: white;
-        border-style: solid;
-        border-width: 1px;
-        border-color: blue;
-        border-radius: 4px;
-    }
+    
     
 
   

@@ -103,12 +103,8 @@ const css = `
   .list-item-container {  
       height: 56px; 
       
-      
       position: relative;
-       
       background-color: white;
-      
-      
       border-bottom: 1px solid #EAEAEA;
       
     }
