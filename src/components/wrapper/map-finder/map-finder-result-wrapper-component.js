@@ -6,6 +6,7 @@ export default class SearchResultComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isShowMap:false,
         };
     }
     componentDidMount() {
@@ -17,10 +18,26 @@ export default class SearchResultComponent extends Component {
 
     }
 
+    renderSliderButton(){
+        let showList = false;
+        return(
+            <div className="sliderButton">
+                <div
+                    className={this.state.isShowMap ? "switch-button-blue" : "switch-button-gray"}
+                    onClick={()=> this.setState({isShowMap:true}) }
+                    >LIST</div>
+                <div
+                    className={this.state.isShowMap ? "switch-button-gray" : "switch-button-blue"}
+                    onClick={()=> this.setState({isShowMap:false}) }
+                    >MAP</div>
+            </div>
+        );
+    }
+
 
     render() {
 
-        let showList = true
+
 
         return (
             <div className="searchResultContainer">
@@ -31,10 +48,7 @@ export default class SearchResultComponent extends Component {
                             style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
                         />
                     </div>
-                    <div className="sliderButton" >
-                        <div className={showList ? "win-button-blue" : "win-button-gray"} >LIST</div>
-                        <div className={showList ? "lose-button-red":"lose-button-gray"}>MAP</div>
-                    </div>
+                    {this.renderSliderButton()}
 
                 </div>
                 <style>{css}</style>
@@ -74,6 +88,8 @@ const css = `
         float:left;
      }
      .sliderButton {
+        border-radius: 40px;
+        background: rgb(244,247,250);
         width:90px;
         height:25px;
         float:right;
@@ -81,57 +97,34 @@ const css = `
      }
      
      
-    .win-button-blue{
-    font-family: Roboto Condensed, sans-serif;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-align: center;
-    line-height: 25px;
-    float: left;
-    width: 44px;
-    height:25px;
-    background: rgb(0,154,222);
-    color: #ffffff ;
+    .switch-button-blue{
+        border-radius: 40px;
+        font-family: Roboto Medium;
+       
+        font-size: 10px;
+        text-align: center;
+        line-height: 25px;
+        float: left;
+        width: 46px;
+        height:25px;
+        background: rgb(0,154,222);
+        color: #ffffff ;
   }
 
- .lose-button-gray{
-    font-family: Roboto Condensed, sans-serif;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-align: center;
-    line-height: 25px;
-    float: left;
-    width: 44px;
-    height:25px;
-    background: rgb(239,239,244);
-    color: rgb(173,173,176);
+ .switch-button-gray{
+        border-radius: 40px;
+        font-family: Roboto Medium;
+        font-size: 10px;
+        text-align: center;
+        line-height: 25px;
+        float: left;
+        width: 44px;
+        height:25px;
+        background: rgb(244,247,250);
+        color: rgb(173,173,176);
   }
 
- .win-button-gray{
-    font-family: Roboto Condensed, sans-serif;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-align: center;
-    line-height: 25px;
-    float: left;
-    width: 44px;
-    height:25px;
-    background: rgb(239,239,244);
-    color: rgb(173,173,176);
-  }
-
-  .lose-button-red{
-    font-family: Roboto Condensed, sans-serif;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-align: center;
-    line-height: 25px;
-    float: left;
-    width: 44px;
-    height:25px;
-    background: rgb(208,2,27);
-    color: #ffffff ;
-  }
+  
     
    
 `;
