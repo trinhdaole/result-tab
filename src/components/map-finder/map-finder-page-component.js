@@ -10,6 +10,7 @@ import TextComponent from '../common/text/text-component'
 import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component'
 import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
 import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component'
+import MapComponent from '../common/map/map-component';
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -58,6 +59,9 @@ export default class MapFinderPageComponent extends Component {
                     onSearchClick   = {()=> console.log('******   searching .....')}
                 />
                 <SearchResultComponent />
+
+
+                <MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />
 
 
                 <style>{css}</style>
