@@ -54,7 +54,7 @@ export default class MapFinderResultListComponent extends Component {
                             [{place:'Milan',description:'Beauty City'},'icon','icon','icon','icon','last'],
 
         ]
-        let headerData = ['One','Two','Three']
+        let headerData = ['One','Two']
        // return resultListData.map((item,index)=>{
        //
        //      return (
@@ -168,7 +168,7 @@ export default class MapFinderResultListComponent extends Component {
         let arrowIcon ='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAYCAYAAAAlBadpAAAAAXNSR0IArs4c6QAAAepJREFUOBHNkz1oFFEUhc/ZNWtcgr9NwNLSOiCC0Y0hwd0REnCxCMFKraJ2phLttNNKUghpAuoWokk27I9oZWNjY5OAgYBgIQqSRBSzJ3fe7ryJTnZdsHFgmPvuPd/cc9+8Af6LS/VgQtXCrW7NMBKqElwA9NjuNMh7HFmcjmrtnilfoCYdGCakm6oGD3ytTRDDR7NFgM+9To1rqhRmJHl3vtYKPMzjpZ/IDJh1PIlFuoJqYVYqpuNcHCXe6oS1zUdm/ZKXkU/RMzDB3O1fPmdBAg6LzmoteGjBVS8mX8BGcw5byV3hCFA1fx/C9WhtX6GCvuw4T5a+hzk/sxfsCDhSvmGSuz4ljWJ9s6xXxb4w17FzBLmDI92J1oa9wYGD5zp29mLyi49doA0cOfzjr51VCy5DjRmbvaklX9vc+XDujrBt2CTEWdv/lkOzm8mOMldaDw20he0nuYgtzfkjS7zF/kPDPDH3zTlvB6t+fgyNrZJZ3eOE5DvswxBPLX6NwPCZ6Gw/RN4OxzPrmGkK+R6Z1Bnm5j/vBBOw6oVhNDRvHXudkFhGD04zV/70J/gbrEp+0IwsWcdsE+QHpDnIswsfdwPDXPydU+gHW1bJNaQ11AlMvNDmHTcHq3o5dixR7Cahlam93ej+WbMNwF6eB3c76+oAAAAASUVORK5CYII='
         return(
             <div>
-
+                    <span className="nextText">
                     <Text
                         style={{
                             color: 'rgba(255,185,74,1)',
@@ -180,6 +180,7 @@ export default class MapFinderResultListComponent extends Component {
                         }}
                         text={'NEXT'}
                     />
+                    </span>
 
                 <Icon
                     style={{height: 8, right: 50, paddingLeft: 3}}
@@ -213,25 +214,57 @@ const css = `
        width:100%;
        
     }
+    .nextText {
+        display:none;
+    }
     .tableWrapper tbody tr:nth-child(odd) {background: #FFF}
     
     .tableWrapper tbody tr{
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(234,234,234,1);
-        border-radius: 4px;
+        
+        
+        border-bottom:1px solid rgba(234,234,234,1);
     
   }
     .tableWrapper tbody td{
         padding:2px;
        
   }
+  .tableWrapper td:nth-child(1) {
+         width:80%;
+         padding: 20px 0;
+         text-align:left;
+         padding-left:10px;
+    }
+    .tableWrapper td:nth-child(6) {
+         width:20%;
+          
+          
+    }
+  .tableWrapper td:nth-child(2) {
+         display:none;
+    }
+    .tableWrapper td:nth-child(3) {
+         display:none;
+         
+    }
+    .tableWrapper td:nth-child(4) {
+        display:none;
+    }
+    .tableWrapper td:nth-child(5) {
+         display:none;
+    }
   
   
   
-  @media all and (orientation:landscape) { 
+  @media all and (orientation:landscape) {
+   .nextText {
+        display:inline;
+       
+    
+    }
       .tableWrapper td:nth-child(1) {
          width:45%;
+        
          padding: 20px 0;
          text-align:left;
          padding-left:10px;
@@ -239,6 +272,7 @@ const css = `
     }
     .tableWrapper td:nth-child(2) {
          width:10%;
+        display:table-cell;
          background-color: rgba(244,247,250,1);
          border-left:2px solid white;
          border-right:2px solid white;
@@ -247,17 +281,20 @@ const css = `
     }
     .tableWrapper td:nth-child(3) {
          width:10%;
+         display:table-cell;
          background-color: rgba(244,247,250,1);
          border-right:2px solid white;
          
     }
     .tableWrapper td:nth-child(4) {
          width:10%;
+         display:table-cell;
          background-color: rgba(244,247,250,1);
          border-right:2px solid white;
     }
     .tableWrapper td:nth-child(5) {
          width:10%;
+         display:table-cell;
          background-color: rgba(244,247,250,1);
          border-right:2px solid white;
     }
