@@ -65,11 +65,14 @@ export default class MapFinderResultListComponent extends Component {
        //      )
        //  })
 
+
+
         let _data = this.renderTableBody(bodyData);
+        let _header =  this.renderTableHeader(headerData)
         return(
             <div className="mapFinderResultListContainer">
                 <TableComponent
-                    header={headerData}
+                    header={_header}
                     body={_data}
 
 
@@ -78,6 +81,68 @@ export default class MapFinderResultListComponent extends Component {
             </div>
         );
     }
+
+    renderTableHeader(headerData){
+
+        let newData = [];
+        headerData.map((item,index)=> {
+            console.log('*** header item ',item)
+            if(index == 0){
+                newData[index] = this.renderHeaderText(item);
+            }else{
+                newData[index] = this.renderHeaderIcon(item);
+            }
+
+
+        })
+
+
+        return newData
+
+    }
+    renderHeaderText(item){
+        return(
+            <div >
+                <Text
+                    style={{
+                        color: 'rgba(81,81,81,1)',
+                        fontSize: 12,
+                        fontFamily: 'Roboto-Bold',
+
+
+
+
+                    }}
+                    text={item}
+                />
+            </div>
+        );
+    }
+    renderHeaderIcon(){
+        let checkIcon   = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAbCAYAAAAULC3gAAAAAXNSR0IArs4c6QAAAy9JREFUSA3NlktIVFEYx//fPJjGIi0oNCwftAvauYnQSgsjXASlRSSZM1mQURgtklr0XFhGhT3mDgapm2lRYKiRULRq0QNa9MCauZOVoBhZOUQ0c/rO6Nxx9MyjmMYGhvud//875/vdM989dwiz+Wn3VyAYPM8IRQD1A1n7aNZ4NF8NhOjk+haDgdA9O0Cat5Z3pJ2BzAaMDAjfTDFCJgYurxOCbsyACdem55ndIbe+n0Eu8VdVdxhmlGZuhzS9CaHQZTUMDYFMa1Bf/CYzQJreDBE6p+wIwiBMllI4C19JP9rhyuw0iJp+gmGOKVci8jHBOtQt1SP+vwVy6S0MczhSbNp1ALAyTP6Hqfq/AZJN6/ZfZJjGqcWiMb2EnSqwM38oqk1E6QcKw+jXuHn3TC8WHhNewDyHYfJGVP4EkMu/AiZRBgEdjoJeEAlVclJNCBPcujxj+OBTfIiegiwbsDvvs8INSwTNt52jDl5k4tQk6oPNvgW1uePxJin1B8KCAb0DENuUPtFjZGdXonrhmNKfFOVjf9aAkaIQlfgR6EPn6PzJnOSXJ8KKt7onAcwjZM9dnwxGFmIgkaWouBqBsX50+RcovFipR9jwzHebb2RzrGGM+pFr24jqxd8NJUHAQNQWxy9BIPgQ7UOL4viAZ9COj75u9jcpc4h6YKUqVC0JKH2FSHxn/IjqV/i6V+GzRK9hNpejftmnGN8zPA9fxu/yDpfF6MaA7iCnsAbV9NOQUgiiLzmXr5UXP6SeQ+/4KSyHo9gf9mV/Bb72cv4qZT6RB8sLd2At/VL6CcQokEzSvKf40W+Ok/8eJms57KFRjAfvcU6JOs/UgZyCOt6ZoNpPrMYCyVxNP8on7Gn1NPlWFiMMvVLp848PR1EDn2MhpZ+COBNITtJ8B7mnLqQwP5pCaGOYxr8+VCdXUgNJ0+1r4J24Gm76aFl1ZEIr91eT2vwzNf7/IUfRdW7aXXzHiXuBcCZdMBI9/g5Fbszt3YoQunhojUjGlXAczuKTxjgNQXIgWcTtr0IoeIsjm1GTcIRhWoxxmoLUgGQx+Y+AQgf4Z+RXjfkmnAX308Twfy/zG61t85ie8IlUAAAAAElFTkSuQmCC'
+
+        return(
+            <div>
+                <Icon
+                    style={{height: 10, right: 50}}
+                    src={checkIcon}
+
+                />
+            </div>
+        );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     renderTableBody(data) {
 
@@ -97,7 +162,7 @@ export default class MapFinderResultListComponent extends Component {
         let newRow = [];
         if (rows) {
             rows.map((item, index)=> {
-                console.log('******   index  ',index)
+
                     if (index == 1||index == 2||index == 3||index == 4) {
                         newRow[index] = this.renderIconCell(item,index);
                     }
@@ -213,6 +278,15 @@ const css = `
     .mapFinderResultListContainer {
        width:100%;
        
+    }
+    .tableWrapper thead{
+      background-color: blue;
+      height:80px;
+    }
+    .headerWrapper {
+        width:100%;
+        height:50px;
+        background-color: rgba(244,247,250,1);
     }
     .nextText {
         display:none;
