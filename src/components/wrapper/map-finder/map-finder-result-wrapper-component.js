@@ -47,7 +47,7 @@ export default class SearchResultComponent extends Component {
 
     render() {
         return (
-            <div className="searchResultContainer">
+            <div className="searchResultContainer" >
                 <div className="searchResultElementWrapper">
                     <div className="searchTextWrapper">
                         <TextComponent
@@ -57,6 +57,7 @@ export default class SearchResultComponent extends Component {
                     </div>
                     {this.renderSliderButton()}
                 </div>
+
                 {this.renderResultContent()}
                 <Footer />
                 <style>{css}</style>
@@ -71,6 +72,7 @@ SearchResultComponent.propTypes = {
 
 
 const css = `
+     
     .searchResultContainer { 
         margin: 16px 4px 0 4px;
         background-color: white;
@@ -78,6 +80,7 @@ const css = `
         border-width: 1px;
         border-color: white;
         border-radius: 4px;
+       
  
     }
     .searchResultElementWrapper{
@@ -135,10 +138,11 @@ const css = `
        .searchResultContainer {
             width:66%;
             float:right;
-            margin-top:-230px;
+            margin-top:-36px;
             
-       
        }
+      
+     }
   
 
   

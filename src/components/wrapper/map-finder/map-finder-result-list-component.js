@@ -4,6 +4,8 @@ import ListItem from './map-finder-result-list-item';
 import TableComponent from '../../common/table/table-component'
 import Icon from '../../common/icon/icon-component';
 import Text  from '../../common/text/text-component'
+import Paging from '../../common/paging/paging-component';
+
 
 export default class MapFinderResultListComponent extends Component {
 
@@ -38,6 +40,9 @@ export default class MapFinderResultListComponent extends Component {
         });
 
     }
+    pagingClick(page){
+        console.log('***** page   ', page)
+    }
     componentDidMount() {
     }
 
@@ -69,6 +74,7 @@ export default class MapFinderResultListComponent extends Component {
 
         let _data = this.renderTableBody(bodyData);
         let _header =  this.renderTableHeader(headerData)
+        const onPagingClick = (page) => this.pagingClick(page);
         return(
             <div className="mapFinderResultListContainer">
                 <TableComponent
@@ -78,6 +84,10 @@ export default class MapFinderResultListComponent extends Component {
 
 
                 />
+                <div style={{width:'100%'}}>
+                    <Paging total={140} onClick={onPagingClick} />
+                </div>
+
             </div>
         );
     }
@@ -127,17 +137,6 @@ export default class MapFinderResultListComponent extends Component {
             </div>
         );
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     renderTableBody(data) {

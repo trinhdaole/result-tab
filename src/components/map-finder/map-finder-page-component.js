@@ -58,6 +58,8 @@ export default class MapFinderPageComponent extends Component {
                 <SearchFilterComponent
                     onSearchClick   = {()=> console.log('******   searching .....')}
                 />
+                <div className="clear">
+                </div>
                 <SearchResultComponent />
 
 
@@ -99,6 +101,10 @@ MapFinderPageComponent.propTypes = {
 
 };
 const css = `
+    .clear{
+        display:block;
+        clear:both;
+     }
     .mapFinderContainer {
         width:100%;
         height:2000px;
@@ -115,7 +121,13 @@ const css = `
     }
     .textHeader {
         text-align:center;
-    };
+    }
+     @media all and (orientation:landscape) { 
+  
+       .clear{
+        display:none;
+     }
+     }
 
 
 `;
