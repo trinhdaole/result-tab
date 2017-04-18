@@ -10,7 +10,7 @@ import TextComponent from '../common/text/text-component'
 import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component'
 import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
 import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component'
-import MapComponent from '../common/map/map-component';
+import MapFinder from '../wrapper/map-finder/map-finder-result-map-component'
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -36,6 +36,7 @@ export default class MapFinderPageComponent extends Component {
     render() {
 
         return (
+ 
 
             <div className="mapFinderContainer">
                 {/*<Popup  />*/}
@@ -74,25 +75,7 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
-    render1(){
 
-        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
-            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
-            {'value':'Thursday','check':false},{'value':'Friday','check':false},
-            {'value':'Saturday','check':false} ];
-
-        let cellStyle = {
-            borderBottom: 'none',
-        };
-
-      return (
-        <MapFinderDropdownComponent
-            groupName="Programs & Competitions"
-            arrObject={arrObject}
-            cellStyle={cellStyle}
-        />
-      );
-    }
 
 
 }
