@@ -61,7 +61,7 @@ export default class MapFinderPageComponent extends Component {
                 <SearchResultComponent />
 
 
-                <MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />
+                {/*<MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />*/}
 
 
                 <style>{css}</style>

@@ -4,6 +4,7 @@ import Input from '../../common/input/input-component'
 import Button from '../../common/button/button-component'
 import Icon from '../../common/icon/icon-component'
 import  MapFinderDropdownComponent from  './map-finder-dropdown-component'
+import SearchAdvanceComponent from './map-finder-search-advance-component'
 
 export default class SearchFilterComponent extends Component {
 
@@ -103,23 +104,12 @@ export default class SearchFilterComponent extends Component {
 
                 </div>
 
-                <MapFinderDropdownComponent
+                {/**<MapFinderDropdownComponent
                     groupName="Programs & Competitions"
                     arrObject={arrObject}
-                />
-                <MapFinderDropdownComponent
-                    groupName="Format"
-                    arrObject={arrObject}
-                />
-                <MapFinderDropdownComponent
-                    groupName="Gender"
-                    arrObject={arrObject}
-                />
-                <MapFinderDropdownComponent
-                    groupName="Day Of The Week"
-                    arrObject={arrObject}
-                    cellStyle={cellStyle}
-                />
+                />**/}
+                <SearchAdvanceComponent />
+
 
 
 

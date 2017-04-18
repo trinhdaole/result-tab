@@ -72,7 +72,7 @@ export default class MapFinderResultListComponent extends Component {
         return(
             <div className="mapFinderResultListContainer">
                 <TableComponent
-                    header={_header}
+                    //header={_header}
                     body={_data}
 
 
@@ -108,10 +108,6 @@ export default class MapFinderResultListComponent extends Component {
                         color: 'rgba(81,81,81,1)',
                         fontSize: 12,
                         fontFamily: 'Roboto-Bold',
-
-
-
-
                     }}
                     text={item}
                 />
