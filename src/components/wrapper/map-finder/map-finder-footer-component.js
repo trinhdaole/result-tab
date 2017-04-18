@@ -19,7 +19,7 @@ export default class MapFinderFooterComponent extends React.Component {
         let placeStyle = {
             fontSize: '12',
             color: 'rgba(81,81,81,1)',
-            fontFamily: 'Roboto-Regular',
+            fontFamily: 'Roboto',
             fontWeight: '600'
         };
 
