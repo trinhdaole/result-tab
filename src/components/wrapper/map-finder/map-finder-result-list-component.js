@@ -76,7 +76,7 @@ export default class MapFinderResultListComponent extends Component {
         let _header =  this.renderTableHeader(headerData)
         const onPagingClick = (page) => this.pagingClick(page);
         return(
-            <div className="mapFinderResultListContainer">
+            <div className="mapFinderResultListContainer" style={{overflowX:'hidden', overflowY:'auto'}}>
                 <TableComponent
                     //header={_header}
                     body={_data}
@@ -272,6 +272,11 @@ const css = `
        width:100%;
        
     }
+    .mapFinderResultListContainer > div{
+      
+       overflow:hidden !important;
+      
+    }
     .tableWrapper thead{
       background-color: blue;
       height:80px;
@@ -341,6 +346,11 @@ const css = `
          border-right:2px solid white;
          
          
+    }
+    .mapFinderResultListContainer > div{
+      
+       overflow:hidden !important;
+      
     }
     
     
