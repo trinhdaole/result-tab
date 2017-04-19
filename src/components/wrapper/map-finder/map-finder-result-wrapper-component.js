@@ -59,7 +59,9 @@ export default class SearchResultComponent extends Component {
                 </div>
 
                 {this.renderResultContent()}
-                <Footer />
+                <div className="footerWrapper">
+                    <Footer />
+                </div>
                 <style>{css}</style>
             </div>
         )
@@ -76,10 +78,13 @@ const css = `
     .searchResultContainer { 
         margin: 16px 4px 0 4px;
         background-color: white;
-        border-style: solid;
-        border-width: 1px;
-        border-color: white;
+        
         border-radius: 4px;
+        -webkit-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        -moz-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        
+        
        
  
     }
@@ -132,6 +137,10 @@ const css = `
   }
     .searchResultContentWrapper{
        
+        
+    }
+    .footerWrapper{
+        width:100%;
         
     }
     @media all and (orientation:landscape) { 

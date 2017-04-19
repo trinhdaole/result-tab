@@ -55,8 +55,8 @@ export default class MapFinderResultListComponent extends Component {
     renderList(){
         let resultListData = [{place:'Liverpool',description:'Beauty City'},{place:'London',description:'England Capital'}]
         let bodyData    = [
-                            [{place:'Liverpool',description:'Beauty City'},'icon','icon','icon','icon','last'],
-                            [{place:'Milan',description:'Beauty City'},'icon','icon','icon','icon','last'],
+                            [{place:'Liverpool',description:'Beauty City'},'icon'],
+                            [{place:'Milan',description:'Beauty City'},'icon'],
 
         ]
         let headerData = ['One','Two']
@@ -84,7 +84,7 @@ export default class MapFinderResultListComponent extends Component {
 
 
                 />
-                <div style={{width:'100%'}}>
+                <div className="pagingWrapper">
                     <Paging total={140} onClick={onPagingClick} />
                 </div>
 
@@ -158,14 +158,10 @@ export default class MapFinderResultListComponent extends Component {
         if (rows) {
             rows.map((item, index)=> {
 
-                    if (index == 1||index == 2||index == 3||index == 4) {
-                        newRow[index] = this.renderIconCell(item,index);
-                    }
-                    else if(index == 5){
-                        newRow[index] = this.renderLastCell(item,index);
-                    }
-                    else if(index == 0) {
+                    if(index == 0){
                         newRow[index] = this.renderInfoCell(item,index);
+                    }else {
+                        newRow[index] = this.renderLastCell(item,index);
                     }
 
             });
@@ -227,7 +223,7 @@ export default class MapFinderResultListComponent extends Component {
     renderLastCell(){
         let arrowIcon ='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAYCAYAAAAlBadpAAAAAXNSR0IArs4c6QAAAepJREFUOBHNkz1oFFEUhc/ZNWtcgr9NwNLSOiCC0Y0hwd0REnCxCMFKraJ2phLttNNKUghpAuoWokk27I9oZWNjY5OAgYBgIQqSRBSzJ3fe7ryJTnZdsHFgmPvuPd/cc9+8Af6LS/VgQtXCrW7NMBKqElwA9NjuNMh7HFmcjmrtnilfoCYdGCakm6oGD3ytTRDDR7NFgM+9To1rqhRmJHl3vtYKPMzjpZ/IDJh1PIlFuoJqYVYqpuNcHCXe6oS1zUdm/ZKXkU/RMzDB3O1fPmdBAg6LzmoteGjBVS8mX8BGcw5byV3hCFA1fx/C9WhtX6GCvuw4T5a+hzk/sxfsCDhSvmGSuz4ljWJ9s6xXxb4w17FzBLmDI92J1oa9wYGD5zp29mLyi49doA0cOfzjr51VCy5DjRmbvaklX9vc+XDujrBt2CTEWdv/lkOzm8mOMldaDw20he0nuYgtzfkjS7zF/kPDPDH3zTlvB6t+fgyNrZJZ3eOE5DvswxBPLX6NwPCZ6Gw/RN4OxzPrmGkK+R6Z1Bnm5j/vBBOw6oVhNDRvHXudkFhGD04zV/70J/gbrEp+0IwsWcdsE+QHpDnIswsfdwPDXPydU+gHW1bJNaQ11AlMvNDmHTcHq3o5dixR7Cahlam93ej+WbMNwF6eB3c76+oAAAAASUVORK5CYII='
         return(
-            <div>
+            <div style={{float:'right'}}>
                     <span className="nextText">
                     <Text
                         style={{
@@ -304,24 +300,14 @@ const css = `
          text-align:left;
          padding-left:10px;
     }
-    .tableWrapper td:nth-child(6) {
+    .tableWrapper td:nth-child(2) {
          width:20%;
-          
-          
-    }
-  .tableWrapper td:nth-child(2) {
-         display:none;
-    }
-    .tableWrapper td:nth-child(3) {
-         display:none;
          
     }
-    .tableWrapper td:nth-child(4) {
-        display:none;
+    .pagingWrapper {
+        width:100%;
     }
-    .tableWrapper td:nth-child(5) {
-         display:none;
-    }
+  
   
   
   
@@ -332,7 +318,7 @@ const css = `
     
     }
       .tableWrapper td:nth-child(1) {
-         width:45%;
+         width:70%;
         
          padding: 20px 0;
          text-align:left;
@@ -340,36 +326,16 @@ const css = `
          
     }
     .tableWrapper td:nth-child(2) {
-         width:10%;
-        display:table-cell;
-         background-color: rgba(244,247,250,1);
+         width:30%;
+         display:table-cell;
+        
+         
          border-left:2px solid white;
          border-right:2px solid white;
          
          
     }
-    .tableWrapper td:nth-child(3) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-         
-    }
-    .tableWrapper td:nth-child(4) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-    }
-    .tableWrapper td:nth-child(5) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-    }
-    .tableWrapper td:nth-child(6) {
-         width:15%;
-    }
+    
     
        
   }
