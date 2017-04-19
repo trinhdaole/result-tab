@@ -56,8 +56,8 @@ const css = `
         background-color:rgba(244,247,250,1);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
-        padding-top:12px;
-        padding-left:10px;
+        padding-top:16px;
+        padding-left:8px;
         
     }
 `;

@@ -311,6 +311,9 @@ const css = `
         font-family:Roboto;
         
     }
+    .paging{
+        width:93%;
+    }
   
   
   
