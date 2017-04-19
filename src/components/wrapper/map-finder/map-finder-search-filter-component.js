@@ -79,7 +79,7 @@ export default class SearchFilterComponent extends Component {
                     <p className="searchTextWrapper">
                         <TextComponent
                             text={'Search and filter'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
+                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </p>
                 </div>

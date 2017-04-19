@@ -17,19 +17,20 @@ export default class MapFinderFooterComponent extends React.Component {
     render() {
 
 
-        let hrefStyle = {color:'rgba(0,154,222,1)', fontSize:10}
+        let hrefStyle   = {color:'rgba(0,154,222,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'}
+        let textStyle   = {color:'rgba(155,155,155,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'}
 
         return (
             <div className="footerContainer">
 
                 <Text
                     text    = {'Can’t find a club or indoor centre near you ?  Try '}
-                    style   = {{color:'rgba(155,155,155,1)', fontSize:10}}
+                    style   = {textStyle}
                 />
                 <a style={hrefStyle}> clearing filter</a>
                 <Text
                     text    = {'  or '}
-                    style   = {{color:'rgba(155,155,155,1)', fontSize:10}}
+                    style   = {textStyle}
                 />
                 <a style={hrefStyle}> search again</a>
 
@@ -50,7 +51,7 @@ MapFinderFooterComponent.propTypes = {
 
 const css = `
     .footerContainer{
-        width:100%;
+       
         height:45px;
         background-color:rgba(244,247,250,1);
         border-bottom-left-radius: 4px;

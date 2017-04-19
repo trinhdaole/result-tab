@@ -117,7 +117,8 @@ export default class MapFinderResultListComponent extends Component {
                     style={{
                         color: 'rgba(81,81,81,1)',
                         fontSize: 12,
-                        fontFamily: 'Roboto-Bold',
+                        fontFamily: 'Roboto',
+                        fontWeight:'600'
                     }}
                     text={item}
                 />
@@ -177,7 +178,8 @@ export default class MapFinderResultListComponent extends Component {
                     style={{
                         color: 'rgba(81,81,81,1)',
                         fontSize: 12,
-                        fontFamily: 'Roboto-Bold',
+                        fontFamily: 'Roboto',
+                        fontWeight:'700'
 
 
 
@@ -306,6 +308,8 @@ const css = `
     }
     .pagingWrapper {
         width:100%;
+        font-family:Roboto;
+        
     }
   
   

@@ -31,8 +31,9 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
     renderExpandedContent(){
         let inputStyle = {
-            width:'95%',
+            width:'90%',
             height:'30px',
+            marginLeft:8,
 
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'4px',
@@ -49,7 +50,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             fontSize: 10,
             color: 'rgba(81,81,81,1)',
             fontFamily: 'Roboto-Regular',
-            marginLeft: '8px',
+            marginLeft: 8,
 
         };
 
@@ -200,7 +201,7 @@ const css = `
          
     }
     .mapFinderSearchAdvanceContainer {
-      color: white;
+      background-color:rgba(244,247,250,1);
       height: 36px; 
       line-height: 32px;
       text-align: left;

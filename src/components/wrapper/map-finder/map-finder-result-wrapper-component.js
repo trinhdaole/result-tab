@@ -52,7 +52,7 @@ export default class SearchResultComponent extends Component {
                     <div className="searchTextWrapper">
                         <TextComponent
                             text={'2 result found'}
-                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)'}}
+                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </div>
                     {this.renderSliderButton()}
@@ -106,12 +106,15 @@ const css = `
         height:25px;
         float:right;
         margin:4px 5px 0 0;
+        
      }
      
      
     .switch-button-blue{
         border-radius: 40px;
-        font-family: Roboto Medium;
+        
+        font-family:Roboto;
+        font-weight:500;
        
         font-size: 10px;
         text-align: center;
@@ -125,7 +128,8 @@ const css = `
 
     .switch-button-gray{
         border-radius: 40px;
-        font-family: Roboto Medium;
+        font-family:Roboto;
+        font-weight:500;
         font-size: 10px;
         text-align: center;
         line-height: 25px;
