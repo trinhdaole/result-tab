@@ -42,7 +42,7 @@ export default class MapFinderResultListComponent extends Component {
                    <MapComponent
                        ref="map"
                        center={this.props.center}
-                       zoom={11}
+                       zoom={this.props.zoom}
                        markers={this.props.markers}
                        usingInfoBox={true}
                        srcPin={srcPin}
@@ -67,7 +67,7 @@ MapFinderResultListComponent.propTypes = {
 
 MapFinderResultListComponent.defaultProps = {
     center: {lat: 59.95, lng: 30.33},
-    zoom: 16,
+    zoom: 11,
     markers: [{lat: 59.955413, lng: 30.337844}, {lat:  60.03584899017039, lng: 30.158338623046802},
         {lat:  60.03584899017039, lng: 30.501661376953052} ,{lat: 59.863928084321145, lng: 30.501661376953052}],
 
