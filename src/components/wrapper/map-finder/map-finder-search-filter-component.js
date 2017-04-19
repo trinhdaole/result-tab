@@ -79,7 +79,7 @@ export default class SearchFilterComponent extends Component {
                     <p className="searchTextWrapper">
                         <TextComponent
                             text={'Search and filter'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)'}}
+                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </p>
                 </div>
@@ -126,14 +126,14 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width:70%
-        height:230px;
+        width:100%;
+       
         background-color: rgba(255,255,255,1);
-        
+        float:left;
         
         border-radius: 4px;
      
-        margin: -35px 8px 0 8px;
+        margin: -35px 4px 10px 4px;
         
         
     }

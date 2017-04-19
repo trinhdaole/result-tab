@@ -4,6 +4,8 @@ import ListItem from './map-finder-result-list-item';
 import TableComponent from '../../common/table/table-component'
 import Icon from '../../common/icon/icon-component';
 import Text  from '../../common/text/text-component'
+import Paging from '../../common/paging/paging-component';
+
 
 export default class MapFinderResultListComponent extends Component {
 
@@ -38,6 +40,9 @@ export default class MapFinderResultListComponent extends Component {
         });
 
     }
+    pagingClick(page){
+        console.log('***** page   ', page)
+    }
     componentDidMount() {
     }
 
@@ -50,8 +55,8 @@ export default class MapFinderResultListComponent extends Component {
     renderList(){
         let resultListData = [{place:'Liverpool',description:'Beauty City'},{place:'London',description:'England Capital'}]
         let bodyData    = [
-                            [{place:'Liverpool',description:'Beauty City'},'icon','icon','icon','icon','last'],
-                            [{place:'Milan',description:'Beauty City'},'icon','icon','icon','icon','last'],
+                            [{place:'Liverpool',description:'Beauty City'},'icon'],
+                            [{place:'Milan',description:'Beauty City'},'icon'],
 
         ]
         let headerData = ['One','Two']
@@ -69,8 +74,9 @@ export default class MapFinderResultListComponent extends Component {
 
         let _data = this.renderTableBody(bodyData);
         let _header =  this.renderTableHeader(headerData)
+        const onPagingClick = (page) => this.pagingClick(page);
         return(
-            <div className="mapFinderResultListContainer">
+            <div className="mapFinderResultListContainer" style={{overflowX:'hidden', overflowY:'auto'}}>
                 <TableComponent
                     //header={_header}
                     body={_data}
@@ -78,6 +84,10 @@ export default class MapFinderResultListComponent extends Component {
 
 
                 />
+                <div className="pagingWrapper">
+                    <Paging total={140} onClick={onPagingClick} />
+                </div>
+
             </div>
         );
     }
@@ -107,7 +117,8 @@ export default class MapFinderResultListComponent extends Component {
                     style={{
                         color: 'rgba(81,81,81,1)',
                         fontSize: 12,
-                        fontFamily: 'Roboto-Bold',
+                        fontFamily: 'Roboto',
+                        fontWeight:'600'
                     }}
                     text={item}
                 />
@@ -129,17 +140,6 @@ export default class MapFinderResultListComponent extends Component {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     renderTableBody(data) {
 
 
@@ -159,14 +159,10 @@ export default class MapFinderResultListComponent extends Component {
         if (rows) {
             rows.map((item, index)=> {
 
-                    if (index == 1||index == 2||index == 3||index == 4) {
-                        newRow[index] = this.renderIconCell(item,index);
-                    }
-                    else if(index == 5){
-                        newRow[index] = this.renderLastCell(item,index);
-                    }
-                    else if(index == 0) {
+                    if(index == 0){
                         newRow[index] = this.renderInfoCell(item,index);
+                    }else {
+                        newRow[index] = this.renderLastCell(item,index);
                     }
 
             });
@@ -182,7 +178,8 @@ export default class MapFinderResultListComponent extends Component {
                     style={{
                         color: 'rgba(81,81,81,1)',
                         fontSize: 12,
-                        fontFamily: 'Roboto-Bold',
+                        fontFamily: 'Roboto',
+                        fontWeight:'700'
 
 
 
@@ -228,7 +225,7 @@ export default class MapFinderResultListComponent extends Component {
     renderLastCell(){
         let arrowIcon ='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAYCAYAAAAlBadpAAAAAXNSR0IArs4c6QAAAepJREFUOBHNkz1oFFEUhc/ZNWtcgr9NwNLSOiCC0Y0hwd0REnCxCMFKraJ2phLttNNKUghpAuoWokk27I9oZWNjY5OAgYBgIQqSRBSzJ3fe7ryJTnZdsHFgmPvuPd/cc9+8Af6LS/VgQtXCrW7NMBKqElwA9NjuNMh7HFmcjmrtnilfoCYdGCakm6oGD3ytTRDDR7NFgM+9To1rqhRmJHl3vtYKPMzjpZ/IDJh1PIlFuoJqYVYqpuNcHCXe6oS1zUdm/ZKXkU/RMzDB3O1fPmdBAg6LzmoteGjBVS8mX8BGcw5byV3hCFA1fx/C9WhtX6GCvuw4T5a+hzk/sxfsCDhSvmGSuz4ljWJ9s6xXxb4w17FzBLmDI92J1oa9wYGD5zp29mLyi49doA0cOfzjr51VCy5DjRmbvaklX9vc+XDujrBt2CTEWdv/lkOzm8mOMldaDw20he0nuYgtzfkjS7zF/kPDPDH3zTlvB6t+fgyNrZJZ3eOE5DvswxBPLX6NwPCZ6Gw/RN4OxzPrmGkK+R6Z1Bnm5j/vBBOw6oVhNDRvHXudkFhGD04zV/70J/gbrEp+0IwsWcdsE+QHpDnIswsfdwPDXPydU+gHW1bJNaQ11AlMvNDmHTcHq3o5dixR7Cahlam93ej+WbMNwF6eB3c76+oAAAAASUVORK5CYII='
         return(
-            <div>
+            <div style={{float:'right'}}>
                     <span className="nextText">
                     <Text
                         style={{
@@ -275,6 +272,11 @@ const css = `
        width:100%;
        
     }
+    .mapFinderResultListContainer > div{
+      
+       overflow:hidden !important;
+      
+    }
     .tableWrapper thead{
       background-color: blue;
       height:80px;
@@ -305,24 +307,19 @@ const css = `
          text-align:left;
          padding-left:10px;
     }
-    .tableWrapper td:nth-child(6) {
+    .tableWrapper td:nth-child(2) {
          width:20%;
-          
-          
-    }
-  .tableWrapper td:nth-child(2) {
-         display:none;
-    }
-    .tableWrapper td:nth-child(3) {
-         display:none;
          
     }
-    .tableWrapper td:nth-child(4) {
-        display:none;
+    .pagingWrapper {
+        width:100%;
+        font-family:Roboto;
+        
     }
-    .tableWrapper td:nth-child(5) {
-         display:none;
+    .paging{
+        width:93%;
     }
+  
   
   
   
@@ -333,7 +330,7 @@ const css = `
     
     }
       .tableWrapper td:nth-child(1) {
-         width:45%;
+         width:70%;
         
          padding: 20px 0;
          text-align:left;
@@ -341,36 +338,21 @@ const css = `
          
     }
     .tableWrapper td:nth-child(2) {
-         width:10%;
-        display:table-cell;
-         background-color: rgba(244,247,250,1);
+         width:30%;
+         display:table-cell;
+        
+         
          border-left:2px solid white;
          border-right:2px solid white;
          
          
     }
-    .tableWrapper td:nth-child(3) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-         
+    .mapFinderResultListContainer > div{
+      
+       overflow:hidden !important;
+      
     }
-    .tableWrapper td:nth-child(4) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-    }
-    .tableWrapper td:nth-child(5) {
-         width:10%;
-         display:table-cell;
-         background-color: rgba(244,247,250,1);
-         border-right:2px solid white;
-    }
-    .tableWrapper td:nth-child(6) {
-         width:15%;
-    }
+    
     
        
   }

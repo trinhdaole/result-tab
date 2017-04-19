@@ -47,18 +47,21 @@ export default class SearchResultComponent extends Component {
 
     render() {
         return (
-            <div className="searchResultContainer">
+            <div className="searchResultContainer" >
                 <div className="searchResultElementWrapper">
                     <div className="searchTextWrapper">
                         <TextComponent
                             text={'2 result found'}
-                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)'}}
+                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </div>
                     {this.renderSliderButton()}
                 </div>
+
                 {this.renderResultContent()}
-                <Footer />
+                <div className="footerWrapper">
+                    <Footer />
+                </div>
                 <style>{css}</style>
             </div>
         )
@@ -71,13 +74,18 @@ SearchResultComponent.propTypes = {
 
 
 const css = `
+     
     .searchResultContainer { 
         margin: 16px 4px 0 4px;
         background-color: white;
-        border-style: solid;
-        border-width: 1px;
-        border-color: white;
+        
         border-radius: 4px;
+        -webkit-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        -moz-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
+        
+        
+       
  
     }
     .searchResultElementWrapper{
@@ -98,12 +106,15 @@ const css = `
         height:25px;
         float:right;
         margin:4px 5px 0 0;
+        
      }
      
      
     .switch-button-blue{
         border-radius: 40px;
-        font-family: Roboto Medium;
+        
+        font-family:Roboto;
+        font-weight:500;
        
         font-size: 10px;
         text-align: center;
@@ -117,7 +128,8 @@ const css = `
 
     .switch-button-gray{
         border-radius: 40px;
-        font-family: Roboto Medium;
+        font-family:Roboto;
+        font-weight:500;
         font-size: 10px;
         text-align: center;
         line-height: 25px;
@@ -131,14 +143,19 @@ const css = `
        
         
     }
+    .footerWrapper{
+        width:100%;
+        
+    }
     @media all and (orientation:landscape) { 
        .searchResultContainer {
             width:66%;
             float:right;
-            margin-top:-230px;
+            margin-top:-36px;
             
-       
        }
+      
+     }
   
 
   
