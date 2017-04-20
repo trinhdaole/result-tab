@@ -4,8 +4,8 @@
 'use strict';
 
 import React, {Component, PropTypes} from "react";
-import Text from   '../../common/text/text-component'
-import Icon from   '../../common/icon/icon-component'
+import Text from   '../../common/text/text-component';
+import Icon from   '../../common/icon/icon-component';
 
 export default class CellMapFinderDropdownComponent extends React.Component {
     constructor(props) {

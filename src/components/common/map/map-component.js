@@ -1,8 +1,8 @@
 "use strict";
 
 import React, {Component, PropTypes} from "react";
-import  PinComponent from "./pin-icon-component"
-import  PinBoxComponent from "./popup-box-info-map-component"
+import  PinComponent from "./pin-icon-component";
+import  PinBoxComponent from "./popup-box-info-map-component";
 import GoogleMapReact from 'google-map-react';
 
 
@@ -20,7 +20,7 @@ export default class MapComponent extends Component {
     getNumMarketVisible(){
 
 
-        var countInBoundingBox = 0; //the counter for the markers in bounding box
+        let countInBoundingBox = 0; //the counter for the markers in bounding box
 
 
         let bounds  = this.refs.mapGoogle.geoService_.getBounds();
@@ -28,7 +28,7 @@ export default class MapComponent extends Component {
         let rightTop = { lat: bounds[6] , lng:  bounds[7]};
         let rightBot = { lat: bounds[2] , lng:  bounds[3]};
         let leftBot = { lat: bounds[4] , lng:  bounds[5]};
-        var boundCoords = [
+        let boundCoords = [
             leftTop,
             rightBot,
             leftBot,
@@ -36,11 +36,11 @@ export default class MapComponent extends Component {
         ];
 
         // Construct the polygon.
-        var boundRect = new window.google.maps.Polygon({
+        let boundRect = new window.google.maps.Polygon({
             paths: boundCoords,
 
         });
-        for (var i = this.props.markers.length; i--;) {
+        for (let i = this.props.markers.length; i--;) {
             let pos = this.props.markers[i];
             let point =  new window.google.maps.LatLng(pos.lat, pos.lng);
             if(window.google.maps.geometry.poly.containsLocation(point,boundRect)){
@@ -101,9 +101,7 @@ export default class MapComponent extends Component {
                           change={this.state.change}
                           title={marker.title}
                           info={marker.info}
-                    >
-
-                    </PinBoxComponent>
+                    />
                 );
             }else{
                 return (
