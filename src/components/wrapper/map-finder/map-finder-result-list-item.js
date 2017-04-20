@@ -1,5 +1,6 @@
 
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
+import PropTypes  from 'prop-types'
 import Text from   '../../common/text/text-component'
 import Icon from   '../../common/icon/icon-component'
 

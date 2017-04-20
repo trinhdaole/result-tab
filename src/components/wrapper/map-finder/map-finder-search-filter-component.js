@@ -1,10 +1,11 @@
-import React, { Component,PropTypes } from 'react'
-import TextComponent from '../../common/text/text-component'
-import Input from '../../common/input/input-component'
-import Button from '../../common/button/button-component'
-import Icon from '../../common/icon/icon-component'
-import  MapFinderDropdownComponent from  './map-finder-dropdown-component'
-import SearchAdvanceComponent from './map-finder-search-advance-component'
+import React, { Component } from 'react'
+import PropTypes  from 'prop-types';
+import TextComponent from '../../common/text/text-component';
+import Input from '../../common/input/input-component';
+import Button from '../../common/button/button-component';
+import Icon from '../../common/icon/icon-component';
+import  MapFinderDropdownComponent from  './map-finder-dropdown-component';
+import SearchAdvanceComponent from './map-finder-search-advance-component';
 
 export default class SearchFilterComponent extends Component {
 
