@@ -30,8 +30,7 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     onBoundsChange(numcount, center, zoom){
-        console.log('onBoundsChange');
-        console.log(numcount);
+
     }
 
     onNext(){
@@ -52,7 +51,6 @@ export default class MapFinderResultListComponent extends Component {
                        markers={this.props.markers}
                        usingInfoBox={true}
                        srcPin={srcPin}
-                       onBoundsChange={onBoundsChange}
                        onNext={onNext}
                    >
                    </MapComponent>

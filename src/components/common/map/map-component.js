@@ -53,9 +53,11 @@ export default class MapComponent extends Component {
     }
 
     onBoundsChange(center, zoom){
+        if( this.props.onBoundsChange){
+            let numCount = this.getNumMarketVisible();
+            this.props.onBoundsChange(numCount, center, zoom);
+        }
 
-        let numCount = this.getNumMarketVisible();
-        this.props.onBoundsChange(numCount, center, zoom);
     }
 
     onClick(mouse){
@@ -78,7 +80,7 @@ export default class MapComponent extends Component {
     }
 
     onNext(){
-        console.log("onNext");
+
         if(this.props.onNext) return this.props.onNext();
     }
 
@@ -118,7 +120,7 @@ export default class MapComponent extends Component {
 
     renderGoogleMap(){
         const onBoundsChange = (center, zoom) => this.onBoundsChange(center, zoom );
-        const onClick = (mouse) => this.onClick(mouse ); 
+        const onClick = (mouse) => this.onClick(mouse );
         return (
             <GoogleMapReact
                 onBoundsChange={onBoundsChange}
