@@ -26,7 +26,7 @@ export default class SearchResultComponent extends Component {
 
     }
     pagingClick(page){
-        console.log('***** page   ', page)
+        console.log('***** page   ', page);
     }
 
     renderSliderButton(){
@@ -36,16 +36,16 @@ export default class SearchResultComponent extends Component {
 
                 <div
                     className={(this.state.sliderStatus == 'both') ? "switch-button-blue" : "switch-button-gray"}
-                    onClick={()=> this.setState({sliderStatus:'both'}) }
+                    onClick={()=> this.setState({sliderStatus:'both'})}
                     >BOTH</div>
 
                 <div
                     className={(this.state.sliderStatus == 'list') ? "switch-button-blue" : "switch-button-gray"}
-                    onClick={()=> this.setState({sliderStatus:'list'}) }
+                    onClick={()=> this.setState({sliderStatus:'list'})}
                     >LIST</div>
                 <div
                     className={(this.state.sliderStatus == 'map') ? "switch-button-blue" : "switch-button-gray"}
-                    onClick={()=> this.setState({sliderStatus:'map'}) }
+                    onClick={()=> this.setState({sliderStatus:'map'})}
                     >MAP</div>
             </div>
         );
@@ -107,7 +107,7 @@ export default class SearchResultComponent extends Component {
                 </div>
                 <style>{css}</style>
             </div>
-        )
+        );
     }
 }
 SearchResultComponent.propTypes = {

@@ -1,9 +1,9 @@
 
 import React, {Component} from "react";
-import PropTypes  from 'prop-types'
+import PropTypes  from 'prop-types';
 
-import Text from   '../../common/text/text-component'
-import Icon from   '../../common/icon/icon-component'
+import Text from   '../../common/text/text-component';
+import Icon from   '../../common/icon/icon-component';
 
 export default class MapFinderFooterComponent extends React.Component {
     constructor(props) {
@@ -19,8 +19,8 @@ export default class MapFinderFooterComponent extends React.Component {
     render() {
 
 
-        let hrefStyle   = {color:'rgba(0,154,222,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'}
-        let textStyle   = {color:'rgba(155,155,155,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'}
+        let hrefStyle   = {color:'rgba(0,154,222,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'};
+        let textStyle   = {color:'rgba(155,155,155,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'};
 
         return (
             <div className="footerContainer">

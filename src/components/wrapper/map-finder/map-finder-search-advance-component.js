@@ -20,7 +20,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         };
     }
     onClick(event) {
-        console.log(' ****  onClick   ****  ')
+        console.log(' ****  onClick   ****  ');
         event.stopPropagation();
         event.preventDefault();
 
@@ -69,7 +69,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                     <Text text  = {'Club name'} style={textStyle}/>
                     <Input
                         style={inputStyle}
-                        placeholder=''
+                        placeholder={''}
                         onChange={this.onChange}
                         onKeyUp={this.onKeyUp}
                     />
@@ -78,7 +78,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                 <Text text  = {'Postcode'} style={textStyle}/>
                 <Input
                     style={inputStyle}
-                    placeholder=''
+                    placeholder={''}
                     onChange={this.onChange}
                     onKeyUp={this.onKeyUp}
                 />
@@ -88,7 +88,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                     <Text text  = {'Suburb'} style={textStyle}/>
                     <Input
                         style={inputStyle}
-                        placeholder=''
+                        placeholder={''}
                         onChange={this.onChange}
                         onKeyUp={this.onKeyUp}
                     />
@@ -107,7 +107,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                     <Text text  = {'State'} style={textStyle}/>
                     <Input
                         style={inputStyle}
-                        placeholder=''
+                        placeholder={''}
                         onChange={this.onChange}
                         onKeyUp={this.onKeyUp}
                     />

@@ -5,7 +5,7 @@ const initialState = [
         completed: false,
         id: 0
     }
-]
+];
 
 export default function todos(state = initialState, action) {
     switch (action.type) {
@@ -17,11 +17,11 @@ export default function todos(state = initialState, action) {
                     text: action.text
                 },
                 ...state
-            ]
+            ];
 
 
 
         default:
-            return state
+            return state;
     }
 }
