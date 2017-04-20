@@ -1,6 +1,9 @@
 import React, { Component,PropTypes } from 'react'
 import TextComponent from '../../common/text/text-component'
 import MapFinderResultList from  './map-finder-result-list-component'
+import MapFinderResultMap from './map-finder-result-map-component'
+import Paging from '../../common/paging/paging-component';
+
 import Footer from  './map-finder-footer-component'
 
 
@@ -10,6 +13,7 @@ export default class SearchResultComponent extends Component {
         super(props);
         this.state = {
             isShowMap:false,
+            sliderStatus:'both'
         };
     }
     componentDidMount() {
@@ -20,29 +24,67 @@ export default class SearchResultComponent extends Component {
     componentWillUnmount(){
 
     }
+    pagingClick(page){
+        console.log('***** page   ', page)
+    }
 
     renderSliderButton(){
 
         return(
             <div className="sliderButton">
+
                 <div
-                    className={this.state.isShowMap ? "switch-button-blue" : "switch-button-gray"}
-                    onClick={()=> this.setState({isShowMap:true}) }
+                    className={(this.state.sliderStatus == 'both') ? "switch-button-blue" : "switch-button-gray"}
+                    onClick={()=> this.setState({sliderStatus:'both'}) }
+                    >BOTH</div>
+
+                <div
+                    className={(this.state.sliderStatus == 'list') ? "switch-button-blue" : "switch-button-gray"}
+                    onClick={()=> this.setState({sliderStatus:'list'}) }
                     >LIST</div>
                 <div
-                    className={this.state.isShowMap ? "switch-button-gray" : "switch-button-blue"}
-                    onClick={()=> this.setState({isShowMap:false}) }
+                    className={(this.state.sliderStatus == 'map') ? "switch-button-blue" : "switch-button-gray"}
+                    onClick={()=> this.setState({sliderStatus:'map'}) }
                     >MAP</div>
             </div>
         );
     }
 
     renderResultContent(){
-        return(
-            <div className="searchResultContentWrapper">
-                <MapFinderResultList />
-            </div>
-        );
+        const onPagingClick = (page) => this.pagingClick(page);
+        if(this.state.sliderStatus == 'both'){
+            return (
+                <div className="searchResultContentWrapper">
+                    <div className="searchResultList">
+                        <MapFinderResultList />
+                    </div>
+                    <div className="searchResultMap">
+                        <MapFinderResultMap />
+                    </div>
+                    <div className="pagingWrapper">
+                        <Paging total={140} onClick={onPagingClick} />
+                    </div>
+                </div>
+            );
+
+        }else if(this.state.sliderStatus == 'list'){
+            return (
+                <div className="searchResultList">
+                    <MapFinderResultList />
+                    <div className="pagingWrapper">
+                        <Paging total={140} onClick={onPagingClick} />
+                    </div>
+                </div>
+
+            );
+        }
+        else {
+            return (
+                <div className="searchResultMap">
+                    <MapFinderResultMap />
+                </div>
+            );
+        }
     }
 
     render() {
@@ -102,7 +144,7 @@ const css = `
      .sliderButton {
         border-radius: 40px;
         background: rgb(244,247,250);
-        width:90px;
+        width:134px;
         height:25px;
         float:right;
         margin:4px 5px 0 0;
@@ -138,10 +180,25 @@ const css = `
         height:25px;
         background: rgb(244,247,250);
         color: rgb(173,173,176);
+  }.
+  .pagingWrapper {
+        width:100%;
+        font-family:Roboto;
+        
+    }
+    .paging{
+        width:93%;
+    }
+  .searchResultContentWrapper{
+  
   }
-    .searchResultContentWrapper{
+    .searchResultList{
        
         
+    }
+    .searchResultMap{
+        width:100%;
+        height:300px;
     }
     .footerWrapper{
         width:100%;
@@ -154,6 +211,13 @@ const css = `
             margin-top:-36px;
             
        }
+       .searchResultContentWrapper{
+       width:100%;
+  
+    }
+       
+       
+       
       
      }
   

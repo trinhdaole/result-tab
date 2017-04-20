@@ -85,7 +85,7 @@ export default class MapFinderResultListComponent extends Component {
 
                 />
                 <div className="pagingWrapper">
-                    <Paging total={140} onClick={onPagingClick} />
+                    {/*<Paging total={140} onClick={onPagingClick} />*/}
                 </div>
 
             </div>
@@ -270,6 +270,7 @@ MapFinderResultListComponent.propTypes = {
 const css = `
     .mapFinderResultListContainer {
        width:100%;
+       overflow:hidden !important;
        
     }
     .mapFinderResultListContainer > div{
