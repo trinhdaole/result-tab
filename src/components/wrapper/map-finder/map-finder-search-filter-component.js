@@ -87,7 +87,7 @@ export default class SearchFilterComponent extends Component {
                     <div className="searchView">
                         <Input
                             style={inputStyle}
-                            placeholder=''
+                            placeholder={'Enter postcode or club name'}
                             onChange={this.onChange}
                             onKeyUp={this.onKeyUp}
                         />

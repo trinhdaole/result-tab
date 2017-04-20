@@ -27,7 +27,7 @@ export default class MapFinderFooterComponent extends React.Component {
                     text    = {'Can’t find a club or indoor centre near you ?  Try '}
                     style   = {textStyle}
                 />
-                <a style={hrefStyle}> clearing filter</a>
+                <a style={hrefStyle}> clearing filters</a>
                 <Text
                     text    = {'  or '}
                     style   = {textStyle}
