@@ -180,15 +180,15 @@ PinInfo.defaultProps = {
 const css = `
    .popup-wrapper { 
         position:relative; 
-        width:140px;
+        width:30px;
         top:-55px;
-        left:0px;  
+        left:0px;   
     }  
     .popup-title-wrapper {  
       position:relative; 
      background-color: rgb(0,154,222);
      width: 140px;
-     left:-50%;
+     left:-60px;
      border: 0px solid green; 
      align: center;
      color: white;
@@ -202,7 +202,7 @@ const css = `
      position:relative; 
      background-color:white;
      width: 140px;
-     left:-50%;
+     left:-60px;
      border: 0px solid green; 
      align: center;
      color: rgb(81,81,81);
