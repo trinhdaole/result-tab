@@ -14,7 +14,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExpand:true,
+            isExpand:false,
 
         };
     }
@@ -65,6 +65,15 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         return (
             <div className="searchAdvanceContent">
                 <div className="searchAdvanceElement">
+                    <Text text  = {'Club name'} style={textStyle}/>
+                    <Input
+                        style={inputStyle}
+                        placeholder=''
+                        onChange={this.onChange}
+                        onKeyUp={this.onKeyUp}
+                    />
+                </div>
+                <div className="searchAdvanceElement">
                 <Text text  = {'Postcode'} style={textStyle}/>
                 <Input
                     style={inputStyle}
@@ -86,6 +95,15 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
                 <div className="searchAdvanceElement">
                     <Text text  = {'Street'} style={textStyle}/>
+                    <Input
+                        style={inputStyle}
+                        placeholder=''
+                        onChange={this.onChange}
+                        onKeyUp={this.onKeyUp}
+                    />
+                </div>
+                <div className="searchAdvanceElement">
+                    <Text text  = {'State'} style={textStyle}/>
                     <Input
                         style={inputStyle}
                         placeholder=''

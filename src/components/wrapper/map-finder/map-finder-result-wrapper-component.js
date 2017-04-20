@@ -93,7 +93,7 @@ export default class SearchResultComponent extends Component {
                 <div className="searchResultElementWrapper">
                     <div className="searchTextWrapper">
                         <TextComponent
-                            text={'2 result found'}
+                            text={'2 result(s) found'}
                             style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </div>
