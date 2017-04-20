@@ -7,9 +7,9 @@
 'use strict';
 
 import React, {Component, PropTypes} from "react";
-import Text from   '../../common/text/text-component'
-import Icon from   '../../common/icon/icon-component'
-import  Cell from './cell-map-finder-dropdown-component'
+import Text from   '../../common/text/text-component';
+import Icon from   '../../common/icon/icon-component';
+import  Cell from './cell-map-finder-dropdown-component';
 
 export default class MapFinderDropdownComponent extends React.Component {
     constructor(props) {

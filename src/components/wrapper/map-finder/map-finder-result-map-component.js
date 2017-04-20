@@ -1,10 +1,5 @@
-import React, { Component,PropTypes } from 'react'
-
+import React, { Component,PropTypes } from 'react';
 import MapComponent from '../../common/map/map-component';
-import GoogleMapReact from 'google-map-react';
-import Text from  '../../../components/common/text/text-component'
-import Icon from  '../../../components/common/icon/icon-component'
-import  PinComponent from "../../../components/common/map/pin-icon-component"
 
 export default class MapFinderResultListComponent extends Component {
 
@@ -34,7 +29,7 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     onNext(){
-        console.log("onNext2");
+
         if(this.props.onNext) return this.props.onNext();
     }
 
@@ -52,8 +47,8 @@ export default class MapFinderResultListComponent extends Component {
                        usingInfoBox={true}
                        srcPin={srcPin}
                        onNext={onNext}
-                   >
-                   </MapComponent>
+                   />
+
 
         );
     }

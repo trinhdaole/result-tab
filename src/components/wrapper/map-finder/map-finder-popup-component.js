@@ -2,9 +2,9 @@
  * Created by long on 3/24/17.
  */
 import React, {PropTypes} from "react";
-import Input from '../../common/input/input-component'
-import Text from   '../../common/text/text-component'
-import Button from '../../common/button/button-component'
+import Input from '../../common/input/input-component';
+import Text from   '../../common/text/text-component';
+import Button from '../../common/button/button-component';
 
 export default class MapFindPopupComponent extends React.Component {
 
@@ -38,7 +38,7 @@ export default class MapFindPopupComponent extends React.Component {
             this.setState({
                 inputValue: item.value
             });
-            console.log(this.state.inputValue);
+
         }
 
     }
@@ -54,7 +54,7 @@ export default class MapFindPopupComponent extends React.Component {
     }
 
     renderPopup(){
-        const {style,title }= this.props;
+        const {title }= this.props;
         if(this.state.isHide == true){
             return null;
         }else{
@@ -103,7 +103,7 @@ export default class MapFindPopupComponent extends React.Component {
                             <Input
                                 id="IdInputPostCode"
                                 style={inputStyle}
-                                placeholder='Enter postcode or club name'
+                                placeholder="Enter postcode or club name"
                                 onChange={this.onChange}
                                 onKeyUp={this.onKeyUp}
                             />

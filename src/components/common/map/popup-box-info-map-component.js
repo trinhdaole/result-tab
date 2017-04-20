@@ -6,11 +6,10 @@
  * @file common/map/pin-icon-component.js
  */
 
-"use strict";
 
 import React, {Component, PropTypes} from "react";
 import Icon from '../icon/icon-component';
-import Text from  '../text/text-component'
+import Text from  '../text/text-component';
 
 
 
@@ -28,7 +27,7 @@ export default class PinInfo extends  Component {
 
     componentWillReceiveProps(nextProps){
 
-        if(this.state.show == true && nextProps.change != this.props.change ){
+        if(this.state.show === true && nextProps.change !== this.props.change ){
             this.setState({
                 show:nextProps.show,
                 change:nextProps.change,
@@ -95,7 +94,7 @@ export default class PinInfo extends  Component {
 
 
         const onNext = (event) => this.onNext(event );
-        if(this.state.show == true){
+        if(this.state.show === true){
             return(
                 <div>
                     <div className="popup-title-wrapper" style={this.props.styleTitle}>
@@ -139,13 +138,14 @@ export default class PinInfo extends  Component {
                 className="popup-wrapper"
                 onClick={onPopupClick}
             >
+                <style>{css}</style>
                 <div  className="icon-wrapper"  onClick={onClick} >
                      <Icon
                          src={scr}
                      />
                 </div>
                 {this.renderBoxInfo()}
-                <style>{css}</style>
+
             </div>
         );
     }
