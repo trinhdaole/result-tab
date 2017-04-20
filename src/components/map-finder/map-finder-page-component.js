@@ -3,7 +3,7 @@
  */
 "use strict";
 
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component'
 import TextComponent from '../common/text/text-component'
 
@@ -93,9 +93,6 @@ export default class MapFinderPageComponent extends Component {
 
 }
 
-MapFinderPageComponent.propTypes = {
-
-};
 const css = `
 
   .map-wrapper {

@@ -1,14 +1,15 @@
 
 'use strict';
 
-import React, {Component, PropTypes} from "react";
-import FontAwesome from 'react-fontawesome'
+import React, {Component} from "react";
+import PropTypes  from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 
-import Text from   '../../common/text/text-component'
-import Icon from   '../../common/icon/icon-component'
-import Input from '../../common/input/input-component'
-import Button from '../../common/button/button-component'
+import Text from   '../../common/text/text-component';
+import Icon from   '../../common/icon/icon-component';
+import Input from '../../common/input/input-component';
+import Button from '../../common/button/button-component';
 
 export default class MapFinderSearchAdvanceComponent extends React.Component {
     constructor(props) {

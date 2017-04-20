@@ -1,5 +1,5 @@
-import React, { Component,PropTypes } from 'react'
-
+import React, { Component } from 'react'
+import PropTypes  from 'prop-types'
 import ListItem from './map-finder-result-list-item';
 import TableComponent from '../../common/table/table-component'
 import Icon from '../../common/icon/icon-component';

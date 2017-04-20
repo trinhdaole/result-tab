@@ -1,10 +1,11 @@
-import React, { Component,PropTypes } from 'react'
-import TextComponent from '../../common/text/text-component'
-import MapFinderResultList from  './map-finder-result-list-component'
-import MapFinderResultMap from './map-finder-result-map-component'
+import React, { Component } from 'react';
+import PropTypes  from 'prop-types';
+import TextComponent from '../../common/text/text-component';
+import MapFinderResultList from  './map-finder-result-list-component';
+import MapFinderResultMap from './map-finder-result-map-component';
 import Paging from '../../common/paging/paging-component';
 
-import Footer from  './map-finder-footer-component'
+import Footer from  './map-finder-footer-component';
 
 
 export default class SearchResultComponent extends Component {
