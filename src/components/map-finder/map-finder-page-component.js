@@ -31,7 +31,7 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
-    render() {
+    render1() {
 
         return (
 
@@ -46,47 +46,47 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
-    // render() {
-    //
-    //     return (
-    //
-    //
-    //         <div className="mapFinderContainer">
-    //             {/*<Popup  />*/}
-    //             <div className="header">
-    //                 <div className="headerTextWrapper">
-    //                     <p className="textHeader">
-    //                         <TextComponent
-    //                             text    = {'CLUB FINDER'}
-    //                             style   = {{fontSize:12, color:'white',fontFamily: 'Roboto',}}
-    //                         />
-    //                     </p>
-    //                     <p className="textHeader">
-    //                         <TextComponent
-    //                             text    = {'WHERE CAN I PLAY'}
-    //                             style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto',}}
-    //                         />
-    //                     </p>
-    //                 </div>
-    //             </div>
-    //             <SearchFilterComponent
-    //                 onSearchClick   = {()=> console.log('******   searching .....')}
-    //             />
-    //             <div className="clear">
-    //             </div>
-    //             <SearchResultComponent />
-    //
-    //
-    //             {/*<MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />*/}
-    //
-    //
-    //             <style>{css}</style>
-    //         </div>
-    //
-    //
-    //     );
-    //
-    // }
+    render() {
+
+        return (
+
+
+            <div className="mapFinderContainer">
+                {/*<Popup  />*/}
+                <div className="header">
+                    <div className="headerTextWrapper">
+                        <p className="textHeader">
+                            <TextComponent
+                                text    = {'CLUB FINDER'}
+                                style   = {{fontSize:12, color:'white',fontFamily: 'Roboto',}}
+                            />
+                        </p>
+                        <p className="textHeader">
+                            <TextComponent
+                                text    = {'WHERE CAN I PLAY'}
+                                style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto',}}
+                            />
+                        </p>
+                    </div>
+                </div>
+                <SearchFilterComponent
+                    onSearchClick   = {()=> console.log('******   searching .....')}
+                />
+                <div className="clear">
+                </div>
+                <SearchResultComponent />
+
+
+                {/*<MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />*/}
+
+
+                <style>{css}</style>
+            </div>
+
+
+        );
+
+    }
 
 
 
