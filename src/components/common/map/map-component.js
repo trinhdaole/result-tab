@@ -5,14 +5,17 @@ import  PinComponent from "./pin-icon-component"
 import  PinBoxComponent from "./popup-box-info-map-component"
 import GoogleMapReact from 'google-map-react';
 
-const BoxInfoComponent = ({src}) => (
-    <div>
-        <PinBoxComponent
-            srcPin={src}
-        />
-    </div>
-);
+
 export default class MapComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show:false,
+            makerClick:false,
+            change:false,
+        };
+        this.makerClick = false;
+    }
 
     getNumMarketVisible(){
 
@@ -51,21 +54,54 @@ export default class MapComponent extends Component {
 
     onBoundsChange(center, zoom){
 
-        let numcount = this.getNumMarketVisible();
-        this.props.onBoundsChange(numcount, center, zoom);
+        let numCount = this.getNumMarketVisible();
+        this.props.onBoundsChange(numCount, center, zoom);
     }
+
+    onClick(mouse){
+        mouse.event.stopPropagation();
+        mouse.event.preventDefault();
+        if(this.makerClick == true){
+                this.makerClick = false;
+
+        }else{
+            this.setState({
+                show:false,
+                change:!this.state.change,
+            });
+        }
+
+    }
+
+    onMakerClick(lat,lng){
+        this.makerClick = true;
+    }
+
+    onNext(){
+        console.log("onNext");
+        if(this.props.onNext) return this.props.onNext();
+    }
+
 
     renderMarkers(){
         return this.props.markers.map ((marker, i) => {
             if(this.props.usingInfoBox == true){
+                const onMakerClick = (lat,lng) => this.onMakerClick( lat,lng);
+                const onNext = () => this.onNext();
                 return (
-                    <BoxInfoComponent key={i} {...marker}
+                    <PinBoxComponent key={i} {...marker}
+                         onClick={onMakerClick}
+                         onNext={onNext}
                          lat={marker.lat}
                          lng={marker.lng}
+                          show={this.state.show}
                           src={this.props.srcPin}
+                          change={this.state.change}
+                          title={marker.title}
+                          info={marker.info}
                     >
 
-                    </BoxInfoComponent>
+                    </PinBoxComponent>
                 );
             }else{
                 return (
@@ -82,13 +118,15 @@ export default class MapComponent extends Component {
 
     renderGoogleMap(){
         const onBoundsChange = (center, zoom) => this.onBoundsChange(center, zoom );
+        const onClick = (mouse) => this.onClick(mouse ); 
         return (
             <GoogleMapReact
                 onBoundsChange={onBoundsChange}
+                onClick={onClick}
                 ref="mapGoogle"
                 defaultZoom = {this.props.zoom}
                 defaultCenter = {this.props.center}
-                options = {{streetViewControl: true, mapTypeControl: true}}>
+                options = {{streetViewControl: true, mapTypeControl: false}}>
                 { this.renderMarkers() }
             </GoogleMapReact>
         );
@@ -106,6 +144,7 @@ MapComponent.propTypes = {
     srcPin: PropTypes.string,
     usingInfoBox:  PropTypes.bool,
     onBoundsChange: PropTypes.func,
+    onNext:  PropTypes.func,
 };
 
 MapComponent.defaultProps = {
