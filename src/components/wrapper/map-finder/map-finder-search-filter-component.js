@@ -6,6 +6,8 @@ import Button from '../../common/button/button-component';
 import Icon from '../../common/icon/icon-component';
 import  MapFinderDropdownComponent from  './map-finder-dropdown-component';
 import SearchAdvanceComponent from './map-finder-search-advance-component';
+import {GeolocatedProps, geolocated} from 'react-geolocated';
+
 
 export default class SearchFilterComponent extends Component {
 
@@ -20,10 +22,17 @@ export default class SearchFilterComponent extends Component {
 
     componentDidMount() {
         window.addEventListener("orientationchange", this.handleOrientationChange.bind(this), false);
+
+        navigator.geolocation.getCurrentPosition( (initialPosition) =>
+               console.log('****  initialPosition  ',initialPosition)
+            //(error) => alert(error.message)//this keeps running!!!
+
+        );
+
     }
 
     handleOrientationChange(){
-        console.log('******  orientation ',screen.orientation);
+        //console.log('******  orientation ',screen.orientation);
         if(screen.orientation.type == 'landscape-primary'){
             this.setState({
                 inputWidth : '65%'
@@ -48,10 +57,8 @@ export default class SearchFilterComponent extends Component {
 
 
     render() {
-        let arrObject = [{'value':'Sunday','check':false},{'value':'Monday','check':false},
-            {'value':'Tuesday','check':false},{'value':'Wednesday','check':false},
-            {'value':'Thursday','check':false},{'value':'Friday','check':false},
-            {'value':'Saturday','check':false} ];
+
+
 
         let inputStyle = {
             width:this.state.inputWidth,
