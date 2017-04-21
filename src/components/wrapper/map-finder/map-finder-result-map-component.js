@@ -16,32 +16,32 @@ export default class MapFinderResultListComponent extends Component {
 
         if(this.props.markers !==   nextProps.markers  ){
             this.setState({
-                marker:this.convertMarker(nextProps.markers)
+                // marker:this.convertMarker(nextProps.markers)
             });
         }
     }
 
 
-    convertMarker(arrObject){
-        let arrMarker = [];
-        for (let i = 0 ; i < arrObject.length ; i++){
-            let temp = arrObject[i];
-            let info = "";
-            if(temp.street){
-                info = info + temp.street;
-            }
-            if(temp.suburb){
-                info = info + ", " + temp.suburb;
-            }
-            if(temp.state){
-                info = info + ", " + temp.state;
-            }
-
-            let getTemp = { lat: temp.lat, lng: temp.lon, title: temp.name, info:info }
-             arrMarker.push(getTemp);
-        }
-        return arrMarker;
-    }
+    // convertMarker(arrObject){
+    //     let arrMarker = [];
+    //     for (let i = 0 ; i < arrObject.length ; i++){
+    //         let temp = arrObject[i];
+    //         let info = "";
+    //         if(temp.street){
+    //             info = info + temp.street;
+    //         }
+    //         if(temp.suburb){
+    //             info = info + ", " + temp.suburb;
+    //         }
+    //         if(temp.state){
+    //             info = info + ", " + temp.state;
+    //         }
+    //
+    //         let getTemp = { lat: temp.lat, lng: temp.lon, title: temp.name, info:info }
+    //          arrMarker.push(getTemp);
+    //     }
+    //     return arrMarker;
+    // }
 
     /**
      * @desc This is callback function when click on item
@@ -71,14 +71,14 @@ export default class MapFinderResultListComponent extends Component {
         const onBoundsChange = (numcount, center, zoom) => this.onBoundsChange(numcount, center, zoom );
         const onNext = () => this.onNext();
 
-            let center = this.props.center ? this.props.center : this.state.markers.length > 0 ? {lat:  this.state.markers[0].lat ,lng :  this.state.markers[0].lng} : {lat: 0, lng: 0};
+            let center = this.props.center ? this.props.center : this.props.markers.length > 0 ? {lat:  this.props.markers[0].lat ,lng :  this.props.markers[0].lng} : {lat: 0, lng: 0};
         return (
 
                    <MapComponent
                        ref="map"
                        center={center}
                        zoom={this.props.zoom}
-                       markers={this.state.markers}
+                       markers={this.props.markers}
                        usingInfoBox={true}
                        srcPin={srcPin}
                        onNext={onNext}
