@@ -85,7 +85,7 @@ export default class MapFinderResultListComponent extends Component {
 
                 />
                 <div className="pagingWrapper">
-                    {/*<Paging total={140} onClick={onPagingClick} />*/}
+                    <Paging total={140} onClick={onPagingClick} />
                 </div>
 
             </div>
@@ -264,6 +264,7 @@ export default class MapFinderResultListComponent extends Component {
 MapFinderResultListComponent.propTypes = {
     onSearchClick : PropTypes.func,
     arrObject:PropTypes.any,
+    resultData:PropTypes.object,
 
 };
 

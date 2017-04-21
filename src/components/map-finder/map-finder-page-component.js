@@ -29,10 +29,10 @@ export default class MapFinderPageComponent extends Component {
          let  lon = 150.871959;
          let cat = 'club';
          let sport =  'baseball';
-        Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
-            console.log('data');
-            console.log(data);
-        });
+        // Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
+        //     console.log('data');
+        //     console.log(data);
+        // });
     }
 
     componentWillUnmount(){
@@ -78,7 +78,7 @@ export default class MapFinderPageComponent extends Component {
                     </div>
                 </div>
                 <SearchFilterComponent
-                    onSearchClick   = {()=> console.log('******   searching .....')}
+                    onSearchClick   = {(data)=> console.log('******   searching .....',data)}
                 />
                 <div className="clear">
                 </div>

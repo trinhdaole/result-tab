@@ -71,7 +71,9 @@ export default class SearchResultComponent extends Component {
         }else if(this.state.sliderStatus == 'list'){
             return (
                 <div className="searchResultList">
-                    <MapFinderResultList />
+                    <MapFinderResultList
+                        resultData  = {this.props.resultData}
+                    />
                     <div className="pagingWrapper">
                         <Paging total={140} onClick={onPagingClick} />
                     </div>
@@ -111,7 +113,8 @@ export default class SearchResultComponent extends Component {
     }
 }
 SearchResultComponent.propTypes = {
-    onSearchClick : PropTypes.func
+    onSearchClick : PropTypes.func,
+    resultData:PropTypes.object
 
 };
 
