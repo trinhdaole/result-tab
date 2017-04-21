@@ -181,7 +181,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             <div className="advanceSearchExpandedWrapper">
                 <div className="mapFinderSearchAdvanceContainer" onClick={onClick} >
                     <Text
-                        text    = {'Advance Search '}
+                        text    = {'Advanced Search '}
                         style   = {(this.state.isExpand ?  searchTextExpand : searchTextNormal)}
                     />
                     <FontAwesome

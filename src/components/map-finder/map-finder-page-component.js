@@ -63,7 +63,7 @@ export default class MapFinderPageComponent extends Component {
                         </p>
                         <p className="textHeader">
                             <TextComponent
-                                text    = {'WHERE CAN I PLAY'}
+                                text    = {'WHERE CAN I PLAY ?'}
                                 style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto',}}
                             />
                         </p>
