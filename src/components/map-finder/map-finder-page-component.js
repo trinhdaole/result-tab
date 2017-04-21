@@ -11,6 +11,7 @@ import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filte
 import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component';
 import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component';
 import MapFinder from '../wrapper/map-finder/map-finder-result-map-component';
+import  * as Service  from '../../services/map-finder-services';
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -24,7 +25,14 @@ export default class MapFinderPageComponent extends Component {
     }
 
     componentDidMount() {
-
+         let lat = -33.787266 ;
+         let  lon = 150.871959;
+         let cat = 'club';
+         let sport =  'baseball';
+        Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
+            console.log('data');
+            console.log(data);
+        });
     }
 
     componentWillUnmount(){

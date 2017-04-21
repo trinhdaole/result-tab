@@ -1,7 +1,14 @@
 {
-
     "LOCAL_URL": "http://localhost",
-    "LOCAL_PORT": "3002"
+    "LOCAL_PORT": "3002",
+    "API_GET": "/api/get",
+    "SERVER_URL": "https://mapfinder-staging.herokuapp.com",
 
+    "AUTHORIZATION": "Basic ZGV2OmRldjIwMTY=",
+    "X_API_KEY": "XrVL2DyqsA3hIF3oIfbQU7bAF7EtfRSH1ln6RL22",
+
+
+    "MAP_FINDER_SEARCH_PLACE_PATH": "/mapfinder/postcode",
+    "MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH": "/mapfinder/nearby?lon={lon}&lat={lat}&cat={cat}&sport={sport}&"
 
 }
