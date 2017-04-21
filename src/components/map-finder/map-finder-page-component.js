@@ -19,7 +19,7 @@ export default class MapFinderPageComponent extends Component {
 
         super(props);
         this.state = {
-
+            resultData:null,
         };
 
     }
@@ -78,11 +78,13 @@ export default class MapFinderPageComponent extends Component {
                     </div>
                 </div>
                 <SearchFilterComponent
-                    onSearchClick   = {(data)=> console.log('******   searching .....',data)}
+                    onSearchClick   = {(data)=> this.setState({resultData:data})}
                 />
                 <div className="clear">
                 </div>
-                <SearchResultComponent />
+                <SearchResultComponent
+                    resultData  = {this.state.resultData}
+                />
 
 
                 {/*<MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />*/}

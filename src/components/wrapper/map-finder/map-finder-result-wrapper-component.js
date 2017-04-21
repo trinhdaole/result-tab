@@ -57,7 +57,9 @@ export default class SearchResultComponent extends Component {
             return (
                 <div className="searchResultContentWrapper">
                     <div className="searchResultList">
-                        <MapFinderResultList />
+                        <MapFinderResultList
+                            resultData  = {this.props.resultData}
+                        />
                     </div>
                     <div className="searchResultMap">
                         <MapFinderResultMap />
@@ -91,6 +93,7 @@ export default class SearchResultComponent extends Component {
     }
 
     render() {
+
         return (
             <div className="searchResultContainer" >
                 <div className="searchResultElementWrapper">

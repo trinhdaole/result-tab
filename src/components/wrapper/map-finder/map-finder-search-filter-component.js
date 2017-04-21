@@ -48,7 +48,10 @@ export default class SearchFilterComponent extends Component {
             Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
                 console.log(' ***    getSearchNearByPlace  ',data);
                 this.setState({searchNearbyData:data})
-                this.props.onSearchClick(data);
+                if(data){
+                    this.props.onSearchClick(data);
+                }
+
 
             });
         });

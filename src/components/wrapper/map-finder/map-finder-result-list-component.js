@@ -44,6 +44,7 @@ export default class MapFinderResultListComponent extends Component {
         console.log('***** page   ', page);
     }
     componentDidMount() {
+
     }
 
 
@@ -53,22 +54,21 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     renderList(){
+        console.log('***** List   ', this.props.resultData);
+
         let resultListData = [{place:'Liverpool',description:'Beauty City'},{place:'London',description:'England Capital'}];
         let bodyData    = [
                             [{place:'Liverpool',description:'Beauty City'},'icon'],
                             [{place:'Milan',description:'Beauty City'},'icon'],
 
         ];
+        let mockBodyData    = [
+                            {dis:'5',lat:10,long:105,name: 'Liverpool', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
+                            {dis:'5',lat:10,long:105,name: 'Milan', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
+        ]
+
         let headerData = ['One','Two'];
-       // return resultListData.map((item,index)=>{
-       //
-       //      return (
-       //          <ListItem
-       //              data    = {item}
-       //          />
-       //
-       //      )
-       //  })
+
 
 
 
