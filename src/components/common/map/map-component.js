@@ -137,6 +137,11 @@ export default class MapComponent extends Component {
     }
 }
 
+/**
+ * @desc props
+ * @param {markers}  - array object [{lat,lng,title,info}]
+
+ */
 MapComponent.propTypes = {
     center: PropTypes.object,
     markers: PropTypes.array,
@@ -149,7 +154,7 @@ MapComponent.propTypes = {
 
 MapComponent.defaultProps = {
     center: {lat: 59.937043, lng: 30.336157},
-    zoom: 16,
+    zoom: 11,
     markers: [],
     usingInfoBox: false,
 
