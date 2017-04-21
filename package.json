@@ -4,31 +4,6 @@
   "description": "TGSportMapSelector",
   "main": "index.js",
   "devDependencies": {
-    "enzyme": "^2.4.1",
-    "react-addons-test-utils": "^15.3.0",
-    "react-scripts": "^0.6.0"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.20.0",
-    "body-parser": "^1.17.1",
-    "bootstrap": "^3.3.7",
-    "crypto": "0.0.3",
-    "dateformat": "^2.0.0",
-    "font-awesome": "^4.7.0",
-    "html-to-react": "^1.2.2",
-    "moment": "^2.17.1",
-    "prop-types": "^15.5.8",
-    "classnames": "^2.2.5",
-    "google-map-react": "^0.24.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-fontawesome": "^1.5.0",
-    "react-google-maps": "^4.11.0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
-    "todomvc-app-css": "^2.0.6"
-  },
-  "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -68,14 +43,34 @@
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
   },
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
+    "crypto": "0.0.3",
+    "dateformat": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "google-map-react": "^0.24.0",
+    "html-to-react": "^1.2.2",
+    "moment": "^2.17.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-fontawesome": "^1.5.0",
+    "react-geolocated": "^1.0.3",
+    "react-google-maps": "^4.11.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^4.1.1",
+    "redux": "^3.5.2",
+    "todomvc-app-css": "^2.0.6"
+  },
   "scripts": {
-
     "prestart": "babel-node tools/start-message.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
     "open:src": "babel-node tools/src-server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
-
     "test:watch": "npm run test -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
