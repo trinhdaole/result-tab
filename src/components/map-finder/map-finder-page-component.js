@@ -5,12 +5,12 @@
 
 import React, {Component} from "react";
 import Popup from '../wrapper/map-finder/map-finder-popup-component';
-import TextComponent from '../common/text/text-component'
+import TextComponent from '../common/text/text-component';
 
-import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component'
-import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component'
-import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component'
-import MapFinder from '../wrapper/map-finder/map-finder-result-map-component'
+import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filter-component';
+import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component';
+import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component';
+import MapFinder from '../wrapper/map-finder/map-finder-result-map-component';
 import  * as Service  from '../../services/map-finder-services';
 
 export default class MapFinderPageComponent extends Component {
@@ -71,7 +71,7 @@ export default class MapFinderPageComponent extends Component {
                         </p>
                         <p className="textHeader">
                             <TextComponent
-                                text    = {'WHERE CAN I PLAY'}
+                                text    = {'WHERE CAN I PLAY ?'}
                                 style   = {{fontSize:26, fontWeight:'600',color:'white',fontFamily: 'Roboto',}}
                             />
                         </p>

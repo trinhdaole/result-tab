@@ -4,12 +4,12 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './containers/app';
 import './components/stylesheets/App.css';
-import reducer from './reducers'
+import reducer from './reducers';
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 render(
     <Provider store={store} >
         <App />
     </Provider>,
     document.getElementById('root')
-)
+);

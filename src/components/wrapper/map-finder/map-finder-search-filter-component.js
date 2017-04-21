@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes  from 'prop-types';
 import TextComponent from '../../common/text/text-component';
 import Input from '../../common/input/input-component';
@@ -23,7 +23,7 @@ export default class SearchFilterComponent extends Component {
     }
 
     handleOrientationChange(){
-        console.log('******  orientation ',screen.orientation)
+        console.log('******  orientation ',screen.orientation);
         if(screen.orientation.type == 'landscape-primary'){
             this.setState({
                 inputWidth : '65%'
@@ -43,7 +43,7 @@ export default class SearchFilterComponent extends Component {
 
 
     onClick(){
-        this.props.onSearchClick()
+        this.props.onSearchClick();
     }
 
 
@@ -116,7 +116,7 @@ export default class SearchFilterComponent extends Component {
 
                 <style>{css}</style>
             </div>
-        )
+        );
     }
 }
 SearchFilterComponent.propTypes = {
