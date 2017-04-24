@@ -44,9 +44,13 @@ export default class MapFinderResultListComponent extends Component {
         });
 
     }
-    pagingClick(page){
+    pagingClick(page,perPage){
         console.log('***** page   ', page);
-        this.setState({currentPage:page})
+        console.log('***** perPage   ', perPage);
+        this.setState({
+            currentPage:page,
+            itemPerPage:perPage
+        })
     }
     componentDidMount() {
 
@@ -109,7 +113,7 @@ export default class MapFinderResultListComponent extends Component {
         }
     }
     renderPaging(){
-        const onPagingClick = (page) => this.pagingClick(page);
+        const onPagingClick = (page, perPage) => this.pagingClick(page, perPage);
 
         const {resultData} = this.props;
 
@@ -120,6 +124,8 @@ export default class MapFinderResultListComponent extends Component {
                     <Paging
                         total       = {this.state.totalItem}
                         onClick     = {onPagingClick}
+                        perPage     = {this.state.itemPerPage}
+                        current     = {this.state.currentPage}
                         perPageList = {this.state.pagingList}
                     />
                 </div>

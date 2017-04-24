@@ -107,8 +107,8 @@ export default class MapFinderPageComponent extends Component {
                     </div>
                 </div>
                 <SearchFilterComponent
-                    //onSearchClick   = {(data)=> this.setState({resultData:data})}
-                    onSearchClick   = {(data)=> this.setState({resultData:this.state.mockData})}
+                    onSearchClick   = {(data)=> this.setState({resultData:data})}
+                    //onSearchClick   = {(data)=> this.setState({resultData:this.state.mockData})}
                 />
                 <div className="clear">
                 </div>
