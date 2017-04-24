@@ -88,7 +88,9 @@ export default class SearchResultComponent extends Component {
         else {
             return (
                 <div className="searchResultMap">
-                    <MapFinderResultMap />
+                    <MapFinderResultMap
+                        markers      = {this.props.resultData}
+                    />
                 </div>
             );
         }
