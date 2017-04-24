@@ -66,9 +66,7 @@ export default class SearchResultComponent extends Component {
                             markers      = {this.props.resultData}
                         />
                     </div>
-                    <div className="pagingWrapper">
-                        <Paging total={140} onClick={onPagingClick} />
-                    </div>
+
                 </div>
             );
 
@@ -78,9 +76,7 @@ export default class SearchResultComponent extends Component {
                     <MapFinderResultList
                         resultData  = {this.props.resultData}
                     />
-                    <div className="pagingWrapper">
-                        <Paging total={140} onClick={onPagingClick} />
-                    </div>
+
                 </div>
 
             );
