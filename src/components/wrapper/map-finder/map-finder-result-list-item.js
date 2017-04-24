@@ -45,9 +45,9 @@ export default class CellMapFinderDropdownComponent extends React.Component {
 
         let iconCheckStyle = {
 
-            height: '10px',
-            right: '10px',
-            top: '14px',
+            height: 10,
+            right: 10,
+            top: 22,
             position: 'absolute',
 
         };
@@ -80,7 +80,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                         </p>
 
                     </div>
-                    <div>
+                    <div className="nextText">
 
 
                         <Text
@@ -90,7 +90,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                                 fontFamily: 'Roboto-Bold',
                                 height: 10,
                                 right: 20,
-                                top: 14,
+                                top: 21,
                                 position: 'absolute',
                             }}
                             text={'NEXT'}
@@ -131,6 +131,9 @@ const css = `
       
     }
       .listItem-textWrapper{
-        margin: 18px 0 0 5px ;
+        margin: 12px 0 0 5px ;
       }
+    .nextText {
+        display:none;
+    }
 `;
