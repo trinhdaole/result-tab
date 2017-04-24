@@ -63,8 +63,7 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        // console.log('componentWillReceiveProps  this.props  ', this.props.resultData)
-        // console.log('componentWillReceiveProps nextProps  ', nextProps.resultData)
+
         const {resultData} = nextProps;
 
         let tempTotalPage   = ((resultData.length/this.state.itemPerPage).toFixed(0));
@@ -73,10 +72,9 @@ export default class MapFinderResultListComponent extends Component {
 
         for(var i = 1;i<= tempTotalPage;i++){
             pagingList.push(i*this.state.itemPerPage);
-            console.log('  i  ',i)
+
         }
-        console.log('***** pagingList  ',pagingList)
-        console.log('***** pagingList lenght  ',pagingList.length)
+
         this.setState({totalItem:resultData.length})
         if(pagingList.length != 0){
             this.setState({pagingList:pagingList});
@@ -86,9 +84,19 @@ export default class MapFinderResultListComponent extends Component {
 
     renderList(){
 
-        const {resultData} = this.props;
+        const {resultData,searchStatus} = this.props;
 
-        //let resultDataPerPage   = resultData.slice(0,10)
+        //console.log('*****   searchStatus list  ',searchStatus)
+        if(searchStatus == 'searching'){
+            return (
+                <div className="mapFinderResultListContainer"  style={{overflowX:'hidden', overflowY:'auto'}}>
+                   <div>searching</div>
+
+                </div>
+
+            );
+        }
+
 
         let resultDataPerPage   = [];
         if(resultData){
@@ -117,7 +125,7 @@ export default class MapFinderResultListComponent extends Component {
 
         const {resultData} = this.props;
 
-        console.log('***** totalItem  ',this.state.totalItem)
+
         if(resultData){
             return (
                 <div className="pagingWrapper">
@@ -154,7 +162,7 @@ export default class MapFinderResultListComponent extends Component {
 MapFinderResultListComponent.propTypes = {
     onSearchClick : PropTypes.func,
     arrObject:PropTypes.any,
-    resultData:PropTypes.object,
+    resultData:PropTypes.array,
 
 };
 

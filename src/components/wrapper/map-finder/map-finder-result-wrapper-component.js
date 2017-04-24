@@ -59,7 +59,8 @@ export default class SearchResultComponent extends Component {
                 <div className="searchResultContentWrapper">
                     <div className="searchResultList">
                         <MapFinderResultList
-                            resultData  = {this.props.resultData}
+                            searchStatus    = {this.props.searchStatus}
+                            resultData      = {this.props.resultData}
 
                         />
                     </div>
@@ -134,7 +135,7 @@ export default class SearchResultComponent extends Component {
 }
 SearchResultComponent.propTypes = {
     onSearchClick : PropTypes.func,
-    resultData:PropTypes.object
+    resultData:PropTypes.array,
 
 };
 

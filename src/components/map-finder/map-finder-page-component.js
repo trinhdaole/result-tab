@@ -20,35 +20,8 @@ export default class MapFinderPageComponent extends Component {
         super(props);
         this.state = {
             resultData:null,
-            mockData:[
-                {dis:'5',lat:10,long:105,name: 'Liverpool0', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool1', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool2', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool3', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool4', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool5', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool6', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool7', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool8', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool9', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool10', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool11', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool12', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool13', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool14', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool15', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool16', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool17', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool18', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool19', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool20', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool21', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool22', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool23', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool24', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                {dis:'5',lat:10,long:105,name: 'Liverpool25', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
+            searchStatus:'',
 
-            ],
         };
 
     }
@@ -83,7 +56,11 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
+
+
     render() {
+
+        let status  = ''
 
         return (
 
@@ -108,12 +85,15 @@ export default class MapFinderPageComponent extends Component {
                 </div>
                 <SearchFilterComponent
                     onSearchClick   = {(data)=> this.setState({resultData:data})}
-                    //onSearchClick   = {(data)=> this.setState({resultData:this.state.mockData})}
+                    //onSearchStatus  = {(status)=> this.setState({searchStatus:status}) }
+                    onSearchStatus  = {(status)=> {console.log('***   status',status);this.setState({searchStatus:status})}}
                 />
                 <div className="clear">
                 </div>
                 <SearchResultComponent
-                    resultData  = {this.state.resultData}
+                    searchStatus    = {this.state.searchStatus}
+                    resultData      = {this.state.resultData}
+
 
                 />
 

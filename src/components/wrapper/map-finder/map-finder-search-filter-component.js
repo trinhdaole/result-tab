@@ -15,10 +15,11 @@ export default class SearchFilterComponent extends Component {
 
     constructor(props) {
         super(props);
-        //this.onClick = this.onClick.bind(this);
         this.state = {
             inputWidth: '85%',
             searchNearbyData:null,
+            searchStatus:'',
+
         };
 
     }
@@ -32,7 +33,7 @@ export default class SearchFilterComponent extends Component {
 
     getData(){
         navigator.geolocation.getCurrentPosition( (initialPosition) => {
-            console.log('****  initialPosition  ',initialPosition)
+
             // let lat     = initialPosition.coords.latitude ;
             // let lon     = initialPosition.coords.longitude;
 
@@ -41,8 +42,7 @@ export default class SearchFilterComponent extends Component {
             let cat = 'club';
             let sport =  'baseball';
 
-            console.log(' ***    lat  ', lat);
-            console.log(' ***    lon  ', lon);
+
 
 
             Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
@@ -50,6 +50,7 @@ export default class SearchFilterComponent extends Component {
                 this.setState({searchNearbyData:data.results})
                 if(data){
                     this.props.onSearchClick(data.results);
+                    this.props.onSearchStatus('searchFinished');
                 }
 
 
@@ -78,7 +79,7 @@ export default class SearchFilterComponent extends Component {
 
     onSearchClick(){
         this.getData();
-
+        this.props.onSearchStatus('searching');
 
     }
 
@@ -156,7 +157,8 @@ export default class SearchFilterComponent extends Component {
     }
 }
 SearchFilterComponent.propTypes = {
-    onSearchClick : PropTypes.func
+    onSearchClick : PropTypes.func,
+    onSearchStatus : PropTypes.func
 
 };
 
