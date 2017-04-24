@@ -10,6 +10,7 @@ import Text from   '../../common/text/text-component';
 import Icon from   '../../common/icon/icon-component';
 import Input from '../../common/input/input-component';
 import Button from '../../common/button/button-component';
+import  * as Service  from '../../../services/map-finder-services';
 
 export default class MapFinderSearchAdvanceComponent extends React.Component {
     constructor(props) {
@@ -19,6 +20,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
         };
     }
+
     onClick(event) {
         console.log(' ****  onClick   ****  ');
         event.stopPropagation();
@@ -27,6 +29,40 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         this.setState({
             isExpand:!this.state.isExpand,
 
+        });
+    }
+
+    clearFilter(){
+        if( this.refs.inputClubName){
+            this.refs.inputClubName.clearText();
+        }
+        if( this.refs.inputPostcode){
+            this.refs.inputPostcode.clearText();
+        }
+        if( this.refs.inputSuburb){
+            this.refs.inputSuburb.clearText();
+        }
+    }
+
+    onSearchAdvanceClick(){
+        let postcode = 10 ;
+        let  suburb = '';
+        let name = '';
+        if(this.refs.inputPostcode.getInputValue().length >= 2){
+            postcode = this.refs.inputPostcode.getInputValue();
+        }
+        if(this.refs.inputClubName.getInputValue().length >= 3){
+            name = this.refs.inputClubName.getInputValue();
+        }
+        if(this.refs.inputSuburb.getInputValue().length >= 3){
+            suburb = this.refs.inputSuburb.getInputValue();
+        }
+        let sport =  'baseball';
+
+        Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
+            console.log('data');
+            console.log(data);
+            this.props.onSearchAdvanceClick(data);
         });
     }
 
@@ -55,6 +91,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
         };
 
+        const onSearchAdvanceClick = () => this.onSearchAdvanceClick();
 
         if(!this.state.isExpand){
             return (
@@ -68,6 +105,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                 <div className="searchAdvanceElement">
                     <Text text  = {'Club name'} style={textStyle}/>
                     <Input
+                        ref="inputClubName"
                         style={inputStyle}
                         placeholder={''}
                         onChange={this.onChange}
@@ -77,6 +115,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                 <div className="searchAdvanceElement">
                 <Text text  = {'Postcode'} style={textStyle}/>
                 <Input
+                    ref="inputPostcode"
                     style={inputStyle}
                     placeholder={''}
                     onChange={this.onChange}
@@ -87,25 +126,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                 <div className="searchAdvanceElement">
                     <Text text  = {'Suburb'} style={textStyle}/>
                     <Input
-                        style={inputStyle}
-                        placeholder={''}
-                        onChange={this.onChange}
-                        onKeyUp={this.onKeyUp}
-                    />
-                </div>
-
-                <div className="searchAdvanceElement">
-                    <Text text  = {'Street'} style={textStyle}/>
-                    <Input
-                        style={inputStyle}
-                        placeholder=''
-                        onChange={this.onChange}
-                        onKeyUp={this.onKeyUp}
-                    />
-                </div>
-                <div className="searchAdvanceElement">
-                    <Text text  = {'State'} style={textStyle}/>
-                    <Input
+                        ref="inputSuburb"
                         style={inputStyle}
                         placeholder={''}
                         onChange={this.onChange}
@@ -115,6 +136,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
                 <div className="buttonSearchWrapper">
                     <Button
+                        onClick={onSearchAdvanceClick}
                         text    = {'SEARCH'}
                         style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:10,fontFamily:'Roboto-Medium'}}
 
@@ -205,6 +227,7 @@ MapFinderSearchAdvanceComponent.propTypes = {
     groupName: PropTypes.string,
     arrObject: PropTypes.array,
     cellStyle: PropTypes.object,
+    onSearchAdvanceClick: PropTypes.func,
 
 };
 

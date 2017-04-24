@@ -36,11 +36,23 @@ export default class InputComponent extends Component {
         }
     }
 
+    forceFocus(){
+        this.refs.input.focus();
+    }
+
+    clearText(){
+        this.refs.input.value = "";
+    }
+
+    getInputValue(){
+        return this.refs.input.value;
+    }
+
     render() {
         const {id,value, placeholder, style, type, maxLength} = this.props;
         return (
             <div>
-                <input type={type} id={id} name="input" className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
+                <input type={type} id={id} ref="input" name="input" className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
                        onChange={this.onChange} onKeyPress={this.onKeyPress} onKeyUp={this.onKeyUp}/>
                 <style>{css}</style>
             </div>

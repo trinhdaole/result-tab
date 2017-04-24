@@ -25,39 +25,29 @@ export default class MapFinderPageComponent extends Component {
     }
 
     componentDidMount() {
-         let lat = -33.787266 ;
-         let  lon = 150.871959;
-         let cat = 'club';
-         let sport =  'baseball';
-        // Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
-        //     console.log('data');
-        //     console.log(data);
-        // });
+
     }
 
     componentWillUnmount(){
 
     }
 
-    render1() {
+    onClearFilter(){
+          this.refs.searchFilter.clearSearch();
+          this.refs.searchFilter.focusSearch();
+    }
 
-        return (
+    onSearchAgain(){
 
-
-            <div className="map-wrapper">
-              <MapFinder/>
-                <style>{css}</style>
-            </div>
-
-
-        );
-
+        this.refs.searchFilter.focusSearch();
     }
 
     render() {
 
-        return (
+        const onClearFilter = () => this.onClearFilter();
+        const onSearchAgain = () => this.onSearchAgain();
 
+        return (
 
             <div className="mapFinderContainer">
                 {/*<Popup  />*/}
@@ -79,11 +69,14 @@ export default class MapFinderPageComponent extends Component {
                 </div>
                 <SearchFilterComponent
                     onSearchClick   = {(data)=> this.setState({resultData:data})}
+                    ref="searchFilter"
                 />
                 <div className="clear">
                 </div>
                 <SearchResultComponent
                     resultData  = {this.state.resultData}
+                    onClearFilter={onClearFilter}
+                    onSearchAgain={onSearchAgain}
                 />
 
 

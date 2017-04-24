@@ -25,8 +25,26 @@ export default class SearchResultComponent extends Component {
     componentWillUnmount(){
 
     }
+
     pagingClick(page){
         console.log('***** page   ', page);
+    }
+
+    onClearFilter(){
+        window.scrollTo(0, 0);
+        if(this.props.onClearFilter){
+            this.props.onClearFilter();
+        }
+
+    }
+
+    onSearchAgain(){
+        window.scrollTo(0, 0);
+        if(this.props.onSearchAgain){
+            this.props.onSearchAgain();
+        }
+
+
     }
 
     renderSliderButton(){
@@ -96,6 +114,25 @@ export default class SearchResultComponent extends Component {
         }
     }
 
+    renderFooter() {
+
+        const onClearFilter = () => this.onClearFilter();
+        const onSearchAgain = () => this.onSearchAgain();
+
+        if(this.props.resultData){
+            return null;
+        }else{
+            return (
+                <div className="footerWrapper">
+                    <Footer
+                        onClearFilter={onClearFilter}
+                        onSearchAgain={onSearchAgain}
+                    />
+                </div>
+            );
+        }
+    }
+
     render() {
 
         return (
@@ -111,9 +148,7 @@ export default class SearchResultComponent extends Component {
                 </div>
 
                 {this.renderResultContent()}
-                <div className="footerWrapper">
-                    <Footer />
-                </div>
+                {this.renderFooter()}
                 <style>{css}</style>
             </div>
         );
@@ -121,7 +156,9 @@ export default class SearchResultComponent extends Component {
 }
 SearchResultComponent.propTypes = {
     onSearchClick : PropTypes.func,
-    resultData:PropTypes.object
+    resultData:PropTypes.object,
+    onClearFilter: PropTypes.func,
+    onSearchAgain: PropTypes.func,
 
 };
 

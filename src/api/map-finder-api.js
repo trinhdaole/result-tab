@@ -9,7 +9,17 @@ const Config = require('../../config');
 import * as CommonApi from "./common-api";
 
 export function getSearchPlace(postcode, suburb, name, sport) {
-    const path = Config.MAP_FINDER_SEARCH_PLACE_PATH;
+    let path = Config.MAP_FINDER_SEARCH_PLACE_PATH;
+
+    if(suburb == ''){
+        path = path.replace("&suburb={suburb}", "");
+    }
+
+    if(name == ''){
+        path = path.replace("&name={name}", "");
+    }
+
+
     const param = {
         postcode: postcode,
         suburb: suburb,

@@ -6,8 +6,6 @@ import Button from '../../common/button/button-component';
 import Icon from '../../common/icon/icon-component';
 import  MapFinderDropdownComponent from  './map-finder-dropdown-component';
 import SearchAdvanceComponent from './map-finder-search-advance-component';
-
-
 import  * as Service  from '../../../services/map-finder-services';
 
 
@@ -76,12 +74,27 @@ export default class SearchFilterComponent extends Component {
 
     }
 
+    focusSearch(){
+        this.refs.inputSearch.forceFocus();
+    }
+
+    clearSearch(){
+        this.refs.inputSearch.clearText();
+        this.refs.searchAdvance.clearFilter();
+
+    }
+
     onSearchClick(){
         this.getData();
 
 
     }
 
+    onSearchAdvanceClick(data){
+        if(data){
+            this.props.onSearchClick(data.results);
+        }
+    }
 
     render() {
 
@@ -98,7 +111,9 @@ export default class SearchFilterComponent extends Component {
             border:'none',
             textAlign:'left',
             color: 'rgba(81,81,81,1)',
-            outline:'none'
+            outline:'none',
+            textOverflow: 'ellipsis',
+
 
         };
         let cellStyle = {
@@ -109,7 +124,7 @@ export default class SearchFilterComponent extends Component {
         let iconSearch = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAnCAYAAACbgcH8AAAAAXNSR0IArs4c6QAABJxJREFUWAnNmW1oHEUYx//P7qUtGo2vpT1Ne3dWpa1YKyKo4DcRK31RVKS0xbydWirFquCX6ge1Cr6AUIveXaMWabF+KVJR8SUUbUEs9ZMfNCG38SDBGrWpbY1J7sZndtOdWS65u9ldvQxs+M/uPP/nN7OztzMbQpjSO7QCQiyHwGI+FvJxCiRGYGMQranjeIjKYWwbjaFGG+LdYgpTYhsEbQDENTXiRmHRYT7y6Ewdq9Eu9KX60IXSZRBTOxl0K4/oPLNMdAi2eBZdmZ/M4mq3rg29d3AVyviYLZYEbIhOcf0IQL9AVE7CwqWoUJI7dntVW9A5WOIRdGc+CnhEqMwOXXDu5Xn7IR8XKn86wiO3C6vSfbiFJtV5TRWc1Ryzne/KZu6E5V4hEtzBnehJvaS1DC1nhs4Vb2LHo5z0As+Z/uTR7ER3+lDDmfKlG3laHWCPFSqGOpBNv6fq4VQ19P7hK3B2/ASPVLtrSRhAomUNOtr7jVN88PvF+Pv0QR75u6e9JmDTnehMf2fspQV4t087gTPjz/vA4BGmlntCAUvPTZefxqL59/PUOOGmkA/yFPZwJ6oHS2eoo4PQhdIybv+oirG2oLt9QNVDqLXJc0jM2wCis160uBkF5+EQTn5IELoyuZ2vtLhXCV8hu/Sw3zKK6LyqxHfvdc3iGU0byyA0Yb3vYNMLvo5D2K2v8WiPu1ZCrMa+4eDPqEEOBe3+VPkP32/oSH1j4FO/adeVf/EvyRd+w4mJdb42FApa0EoVS1/zqFRUPSYloKCF0PKZ+StoqvAb7XzhN91/UUjzFdDymSVT0EIs1EJ/1XScUvkSrw5DFgUNjGkebZqOTwrovno+oxwKmqwRFalPFXU2siJtShC0fGbOChpU9EMF3ebrOAUFfFU+wxwKOrnkW44948XzIsd7Oxra1WguX91CrFUtEp8pbaYU9Br6h0M/98PF1BO+jkPkiw8y9CLXimgYXVd/H9ZWQUsHiwrKSDyG3qGMqkdQxwUvDWiX70DUy+8BXmOHK0Ho7jTfMupzreSKrFw+wHvDBeGstagfnDf5bXh+XzmKBRe9ql01lkFoGZ6gp/mvtysRuJWXku/DHSljby8g7zzF0+JxFc07GLlkjVBmXtfmi1lO9I7y5W1W6/wHsDE5qs7VUX0igf4ijzC2qpbWj8imblD1cGpmaOmVK77Bt/RJ35boDxBeRDK1B95D61+qEjnnPv4O8jJ3/HrtmvwWYrPHW+jJbNPOG8vZoaVVztnB4Dz/pjeonv0YP0SfsPwStlVC2ToJmryEn4UkKuIOhlqvdj5eAD/g/Xzt2ukaN40GXhtaZskP3QWUdzPIdX7SRoW8O6Dn0Lb0bYw5+3jkN/qhEcDrQ8sscn4OOD084jsYXm7J6hX5lWkvT4ZX0JGW30iAg8KOC7wxaB0xN7QSVmUdf5xZDlQW863m1Zr78WaEOzQIsj/lfeXRGdfjMYGbQ+sdCKNjAP//oWVHI4I3BzoiePOgI4A3FzokePOhQ4DPDWhD8LkDbQA+t6BnAwd2I5vxd1LV62kZ2Mwi/zPWltrCb9T9GsbPmsa/DzqLGTAS1oUAAAAASUVORK5CYII=';
 
         const onSearchClick = () => this.onSearchClick();
-
+        const onSearchAdvanceClick = (data) => this.onSearchAdvanceClick(data);
         return (
             <div className="searchFilterContainer">
                 <div className="searchFilerChildElementWrapper">
@@ -124,6 +139,7 @@ export default class SearchFilterComponent extends Component {
                     <div className="searchView">
                         <Input
                             style={inputStyle}
+                            ref="inputSearch"
                             placeholder={'Enter postcode or club name'}
                             onChange={this.onChange}
                             onKeyUp={this.onKeyUp}
@@ -145,7 +161,10 @@ export default class SearchFilterComponent extends Component {
                     groupName="Programs & Competitions"
                     arrObject={arrObject}
                 />**/}
-                <SearchAdvanceComponent />
+                <SearchAdvanceComponent
+                    ref="searchAdvance"
+                    onSearchAdvanceClick={onSearchAdvanceClick}
+                />
 
 
 
