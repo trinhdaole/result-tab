@@ -12,10 +12,12 @@ export default class MapFinderResultListComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isSearching:false,
             totalItem:0,
             currentPage:1,
             pagingList:[10],
             itemPerPage:5,
+
 
 
         };
@@ -63,30 +65,43 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps){
+        //console.log('***  this.props ',this.props.resultData)
+        //console.log('***  nextProps ',nextProps.resultData)
+        if(!nextProps.resultData  ){
+            console.log('*** SEARCHING ........  ')
+            this.setState({isSearching:true})
+        }else{
+            this.setState({isSearching:false})
+        }
+
 
         const {resultData} = nextProps;
+        if(resultData){
+            let tempTotalPage   = ((resultData.length/this.state.itemPerPage).toFixed(0));
 
-        let tempTotalPage   = ((resultData.length/this.state.itemPerPage).toFixed(0));
+            var pagingList  =   [];
 
-        var pagingList  =   [];
+            for(var i = 1;i<= tempTotalPage;i++){
+                pagingList.push(i*this.state.itemPerPage);
 
-        for(var i = 1;i<= tempTotalPage;i++){
-            pagingList.push(i*this.state.itemPerPage);
+            }
 
+            this.setState({totalItem:resultData.length})
+            if(pagingList.length != 0){
+                this.setState({pagingList:pagingList});
+            }
         }
 
-        this.setState({totalItem:resultData.length})
-        if(pagingList.length != 0){
-            this.setState({pagingList:pagingList});
-        }
+
 
     }
 
     renderList(){
 
+        console.log('***  isSearching ', this.state.isSearching)
         const {resultData,searchStatus} = this.props;
+        console.log('***  searchStatus list ', searchStatus)
 
-        //console.log('*****   searchStatus list  ',searchStatus)
         if(searchStatus == 'searching'){
             return (
                 <div className="mapFinderResultListContainer"  style={{overflowX:'hidden', overflowY:'auto'}}>

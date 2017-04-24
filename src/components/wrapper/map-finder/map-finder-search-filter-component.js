@@ -29,6 +29,8 @@ export default class SearchFilterComponent extends Component {
 
     }
 
+
+
     getData(){
         navigator.geolocation.getCurrentPosition( (initialPosition) => {
 
@@ -44,11 +46,11 @@ export default class SearchFilterComponent extends Component {
 
 
             Service.getSearchNearByPlace(lat, lon, cat, sport ).then(data => {
-                console.log(' ***    getSearchNearByPlace  ',data.results);
+                //console.log(' ***    getSearchNearByPlace  ',data.results);
                 this.setState({searchNearbyData:data.results})
                 if(data){
                     this.props.onSearchClick(data.results);
-
+                    this.props.onSearchStatus('searchFinished');
                 }
 
 
@@ -87,6 +89,7 @@ export default class SearchFilterComponent extends Component {
 
     onSearchClick(){
         this.getData();
+        this.props.onSearchStatus('searching');
 
 
     }

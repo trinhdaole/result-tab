@@ -21,8 +21,11 @@ export default class MapFinderPageComponent extends Component {
         this.state = {
             resultData:null,
             searchStatus:'',
+            isSearching:false,
 
         };
+        this.searchStatus = '';
+        this.onSearchStatus = this.onSearchStatus.bind(this);
 
     }
 
@@ -34,6 +37,7 @@ export default class MapFinderPageComponent extends Component {
 
     }
 
+
     onClearFilter(){
           this.refs.searchFilter.clearSearch();
           this.refs.searchFilter.focusSearch();
@@ -43,6 +47,18 @@ export default class MapFinderPageComponent extends Component {
 
         this.refs.searchFilter.focusSearch();
     }
+    onSearchStatus(status){
+
+        console.log('dataObject:  ',status);
+        this.setState({searchStatus:status})
+
+
+
+
+    }
+
+
+
 
 
 
@@ -74,15 +90,17 @@ export default class MapFinderPageComponent extends Component {
                     </div>
                 </div>
                 <SearchFilterComponent
-                    onSearchClick   = {(data)=> this.setState({resultData:data})}
-                    ref="searchFilter"
+                    onSearchClick   = {(data)=> this.setState({resultData:data}) }
+                    onSearchStatus  = {(dataObject)=> this.onSearchStatus(dataObject)}
+                    ref             = "searchFilter"
                 />
                 <div className="clear">
                 </div>
                 <SearchResultComponent
-                    resultData  = {this.state.resultData}
-                    onClearFilter={onClearFilter}
-                    onSearchAgain={onSearchAgain}
+                    resultData      = {this.state.resultData}
+                    searchStatus    = {this.state.searchStatus}
+                    onClearFilter   = {onClearFilter}
+                    onSearchAgain   = {onSearchAgain}
                 />
 
 
