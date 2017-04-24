@@ -85,13 +85,12 @@ export default class MapFinderPageComponent extends Component {
                 </div>
                 <SearchFilterComponent
                     onSearchClick   = {(data)=> this.setState({resultData:data})}
-                    //onSearchStatus  = {(status)=> this.setState({searchStatus:status}) }
-                    onSearchStatus  = {(status)=> {console.log('***   status',status);this.setState({searchStatus:status})}}
+
                 />
                 <div className="clear">
                 </div>
                 <SearchResultComponent
-                    searchStatus    = {this.state.searchStatus}
+
                     resultData      = {this.state.resultData}
 
 
