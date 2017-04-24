@@ -28,14 +28,17 @@ export default class MapFinderResultListComponent extends Component {
             for (let i = 0; i < arrObject.length; i++) {
                 let temp = arrObject[i];
                 let info = "";
+                let comma = ' ';
                 if (temp.street) {
                     info = info + temp.street;
+                    comma = ", ";
                 }
                 if (temp.suburb) {
-                    info = info + ", " + temp.suburb;
+                    info = info + comma + temp.suburb;
+                    comma = ", ";
                 }
                 if (temp.state) {
-                    info = info + ", " + temp.state;
+                    info = info + comma + temp.state;
                 }
 
                 let getTemp = {lat: temp.lat, lng: temp.lon, title: temp.name, info: info}
