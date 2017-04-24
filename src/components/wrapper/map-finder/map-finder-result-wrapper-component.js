@@ -14,7 +14,8 @@ export default class SearchResultComponent extends Component {
         super(props);
         this.state = {
             isShowMap:false,
-            sliderStatus:'both'
+            sliderStatus:'both',
+
         };
     }
     componentDidMount() {
@@ -76,7 +77,9 @@ export default class SearchResultComponent extends Component {
                 <div className="searchResultContentWrapper">
                     <div className="searchResultList">
                         <MapFinderResultList
-                            resultData  = {this.props.resultData}
+                            searchStatus    = {this.props.searchStatus}
+                            resultData      = {this.props.resultData}
+
                         />
                     </div>
                     <div className="searchResultMap">
@@ -84,9 +87,7 @@ export default class SearchResultComponent extends Component {
                             markers      = {this.props.resultData}
                         />
                     </div>
-                    <div className="pagingWrapper">
-                        <Paging total={140} onClick={onPagingClick} />
-                    </div>
+
                 </div>
             );
 
@@ -95,10 +96,9 @@ export default class SearchResultComponent extends Component {
                 <div className="searchResultList">
                     <MapFinderResultList
                         resultData  = {this.props.resultData}
+
                     />
-                    <div className="pagingWrapper">
-                        <Paging total={140} onClick={onPagingClick} />
-                    </div>
+
                 </div>
 
             );
@@ -135,12 +135,26 @@ export default class SearchResultComponent extends Component {
 
     render() {
 
+        const {resultData}  = this.props;
+        let numberOfResult = 0;
+        let resultStatusText    = '';
+
+        if(resultData){
+            numberOfResult = resultData.length;
+            if(resultData.length >=2){
+                resultStatusText = resultData.length + ' results found'
+            }else{
+                resultStatusText = resultData.length + ' result found'
+            }
+        }
+
+
         return (
             <div className="searchResultContainer" >
                 <div className="searchResultElementWrapper">
                     <div className="searchTextWrapper">
                         <TextComponent
-                            text={'2 result(s) found'}
+                            text={resultStatusText}
                             style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </div>
@@ -156,9 +170,9 @@ export default class SearchResultComponent extends Component {
 }
 SearchResultComponent.propTypes = {
     onSearchClick : PropTypes.func,
-    resultData:PropTypes.object,
     onClearFilter: PropTypes.func,
     onSearchAgain: PropTypes.func,
+    resultData:PropTypes.array,
 
 };
 

@@ -2,7 +2,7 @@
  * @copyright 2017 @ NEXLE
  * @author rocachien
  * @create 2017/04/13 16:22
- * @update 2017/04/18 13:52
+ * @update 2017/04/21 14:24
  * @file common/paging/paging-component.js
  */
 "use strict";
@@ -58,7 +58,7 @@ export default class Paging extends Component {
         let pages = [];
 
         if(!isItemClick) {
-            this.startPage = currentPage < perLink ? 1 : currentPage - perLink + 1;
+            this.startPage = currentPage < perLink ? 1 : currentPage - parseInt(perLink/2);
             this.endPage = this.startPage + perLink - 1;
         }
 
@@ -79,27 +79,27 @@ export default class Paging extends Component {
         event.preventDefault();
 
         this.updateLinkWithIndex(page, true);
-        if(this.props.onClick) return this.props.onClick(page);
+        if(this.props.onClick) return this.props.onClick(page, this.perPage);
     }
 
     onPreviousLink() {
         event.stopPropagation();
         event.preventDefault();
 
-        let page = this.startPage - 1;
+        let page = this.state.currentPage - 1;
 
         this.updateLinkWithIndex(page, false);
-        if(this.props.onClick) return this.props.onClick(page);
+        if(this.props.onClick) return this.props.onClick(page, this.perPage);
     }
 
     onNextLink(event) {
         event.stopPropagation();
         event.preventDefault();
 
-        let page = this.endPage + 1;
+        let page = this.state.currentPage + 1;
 
         this.updateLinkWithIndex(page, false);
-        if(this.props.onClick) return this.props.onClick(page);
+        if(this.props.onClick) return this.props.onClick(page, this.perPage);
     }
 
     onPerPageClick(event, perPage) {
@@ -111,7 +111,7 @@ export default class Paging extends Component {
         this.perPage = perPage;
         this.totalPage = Math.ceil(total / perPage);
         this.updateLinkWithIndex(1, false);
-        if(this.props.onClick) return this.props.onClick(1);
+        if(this.props.onClick) return this.props.onClick(1, this.perPage);
     }
 
     renderPreviousLink() {

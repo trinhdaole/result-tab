@@ -20,6 +20,8 @@ export default class MapFinderPageComponent extends Component {
         super(props);
         this.state = {
             resultData:null,
+            searchStatus:'',
+
         };
 
     }
@@ -42,10 +44,14 @@ export default class MapFinderPageComponent extends Component {
         this.refs.searchFilter.focusSearch();
     }
 
+
+
     render() {
 
         const onClearFilter = () => this.onClearFilter();
         const onSearchAgain = () => this.onSearchAgain();
+
+        let status  = ''
 
         return (
 
