@@ -90,7 +90,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                                 fontFamily: 'Roboto-Bold',
                                 height: 10,
                                 right: 20,
-                                top: 21,
+                                top: 22,
                                 position: 'absolute',
                             }}
                             text={'NEXT'}

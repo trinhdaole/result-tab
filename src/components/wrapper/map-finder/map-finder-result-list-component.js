@@ -12,8 +12,12 @@ export default class MapFinderResultListComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            totalItem:0,
+            currentPage:1,
+            pagingList:[10],
+            itemPerPage:5,
 
-            arrObject:this.props.arrObject,
+
         };
     }
 
@@ -42,6 +46,7 @@ export default class MapFinderResultListComponent extends Component {
     }
     pagingClick(page){
         console.log('***** page   ', page);
+        this.setState({currentPage:page})
     }
     componentDidMount() {
 
@@ -53,27 +58,48 @@ export default class MapFinderResultListComponent extends Component {
 
     }
 
+    componentWillReceiveProps(nextProps){
+        // console.log('componentWillReceiveProps  this.props  ', this.props.resultData)
+        // console.log('componentWillReceiveProps nextProps  ', nextProps.resultData)
+        const {resultData} = nextProps;
+
+        let tempTotalPage   = ((resultData.length/this.state.itemPerPage).toFixed(0));
+
+        var pagingList  =   [];
+
+        for(var i = 1;i<= tempTotalPage;i++){
+            pagingList.push(i*this.state.itemPerPage);
+            console.log('  i  ',i)
+        }
+        console.log('***** pagingList  ',pagingList)
+        console.log('***** pagingList lenght  ',pagingList.length)
+        this.setState({totalItem:resultData.length})
+        if(pagingList.length != 0){
+            this.setState({pagingList:pagingList});
+        }
+
+    }
+
     renderList(){
 
-        const {resultData} = this.props
+        const {resultData} = this.props;
 
+        //let resultDataPerPage   = resultData.slice(0,10)
 
-
-        let mockBodyData    = [
-                            {dis:'5',lat:10,long:105,name: 'Liverpool', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-                            {dis:'5',lat:10,long:105,name: 'Milan', postcode:'2761',state:'New South',street:'Po Box',suburb:'unknown'},
-        ];
-
-
-        const onPagingClick = (page) => this.pagingClick(page);
-
+        let resultDataPerPage   = [];
         if(resultData){
-            return resultData.map((item,index)=> {
+            resultDataPerPage = resultData.slice((this.state.currentPage-1)*this.state.itemPerPage,(this.state.currentPage*this.state.itemPerPage));
+        }
+
+
+
+
+        if(resultDataPerPage){
+            return resultDataPerPage.map((item,index)=> {
                 return (
                     <div className="mapFinderResultListContainer"  key   = {index} style={{overflowX:'hidden', overflowY:'auto'}}>
                         <ListItem data  = {item}
                         />
-
 
                     </div>
 
@@ -84,28 +110,31 @@ export default class MapFinderResultListComponent extends Component {
     }
     renderPaging(){
         const onPagingClick = (page) => this.pagingClick(page);
-        return (
-            <div className="pagingWrapper">
-                <Paging total={140} onClick={onPagingClick} />
-            </div>
 
-        );
+        const {resultData} = this.props;
+
+        console.log('***** totalItem  ',this.state.totalItem)
+        if(resultData){
+            return (
+                <div className="pagingWrapper">
+                    <Paging
+                        total       = {this.state.totalItem}
+                        onClick     = {onPagingClick}
+                        perPageList = {this.state.pagingList}
+                    />
+                </div>
+
+            );
+        }
+        return null;
+
+
+
     }
 
 
 
-
-
-
-
-
-
-
-
-
-
     render() {
-        if(this.props.resultData){
             return (
                 <div className="mapFinderResultListContainer" style={{overflow:'scroll', overflowY:'auto'}}>
                     {this.renderList()}
@@ -113,8 +142,6 @@ export default class MapFinderResultListComponent extends Component {
                     <style>{css}</style>
                 </div>
             );
-        }
-        return null;
 
     }
 }
