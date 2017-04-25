@@ -11,13 +11,22 @@ import * as CommonApi from "./common-api";
 export function getSearchPlace(postcode, suburb, name, sport) {
     let path = Config.MAP_FINDER_SEARCH_PLACE_PATH;
 
-    if(suburb == ''){
-        path = path.replace("&suburb={suburb}", "");
+    let temp = "&";
+    if(postcode == ''){
+        path = path.replace("postcode={postcode}&", "");
+        temp = "";
     }
+  
+    if(suburb == ''){
+        path = path.replace(temp + "suburb={suburb}", "");
+
+    }
+    temp = "&";
 
     if(name == ''){
-        path = path.replace("&name={name}", "");
+        path = path.replace(temp + "name={name}", "");
     }
+
 
 
     const param = {

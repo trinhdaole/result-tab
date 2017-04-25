@@ -46,7 +46,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
     onSearchAdvanceClick(){
         this.props.onSearchAdvanceStatus('searching')
-        let postcode = 10 ;
+        let postcode = '' ;
         let  suburb = '';
         let name = '';
         if(this.refs.inputPostcode.getInputValue().length >= 2){
