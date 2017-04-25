@@ -131,17 +131,21 @@ export default class MapFinderResultListComponent extends Component {
         let totalItem = 0;
         let pagingList  = [];
         if(resultData){
-            let tempTotalPage   = ((resultData.length/this.state.itemPerPage).toFixed(0));
+            let tempCount   = ((resultData.length/this.state.itemPerPage) <= 0.8) ?  0.8 : resultData.length/this.state.itemPerPage ;
+            let tempTotalPage   = tempCount.toFixed(0);
             for(var i = 1;i<= tempTotalPage;i++){
                 pagingList.push(i*this.state.itemPerPage);
 
             }
             totalItem = resultData.length;
+            console.log('**** tempTotalPage   ',tempTotalPage)
+            if(tempTotalPage > 3){
+                pagingList = [10,20,50];
+            }
 
         }
 
         if(searchStatus == 'searching'){
-
             return null;
         }
         if(resultData){
