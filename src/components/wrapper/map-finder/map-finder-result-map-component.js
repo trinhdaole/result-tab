@@ -81,7 +81,7 @@ export default class MapFinderResultListComponent extends Component {
          if(this.state.markers){
               center = this.props.center ? this.props.center : this.state.markers.length > 0 ? {lat:  this.state.markers[0].lat ,lng :  this.state.markers[0].lng} : {lat: 0, lng: 0};
          }
-       
+
         return (
 
                    <MapComponent
