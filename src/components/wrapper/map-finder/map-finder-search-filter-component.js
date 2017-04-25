@@ -248,6 +248,7 @@ const css = `
         
     }
      .searchFilerChildElementWrapper{
+        width:calc(100% - 4px);
         height:34px;
         border-bottom-width : 1px;
         border-bottom-style : solid;
@@ -261,6 +262,7 @@ const css = `
         line-height: 34px;
      }
      .searchViewWrapper {
+        width:calc(100% - 4px);
         height:48px;
         border-bottom-width : 1px;
         border-bottom-style : solid;

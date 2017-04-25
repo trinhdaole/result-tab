@@ -229,7 +229,7 @@ MapFinderSearchAdvanceComponent.propTypes = {
 
 const css = `
     .advanceSearchExpandedWrapper {
-        width:100%;
+        width:calc(100% - 4px);
         margin:0 4px 0 0;
        border-radius: 4px;
         
