@@ -16,7 +16,7 @@ export function getSearchPlace(postcode, suburb, name, sport) {
         path = path.replace("postcode={postcode}&", "");
         temp = "";
     }
-  
+
     if(suburb == ''){
         path = path.replace(temp + "suburb={suburb}", "");
 

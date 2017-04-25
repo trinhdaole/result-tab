@@ -10,7 +10,6 @@ export default class MapComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show:false,
             makerClick:false,
             change:false,
         };
@@ -67,8 +66,9 @@ export default class MapComponent extends Component {
                 this.makerClick = false;
 
         }else{
+            this.lat = 0;
+            this.lng = 0;
             this.setState({
-                show:false,
                 change:!this.state.change,
             });
         }
@@ -76,7 +76,15 @@ export default class MapComponent extends Component {
     }
 
     onMakerClick(lat,lng){
+
         this.makerClick = true;
+        this.lat = lat;
+        this.lng = lng;
+
+        this.setState({
+            change:!this.state.change,
+        });
+
     }
 
     onNext(){
@@ -90,15 +98,19 @@ export default class MapComponent extends Component {
             if(this.props.usingInfoBox == true){
                 const onMakerClick = (lat,lng) => this.onMakerClick( lat,lng);
                 const onNext = () => this.onNext();
+                let show = false;
+                if(this.lat === marker.lat && this.lng === marker.lng){
+                    show = true;
+                }
+
                 return (
                     <PinBoxComponent key={i} {...marker}
                          onClick={onMakerClick}
                          onNext={onNext}
                          lat={marker.lat}
                          lng={marker.lng}
-                          show={this.state.show}
+                          show={show}
                           src={this.props.srcPin}
-                          change={this.state.change}
                           title={marker.title}
                           info={marker.info}
                     />

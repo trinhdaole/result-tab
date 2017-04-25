@@ -27,12 +27,12 @@ export default class PinInfo extends  Component {
 
     componentWillReceiveProps(nextProps){
 
-        if(this.state.show === true && nextProps.change !== this.props.change ){
+
             this.setState({
                 show:nextProps.show,
-                change:nextProps.change,
+
             });
-        }
+
     }
 
     /**
@@ -162,7 +162,7 @@ PinInfo.propTypes = {
     styleTitle: PropTypes.object,
     styleDescription: PropTypes.object,
     styleButton: PropTypes.object,
-    change:   PropTypes.bool,
+
     title: PropTypes.string,
     info: PropTypes.string,
 };
@@ -171,7 +171,7 @@ PinInfo.defaultProps = {
     lat: 59.938043,
     lng: 30.337157,
     show: false,
-    change: false,
+
     title: '',
     info: '',
 };
