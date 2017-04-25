@@ -45,6 +45,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
     }
 
     onSearchAdvanceClick(){
+        this.props.onSearchAdvanceStatus('searching')
         let postcode = 10 ;
         let  suburb = '';
         let name = '';
@@ -63,6 +64,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             console.log('data');
             console.log(data);
             this.props.onSearchAdvanceClick(data);
+            this.props.onSearchAdvanceStatus('finished')
         });
     }
 
@@ -222,6 +224,7 @@ MapFinderSearchAdvanceComponent.propTypes = {
     arrObject: PropTypes.array,
     cellStyle: PropTypes.object,
     onSearchAdvanceClick: PropTypes.func,
+    onSearchAdvanceStatus: PropTypes.func,
 
 };
 

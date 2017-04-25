@@ -95,6 +95,7 @@ export default class SearchResultComponent extends Component {
             return (
                 <div className="searchResultList">
                     <MapFinderResultList
+                        searchStatus    = {this.props.searchStatus}
                         resultData  = {this.props.resultData}
 
                     />

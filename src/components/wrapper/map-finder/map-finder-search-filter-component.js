@@ -50,7 +50,7 @@ export default class SearchFilterComponent extends Component {
                 this.setState({searchNearbyData:data.results})
                 if(data){
                     this.props.onSearchClick(data.results);
-                    this.props.onSearchStatus('searchFinished');
+                    this.props.onSearchStatus('finished');
                 }
 
 
@@ -95,9 +95,14 @@ export default class SearchFilterComponent extends Component {
     }
 
     onSearchAdvanceClick(data){
+
         if(data){
             this.props.onSearchClick(data.results);
         }
+    }
+    onSearchAdvanceStatus(status){
+
+        this.props.onSearchStatus(status);
     }
 
     render() {
@@ -167,7 +172,8 @@ export default class SearchFilterComponent extends Component {
                 />**/}
                 <SearchAdvanceComponent
                     ref="searchAdvance"
-                    onSearchAdvanceClick={onSearchAdvanceClick}
+                    onSearchAdvanceClick    = {onSearchAdvanceClick}
+                    onSearchAdvanceStatus   = {(status)=> this.onSearchAdvanceStatus(status)}
                 />
 
 
