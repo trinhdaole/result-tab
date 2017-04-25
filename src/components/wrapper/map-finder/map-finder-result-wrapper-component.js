@@ -119,8 +119,9 @@ export default class SearchResultComponent extends Component {
 
         const onClearFilter = () => this.onClearFilter();
         const onSearchAgain = () => this.onSearchAgain();
-
-        if(this.props.resultData){
+        console.log('this.props.resultData');
+        console.log(this.props.resultData);
+        if(this.props.resultData === null || this.props.resultData.length > 0){
             return null;
         }else{
             return (
@@ -183,7 +184,6 @@ const css = `
     .searchResultContainer { 
         margin: 16px 4px 0 4px;
         background-color: white;
-        
         border-radius: 4px;
         -webkit-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
         -moz-box-shadow: 0px 5px 12px 0px rgba(218,227,233,0.5);
