@@ -154,7 +154,7 @@ export default class Paging extends Component {
     renderPerPage() {
         let {perPageList} = this.props;
 
-        if(!perPageList && perPageList.length < 1) return null;
+        if(!perPageList || perPageList.length < 1) return null;
 
         return (
             <div style={{float: "right"}}>
