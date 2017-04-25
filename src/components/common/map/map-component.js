@@ -125,7 +125,7 @@ export default class MapComponent extends Component {
                 onClick={onClick}
                 ref="mapGoogle"
                 defaultZoom = {this.props.zoom}
-                defaultCenter = {this.props.center}
+                center = {this.props.center}
                 options = {{streetViewControl: true, mapTypeControl: false}}>
                 { this.renderMarkers() }
             </GoogleMapReact>

@@ -14,6 +14,8 @@ export default class MapFinderResultListComponent extends Component {
 
     componentWillReceiveProps(nextProps){
 
+
+
         if(this.props.markers !==   nextProps.markers  ){
             this.setState({
                 markers:this.convertMarker(nextProps.markers)
@@ -79,6 +81,7 @@ export default class MapFinderResultListComponent extends Component {
          if(this.state.markers){
               center = this.props.center ? this.props.center : this.state.markers.length > 0 ? {lat:  this.state.markers[0].lat ,lng :  this.state.markers[0].lng} : {lat: 0, lng: 0};
          }
+        console.log('render '+ this.state.markers);
 
         return (
 
@@ -109,7 +112,7 @@ MapFinderResultListComponent.propTypes = {
 
 MapFinderResultListComponent.defaultProps = {
 
-    zoom: 12,
+    zoom: 11,
     markers: [],
 
 

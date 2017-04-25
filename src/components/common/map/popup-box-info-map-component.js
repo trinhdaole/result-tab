@@ -196,6 +196,7 @@ const css = `
      padding:5px 5px 5px 5px;
      font-name:Roboto-Medium;
      font-size: 8px;
+     z-index: 1000;
     } 
     
    .popup-bot-wrapper {  
@@ -210,6 +211,7 @@ const css = `
      padding:5px 5px 8px 5px;
      font-name:Roboto-Regular;
      font-size: 8px;
+     z-index: 1000;
     }  
     
     .popup-bot-button-wrapper { 
@@ -226,6 +228,7 @@ const css = `
      margin: 0px 5px 8px 5px;
      height: 18px;
      line-height: 18px;
+     z-index: 1000;
      
     } 
     
