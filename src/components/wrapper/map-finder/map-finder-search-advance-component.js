@@ -193,12 +193,6 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
         };
 
-
-
-
-
-        let srcIconDown = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAVdJREFUOBGlUktOhEAQtWXhDo7gEdi58gyjGcLOySRGnRiDF9BJiHqHGX+xTdwR2Dvegr3n0I3ge0wX6QATMLLgVVfVe4+qRm2ZZzweTxDqsiy3gW++70/jOC6k3ofgz8G9YZ9Sap5l2R1jismzZ8R5PsrzXMPArktfC21xU9wPw9BhXAukaXoJ54WwYTYZYgLxa/lycqHx7rruYZIkPzzXBiiUMLlAbskCH2PysmmSIAiu0HO77q7eK4prrb8lpyQQBEGBuADOJAd8xZ0c23dC8aIoqj2bvpXneQe2OPP1BKaJI3KSc+C95IBTrOtZJhkqTn5rAhE1kyyBZ5KDqUb8iVy9FuQ+sJZR88trjgRdSBNcIic57ar3iZPTWpEtBIES//MM+GTnGQ8Rr/qaxK6zWdcD8KQi9azF1th4B3YTY2PyiHDXcZwR/vOvZs+/zzSJomjnL0K/AnKp+wvhCV0AAAAASUVORK5CYII=";
-        let srcIconUp = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAAAXNSR0IArs4c6QAAAZ9JREFUOBGtkr9Kw1AUxr97bcFF21WXJuITiG9RiiilUBy00FZRFCfRwT/gIKKgQlEhqYOKSKGIm4Po4CbiE4jJCzi4iCjmeKLJTasmdjAQ8p1zvvu7554boJWHSLRi8z1/m01rDA5lkNSHkBOv/sKor4wqwrCmGbjHnjSe7BNcUSzS7xXDoaY1C6JtBSEaxL19wLnwNZFQw1riDtcU0BdEeZi2yeDIsf3c1bBWedGyz4EQl/zuqpiowGOpqPgX0Qw1rE0GzimfEOeI8TyL2iQEqioPTMB42GiIm+TXMdzjmPYOA8dVVYgzJLScunF3lqbFM8Vw4JErKGmLKvaEZJBE1d7/BqyhV8sqoGsWwkFCH2FV99YC5CzwRvMq9oTg+RwzMB8U5CGSqQID34Ncg7qlOO6sU86kVVaKGRR19ae4nQZAHgJKqdFQoEvpF2+IiyyrCwV1aIubK/ux5GORF1R4t/LnMf1q2Legv6CrfYAv71pZKOicO+WbFHId5Z6phg2UN1Rkup8hO9IMvmFPHX18B//2HD12okZt/8YLA30A9fSGH4lwGL0AAAAASUVORK5CYII=";
         const onClick = (event) => this.onClick(event);
 
         return(
@@ -281,9 +275,7 @@ const css = `
        }
       
      }
-    
-   
-   
+
     }
 `;
 

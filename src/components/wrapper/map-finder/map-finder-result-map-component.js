@@ -14,6 +14,8 @@ export default class MapFinderResultListComponent extends Component {
 
     componentWillReceiveProps(nextProps){
 
+
+
         if(this.props.markers !==   nextProps.markers  ){
             this.setState({
                 markers:this.convertMarker(nextProps.markers)
@@ -109,7 +111,7 @@ MapFinderResultListComponent.propTypes = {
 
 MapFinderResultListComponent.defaultProps = {
 
-    zoom: 12,
+    zoom: 11,
     markers: [],
 
 
