@@ -16,7 +16,7 @@ export default class MapFinderResultListComponent extends Component {
             totalItem:0,
             currentPage:1,
             pagingList:[10],
-            itemPerPage:5,
+            itemPerPage:10,
 
 
 
