@@ -41,7 +41,7 @@ export default class SearchFilterComponent extends Component {
                 })
             },
             (error) => {
-                console.log('**** can not get the current location  ',error)
+                //console.log('**** can not get the current location  ',error)
                 this.setState({isSearchVisible:false})
             }
         );
@@ -54,11 +54,11 @@ export default class SearchFilterComponent extends Component {
         let lat = -33.787266;
         let lon = 150.871959;
         let cat = 'club';
-        let sport =  'baseball';
+        //let sport =  'baseball';
 
         // let lat     = this.state.lat;
         // let long    = this.state.long;
-        // let sport   = this.refs.inputSearch.getInputValue()
+         let sport   = this.refs.inputSearch.getInputValue()
         console.log('******  inputSearch  ', this.refs.inputSearch.getInputValue())
 
 
