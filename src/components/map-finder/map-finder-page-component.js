@@ -61,12 +61,10 @@ export default class MapFinderPageComponent extends Component {
         const onClearFilter = () => this.onClearFilter();
         const onSearchAgain = () => this.onSearchAgain();
 
-        let status  = ''
 
         return (
 
             <div className="mapFinderContainer">
-                {/*<Popup  />*/}
                 <div className="header">
                     <div className="headerTextWrapper">
                         <p className="textHeader">
@@ -96,10 +94,6 @@ export default class MapFinderPageComponent extends Component {
                     onClearFilter   = {onClearFilter}
                     onSearchAgain   = {onSearchAgain}
                 />
-
-
-                {/*<MapComponent center={{lat: 59.937043, lng: 30.336157}} markers={[{location: {lat: 59.937043, lng: 30.336157}}]} />*/}
-
 
                 <style>{css}</style>
             </div>

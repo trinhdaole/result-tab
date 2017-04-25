@@ -8,7 +8,7 @@
     "X_API_KEY": "XrVL2DyqsA3hIF3oIfbQU7bAF7EtfRSH1ln6RL22",
 
 
-    "MAP_FINDER_SEARCH_PLACE_PATH": "/mapfinder/postcode?postcode={postcode}&name={name}&sport={sport}&suburb={suburb}",
+    "MAP_FINDER_SEARCH_PLACE_PATH": "/mapfinder/postcode?postcode={postcode}&name={name}&sport={sport}&suburb={suburb}&orderby=dis",
     "MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH": "/mapfinder/nearby?lon={lon}&lat={lat}&cat={cat}&sport={sport}&orderby=dis"
 
 }
