@@ -119,7 +119,7 @@ export default class SearchResultComponent extends Component {
 
         const onClearFilter = () => this.onClearFilter();
         const onSearchAgain = () => this.onSearchAgain();
-       
+
         if(this.props.resultData === null || this.props.resultData.length > 0){
             return null;
         }else{
