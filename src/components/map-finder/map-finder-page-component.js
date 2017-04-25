@@ -48,13 +48,7 @@ export default class MapFinderPageComponent extends Component {
         this.refs.searchFilter.focusSearch();
     }
     onSearchStatus(status){
-
-        console.log('dataObject:  ',status);
         this.setState({searchStatus:status})
-
-
-
-
     }
 
 

@@ -68,7 +68,7 @@ export default class MapFinderResultListComponent extends Component {
         //console.log('***  this.props ',this.props.resultData)
         //console.log('***  nextProps ',nextProps.resultData)
         if(!nextProps.resultData  ){
-            console.log('*** SEARCHING ........  ')
+
             this.setState({isSearching:true})
         }else{
             this.setState({isSearching:false})
@@ -98,9 +98,7 @@ export default class MapFinderResultListComponent extends Component {
 
     renderList(){
 
-        console.log('***  isSearching ', this.state.isSearching);
         const {resultData,searchStatus} = this.props;
-        console.log('***  searchStatus list ', searchStatus);
         let iconCheckStyle = {
 
             height: 100,

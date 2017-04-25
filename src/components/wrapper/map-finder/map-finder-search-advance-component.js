@@ -140,7 +140,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                     <Button
                         onClick={onSearchAdvanceClick}
                         text    = {'SEARCH'}
-                        style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:10,fontFamily:'Roboto-Medium'}}
+                        style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:10,fontFamily:'Roboto-Medium',outlineStyle:'none'}}
 
                     />
                 </div>
