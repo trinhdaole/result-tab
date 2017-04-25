@@ -29,10 +29,12 @@ export default class InputComponent extends Component {
             onChange(id);
         }
     }
-    onKeyPress(){
+
+    onKeyPress(event){
+
         const {onKeyPress, id} = this.props;
         if(onKeyPress){
-            onKeyPress(id);
+            onKeyPress(id,event);
         }
     }
 
@@ -50,10 +52,12 @@ export default class InputComponent extends Component {
 
     render() {
         const {id,value, placeholder, style, type, maxLength} = this.props;
+
+        const onKeyPress = ( event) => this.onKeyPress( event);
         return (
             <div>
                 <input type={type} id={id} ref="input" name="input" className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
-                       onChange={this.onChange} onKeyPress={this.onKeyPress} onKeyUp={this.onKeyUp}/>
+                       onChange={this.onChange} onKeyPress={onKeyPress} onKeyUp={this.onKeyUp}/>
                 <style>{css}</style>
             </div>
 

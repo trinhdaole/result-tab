@@ -124,9 +124,13 @@ export default class SearchFilterComponent extends Component {
         this.props.onSearchStatus(status);
     }
 
-    onKeyPress(){
-        this.getData();
-        this.props.onSearchStatus('searching');
+    onKeyPress(id, event){
+
+        if(event.key === 'Enter'){
+            this.getData();
+            this.props.onSearchStatus('searching');
+        }
+
 
     }
 
@@ -174,7 +178,7 @@ export default class SearchFilterComponent extends Component {
 
         };
 
-        const onKeyPress = () => this.onKeyPress();
+        const onKeyPress = (id, event) => this.onKeyPress(id, event);
         const onSearchAdvanceClick = (data) => this.onSearchAdvanceClick(data);
         return (
             <div className="searchFilterContainer">
@@ -189,6 +193,7 @@ export default class SearchFilterComponent extends Component {
                 <div className="searchViewWrapper">
                     <div className="searchView">
                         <Input
+                            type="text"
                             style={inputStyle}
                             ref="inputSearch"
                             placeholder={'Enter postcode or club name'}
