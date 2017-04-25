@@ -9,7 +9,7 @@
 
 
     "MAP_FINDER_SEARCH_PLACE_PATH": "/mapfinder/postcode?postcode={postcode}&name={name}&sport={sport}&suburb={suburb}",
-    "MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH": "/mapfinder/nearby?lon={lon}&lat={lat}&cat={cat}&sport={sport}&"
+    "MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH": "/mapfinder/nearby?lon={lon}&lat={lat}&cat={cat}&sport={sport}&orderby=dis"
 
 }
 

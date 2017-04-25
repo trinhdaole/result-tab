@@ -61,8 +61,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         let sport =  'baseball';
 
         Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
-            console.log('data');
-            console.log(data);
+           
             this.props.onSearchAdvanceClick(data);
             this.props.onSearchAdvanceStatus('finished')
         });
