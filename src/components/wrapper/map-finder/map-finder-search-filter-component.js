@@ -162,7 +162,7 @@ export default class SearchFilterComponent extends Component {
 
         let inputStyle = {
             width:this.state.inputWidth,
-            height:'30px',
+            height:'25px',
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
@@ -240,10 +240,10 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width:100%;      
+        width:calc(100% - 8px);;      
         background-color: rgba(255,255,255,1);        
         border-radius: 4px;
-        margin: -35px 4px 10px 4px;
+        margin: -35px 0 10px 4px;
         
         
     }

@@ -143,6 +143,10 @@ const css = `
         display:none;
      }
      }
+     
+     body{
+     margin:0;
+     }
 
 
 `;

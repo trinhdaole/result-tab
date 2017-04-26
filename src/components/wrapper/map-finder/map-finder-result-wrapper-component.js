@@ -181,7 +181,7 @@ SearchResultComponent.propTypes = {
 const css = `
      
     .searchResultContainer {
-        width:100%;
+        width:calc(100% - 8px);
         margin: 16px 4px 0 4px;
         background-color: white;
         border-radius: 4px;
