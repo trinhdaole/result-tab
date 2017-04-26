@@ -18,11 +18,11 @@ export default class SearchFilterComponent extends Component {
             searchNearbyData:null,
             searchStatus:'',
             isSearchVisible:true,
-            lat:0,
-            long:0,
-
 
         };
+
+            this.lat =  -33.787266 ;
+            this.lng = 150.871959;
 
     }
 
@@ -35,14 +35,18 @@ export default class SearchFilterComponent extends Component {
         navigator.geolocation.getCurrentPosition(
             (initialPosition)=> {
                 //console.log('*** latitude  ',initialPosition.coords.latitude)
+
+                    this.lat =  initialPosition.coords.latitude;
+                    this.lng = initialPosition.coords.longitude;
+                    this.getData( this.lat,  this.lng);
                 this.setState({
                     isSearchVisible:true,
-                    lat: initialPosition.coords.latitude,
-                    long: initialPosition.coords.longitude
+
                 })
             },
             (error) => {
                 console.log('**** can not get the current location  ',error)
+                this.getData( this.lat,  this.lng);
                 this.setState({isSearchVisible:false})
             }
         );
@@ -50,16 +54,15 @@ export default class SearchFilterComponent extends Component {
 
 
 
-    getData(){
+    getData(lat, lon){
 
-        let lat = -33.787266;
-        let lon = 150.871959;
+
         let cat = 'club';
-        //let sport =  'baseball';
+        let sport =  'baseball';
 
         // let lat     = this.state.lat;
         // let long    = this.state.long;
-        let sport   = this.refs.inputSearch.getInputValue()
+        //let sport   = this.refs.inputSearch.getInputValue()
 
 
         Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
@@ -107,7 +110,7 @@ export default class SearchFilterComponent extends Component {
     }
 
     onSearchClick(){
-        this.getData();
+        this.getData(this.lat,  this.lng);
         this.props.onSearchStatus('searching');
 
 
@@ -115,12 +118,9 @@ export default class SearchFilterComponent extends Component {
 
     onSearchAdvanceClick(data){
 
-        if(data){
-            let dataResult = data.results ? data.results : [];
-            this.props.onSearchClick(dataResult);
-        }else{
-            this.props.onSearchClick([]);
-        }
+
+            this.props.onSearchClick(data);
+
     }
 
     onSearchAdvanceStatus(status){
@@ -131,7 +131,7 @@ export default class SearchFilterComponent extends Component {
     onKeyPress(id, event){
 
         if(event.key === 'Enter'){
-            this.getData();
+            this.getData(this.lat,  this.lng);
             this.props.onSearchStatus('searching');
         }
 

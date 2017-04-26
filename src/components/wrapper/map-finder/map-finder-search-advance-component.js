@@ -61,10 +61,47 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         let sport =  'baseball';
 
         Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
-           
-            this.props.onSearchAdvanceClick(data);
+
+            if(data){
+                let dataResult = data.results ? data.results : [];
+                 this.fetchDataRow(dataResult,0);
+            }else{
+                this.props.onSearchAdvanceClick([]);
+            }
+
             this.props.onSearchAdvanceStatus('finished')
         });
+    }
+
+    fetchDataRow(arrayObject, currentIndex){
+        if(arrayObject.length <= 0 || currentIndex >= arrayObject.length){
+            this.props.onSearchAdvanceClick([]);
+            return;
+        }
+        let temp = arrayObject[currentIndex];
+        let lat = temp.lat;
+        let lon = temp.lon;
+        let cat  = "club";
+        let sport= "baseball";
+        this.getData(arrayObject, currentIndex,lat, lon, cat, sport);
+
+    }
+
+    getData(arrayObject, currentIndex,lat, lon, cat, sport){
+
+       Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
+
+            if(data){
+                let dataResult = data.results ? data.results : [];
+                this.props.onSearchAdvanceClick(dataResult);
+            }else{
+                let index = currentIndex + 1;
+                this.fetchDataRow(arrayObject, index);
+            }
+
+        });
+
+
     }
 
     renderExpandedContent(){
