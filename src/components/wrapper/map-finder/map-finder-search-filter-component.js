@@ -36,8 +36,9 @@ export default class SearchFilterComponent extends Component {
             (initialPosition)=> {
                 //console.log('*** latitude  ',initialPosition.coords.latitude)
 
-                this.lat =  initialPosition.coords.latitude;
-                this.lng = initialPosition.coords.longitude;
+                // this.lat =  initialPosition.coords.latitude;
+                // this.lng = initialPosition.coords.longitude;
+                
                 this.getData( this.lat,  this.lng);
                 this.setState({
                     isSearchVisible:true,
