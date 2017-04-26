@@ -38,8 +38,8 @@ export default class SearchFilterComponent extends Component {
 
                 // this.lat =  initialPosition.coords.latitude;
                 // this.lng = initialPosition.coords.longitude;
-                
-                this.getData( this.lat,  this.lng);
+
+                this.getAllData( this.lat,  this.lng);
                 this.setState({
                     isSearchVisible:true,
 
@@ -47,7 +47,7 @@ export default class SearchFilterComponent extends Component {
             },
             (error) => {
                 console.log('**** can not get the current location  ',error)
-                this.getData( this.lat,  this.lng);
+                this.getAllData( this.lat,  this.lng);
                 this.setState({isSearchVisible:false})
             }
         );
@@ -55,16 +55,11 @@ export default class SearchFilterComponent extends Component {
 
 
 
-    getData(lat, lon){
+    getAllData(lat, lon){
         this.props.onSearchStatus('searching');
 
         let cat = 'club';
         let sport =  'baseball';
-
-        // let lat     = this.state.lat;
-        // let long    = this.state.long;
-        //let sport   = this.refs.inputSearch.getInputValue()
-
 
         Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
 
@@ -77,6 +72,39 @@ export default class SearchFilterComponent extends Component {
                 this.props.onSearchClick([]);
             }
             this.props.onSearchStatus('finished');
+
+        });
+
+    }
+
+    fetchDataRow(arrayObject, currentIndex){
+
+        if(arrayObject.length <= 0 || currentIndex >= arrayObject.length){
+            this.props.onSearchClick([]);
+            this.props.onSearchStatus('finished');
+            return;
+        }
+        let temp = arrayObject[currentIndex];
+        let lat = temp.lat;
+        let lon = temp.lon;
+        let cat  = "club";
+        let sport= "baseball";
+        this.getData(arrayObject, currentIndex,lat, lon, cat, sport);
+
+    }
+
+    getData(arrayObject, currentIndex,lat, lon, cat, sport){
+
+        Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
+
+            if(data && data.results.length > 0){
+                let dataResult = data.results ;
+                this.props.onSearchClick(dataResult);
+                this.props.onSearchStatus('finished');
+            }else{
+                let index = currentIndex + 1;
+                this.fetchDataRow(arrayObject, index);
+            }
 
         });
 
@@ -110,9 +138,49 @@ export default class SearchFilterComponent extends Component {
 
     }
 
+    checkInterger(value)
+    {
+
+        var regex=/^[0-9]+$/;
+        if (value.match(regex))
+        {
+
+            return true;
+        }
+        return false;
+    }
+
     onSearchClick(){
-        this.getData(this.lat,  this.lng);
+        console.log('check number' +  this.checkInterger(this.refs.inputSearch.getInputValue()));
+
         this.props.onSearchStatus('searching');
+
+            let postcode = '' ;
+            let  suburb = '';
+            let name = '';
+            if(this.refs.inputSearch.getInputValue().length >= 2){
+                if(this.checkInterger(this.refs.inputSearch.getInputValue())){
+                    postcode = this.refs.inputSearch.getInputValue();
+                }else{
+                    if(this.refs.inputSearch.getInputValue().length >= 3){
+                        name = this.refs.inputSearch.getInputValue();
+                    }
+                }
+
+            }
+
+            let sport =  'baseball';
+
+            Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
+
+                if(data){
+                    let dataResult = data.results ? data.results : [];
+                    this.fetchDataRow(dataResult,0);
+                }else{
+                    this.props.onSearchClick([]);
+                    this.props.onSearchStatus('finished');
+                }
+            });
 
 
     }

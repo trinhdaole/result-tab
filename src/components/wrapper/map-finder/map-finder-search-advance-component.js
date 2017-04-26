@@ -45,7 +45,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
     }
 
     onSearchAdvanceClick(){
-        this.props.onSearchAdvanceStatus('searching')
+        this.props.onSearchAdvanceStatus('searching');
         let postcode = '' ;
         let  suburb = '';
         let name = '';
@@ -91,8 +91,8 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
        Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
 
-            if(data){
-                let dataResult = data.results ? data.results : [];
+            if(data && data.results.length > 0){
+                let dataResult = data.results ;
                 this.props.onSearchAdvanceClick(dataResult);
             }else{
                 let index = currentIndex + 1;
