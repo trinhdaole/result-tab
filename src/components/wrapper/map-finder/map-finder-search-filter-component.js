@@ -67,9 +67,10 @@ export default class SearchFilterComponent extends Component {
 
             if (data) {
                 let dataResult = data.results ? data.results : [];
-                this.setState({searchNearbyData: dataResult,isSearchVisible:true});
                 this.props.onSearchClick(dataResult);
 
+            }else{
+                this.props.onSearchClick([]);
             }
             this.props.onSearchStatus('finished');
 
@@ -117,8 +118,11 @@ export default class SearchFilterComponent extends Component {
         if(data){
             let dataResult = data.results ? data.results : [];
             this.props.onSearchClick(dataResult);
+        }else{
+            this.props.onSearchClick([]);
         }
     }
+
     onSearchAdvanceStatus(status){
 
         this.props.onSearchStatus(status);
