@@ -55,7 +55,7 @@ export default class SearchFilterComponent extends Component {
 
 
     getData(lat, lon){
-
+        this.props.onSearchStatus('searching');
 
         let cat = 'club';
         let sport =  'baseball';
