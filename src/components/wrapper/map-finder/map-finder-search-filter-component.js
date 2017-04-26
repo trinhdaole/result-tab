@@ -55,8 +55,7 @@ export default class SearchFilterComponent extends Component {
 
 
     getData(lat, lon){
-
-
+       
         let cat = 'club';
         let sport =  'baseball';
 
