@@ -21,8 +21,8 @@ export default class SearchFilterComponent extends Component {
 
         };
 
-            this.lat =  -33.787266 ;
-            this.lng = 150.871959;
+        this.lat =  -33.787266 ;
+        this.lng = 150.871959;
 
     }
 
@@ -36,9 +36,9 @@ export default class SearchFilterComponent extends Component {
             (initialPosition)=> {
                 //console.log('*** latitude  ',initialPosition.coords.latitude)
 
-                    this.lat =  initialPosition.coords.latitude;
-                    this.lng = initialPosition.coords.longitude;
-                    this.getData( this.lat,  this.lng);
+                this.lat =  initialPosition.coords.latitude;
+                this.lng = initialPosition.coords.longitude;
+                this.getData( this.lat,  this.lng);
                 this.setState({
                     isSearchVisible:true,
 
@@ -55,7 +55,8 @@ export default class SearchFilterComponent extends Component {
 
 
     getData(lat, lon){
-       
+        this.props.onSearchStatus('searching');
+
         let cat = 'club';
         let sport =  'baseball';
 
@@ -118,7 +119,7 @@ export default class SearchFilterComponent extends Component {
     onSearchAdvanceClick(data){
 
 
-            this.props.onSearchClick(data);
+        this.props.onSearchClick(data);
 
     }
 
@@ -161,7 +162,7 @@ export default class SearchFilterComponent extends Component {
 
         let inputStyle = {
             width:this.state.inputWidth,
-            height:'30px',
+            height:'25px',
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
@@ -213,9 +214,9 @@ export default class SearchFilterComponent extends Component {
                 </div>
 
                 {/**<MapFinderDropdownComponent
-                    groupName="Programs & Competitions"
-                    arrObject={arrObject}
-                />**/}
+                 groupName="Programs & Competitions"
+                 arrObject={arrObject}
+                 />**/}
                 <SearchAdvanceComponent
                     ref="searchAdvance"
                     onSearchAdvanceClick    = {onSearchAdvanceClick}
@@ -239,14 +240,10 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width:100%;
-       
-        background-color: rgba(255,255,255,1);
-        float:left;
-        
+        width:calc(100% - 8px);;      
+        background-color: rgba(255,255,255,1);        
         border-radius: 4px;
-     
-        margin: -35px 4px 10px 4px;
+        margin: -35px 0 10px 4px;
         
         
     }
@@ -283,7 +280,8 @@ const css = `
      }
      @media all and (orientation:landscape) { 
        .searchFilterContainer {
-            width:30%
+            width:30%;
+            float:left;
        
        }
      

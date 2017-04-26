@@ -123,7 +123,6 @@ const css = `
      
     .mapFinderContainer {
         width:100%;
-        height:2000px;
         background-color: rgba(241,245,248,1);
 
     }
@@ -143,6 +142,10 @@ const css = `
        .clear{
         display:none;
      }
+     }
+     
+     body{
+     margin:0;
      }
 
 

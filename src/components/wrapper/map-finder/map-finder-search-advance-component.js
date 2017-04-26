@@ -22,7 +22,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
     }
 
     onClick(event) {
-        console.log(' ****  onClick   ****  ');
+
         event.stopPropagation();
         event.preventDefault();
 
