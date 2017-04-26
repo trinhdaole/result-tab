@@ -180,7 +180,8 @@ SearchResultComponent.propTypes = {
 
 const css = `
      
-    .searchResultContainer { 
+    .searchResultContainer {
+        width:100%;
         margin: 16px 4px 0 4px;
         background-color: white;
         border-radius: 4px;
@@ -274,9 +275,9 @@ const css = `
             
        }
        .searchResultContentWrapper{
-       width:100%;
-  
-    }
+           width:100%;
+      
+        }
        
        
        

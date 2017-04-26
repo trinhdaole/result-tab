@@ -240,13 +240,9 @@ SearchFilterComponent.propTypes = {
 
 const css = `
     .searchFilterContainer {
-        width:100%;
-       
-        background-color: rgba(255,255,255,1);
-        float:left;
-        
+        width:100%;      
+        background-color: rgba(255,255,255,1);        
         border-radius: 4px;
-     
         margin: -35px 4px 10px 4px;
         
         
@@ -284,7 +280,8 @@ const css = `
      }
      @media all and (orientation:landscape) { 
        .searchFilterContainer {
-            width:30%
+            width:30%;
+            float:left;
        
        }
      
