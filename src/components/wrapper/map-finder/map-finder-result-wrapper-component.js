@@ -96,7 +96,7 @@ export default class SearchResultComponent extends Component {
                 <div className="searchResultList">
                     <MapFinderResultList
                         searchStatus    = {this.props.searchStatus}
-                        resultData  = {this.props.resultData}
+                        resultData      = {this.props.resultData}
 
                     />
 
@@ -108,7 +108,8 @@ export default class SearchResultComponent extends Component {
             return (
                 <div className="searchResultMap">
                     <MapFinderResultMap
-                        markers      = {this.props.resultData}
+                        markers         = {this.props.resultData}
+                        searchStatus    = {this.props.searchStatus}
                     />
                 </div>
             );

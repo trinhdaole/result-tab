@@ -49,6 +49,9 @@ export default class MapFinderResultListComponent extends Component {
     }
     pagingClick(page,perPage){
 
+        console.log('*** pagingClick page  ',page)
+        console.log('*** pagingClick perPage  ',perPage)
+
         this.setState({
             currentPage:page,
             itemPerPage:perPage
@@ -65,7 +68,12 @@ export default class MapFinderResultListComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-
+        if(this.props.resultData != nextProps.resultData){
+            this.setState({
+                currentPage:1,
+                itemPerPage:10,
+            })
+        }
     }
 
     renderList(){
@@ -127,12 +135,15 @@ export default class MapFinderResultListComponent extends Component {
 
     }
     renderPaging(){
+
         const onPagingClick = (page, perPage) => this.pagingClick(page, perPage);
+        let {currentpage}   = this.state;
+
         const {resultData,searchStatus} = this.props;
         let totalItem = 0;
         let pagingList  = [];
         if(resultData){
-            let tempCount   = ((resultData.length/this.state.itemPerPage) <= 0.8) ?  0.8 : resultData.length/this.state.itemPerPage ;
+            let tempCount   = ((resultData.length/this.state.defaultItemPerPage) <= 0.8) ?  0.8 : resultData.length/this.state.defaultItemPerPage ;
             let tempTotalPage   = Math.ceil(tempCount);
             for(var i = 1;i<= tempTotalPage;i++){
                 pagingList.push(i*this.state.defaultItemPerPage);
@@ -142,10 +153,6 @@ export default class MapFinderResultListComponent extends Component {
             if(tempTotalPage > 3){
                 pagingList = [10,20,50];
             }
-
-
-
-
 
         }
 
