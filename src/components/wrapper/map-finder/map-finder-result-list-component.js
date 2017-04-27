@@ -143,9 +143,7 @@ export default class MapFinderResultListComponent extends Component {
                 pagingList = [10,20,50];
             }
 
-            console.log('***  totalItem   ',totalItem)
-            console.log('***  tempTotalPage   ',tempTotalPage)
-            console.log('***  pagingList   ',pagingList)
+
 
 
 
