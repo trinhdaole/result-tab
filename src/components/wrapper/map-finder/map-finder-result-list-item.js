@@ -35,12 +35,16 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                 fontSize: 12,
                 color: 'rgba(81,81,81,1)',
                 fontFamily: 'Roboto',
-                fontWeight: '600'
+                fontWeight: '600',
+                paddingLeft:4,
+
         };
         let descriptionStyle = {
             fontSize: 10,
             color: 'rgba(81,81,81,1)',
             fontFamily: 'Roboto',
+            paddingLeft:4,
+            paddingTop:5,
         };
 
         let iconCheckStyle = {
@@ -72,7 +76,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                                 text={this.props.data.name ? this.props.data.name : ' empty'}
                             />
                         </p>
-                        <p style={{marginTop:-7}}>
+                        <p style={{marginTop:-5}}>
                             <Text
                                 style={descriptionStyle}
                                 text={this.props.data.state?this.props.data.state:' empty'}
