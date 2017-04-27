@@ -134,7 +134,6 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         if(!this.state.isExpand){
             return (
                 <div>
-
                 </div>
             );
         }
