@@ -269,7 +269,14 @@ const css = `
     }
     @media all and (orientation:landscape) { 
        
-       .searchResultContainer {
+       
+       
+       
+      
+     }
+     
+     @media screen and (min-aspect-ratio: 13/9) { 
+     .searchResultContainer {
             width:66%;
             float:right;
             margin-top:-36px;
@@ -279,9 +286,8 @@ const css = `
            width:100%;
       
         }
-       
-       
-      
+     
+     
      }
      
     

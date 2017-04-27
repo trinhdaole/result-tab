@@ -232,7 +232,7 @@ export default class SearchFilterComponent extends Component {
 
         let inputStyle = {
             width:this.state.inputWidth,
-            height:'25px',
+            height:20,
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
@@ -243,6 +243,7 @@ export default class SearchFilterComponent extends Component {
             color: 'rgba(81,81,81,1)',
             outline:'none',
             textOverflow: 'ellipsis',
+            paddingTop:6,
 
 
         };
@@ -349,13 +350,19 @@ const css = `
         
      }
      @media all and (orientation:landscape) { 
-         .searchFilterContainer {
+         
+     
+     }
+     /* landscape styles here */
+     @media screen and (min-aspect-ratio: 13/9) { 
+     
+     .searchFilterContainer {
                 width:30%;
                 float:left;
            
            }
-     
      }
+
        
        
        
