@@ -151,7 +151,7 @@ export default class SearchFilterComponent extends Component {
     }
 
     onSearchClick(){
-        console.log('check number' +  this.checkInterger(this.refs.inputSearch.getInputValue()));
+
 
         this.props.onSearchStatus('searching');
 
@@ -200,8 +200,9 @@ export default class SearchFilterComponent extends Component {
     onKeyPress(id, event){
 
         if(event.key === 'Enter'){
-            this.getData(this.lat,  this.lng);
-            this.props.onSearchStatus('searching');
+            
+            this.onSearchClick();
+
         }
 
 
