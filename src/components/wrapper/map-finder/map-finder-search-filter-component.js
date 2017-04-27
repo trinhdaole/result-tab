@@ -243,6 +243,7 @@ export default class SearchFilterComponent extends Component {
             color: 'rgba(81,81,81,1)',
             outline:'none',
             textOverflow: 'ellipsis',
+            paddingTop:6,
 
 
         };
