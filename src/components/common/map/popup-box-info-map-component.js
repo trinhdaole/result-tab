@@ -44,9 +44,7 @@ export default class PinInfo extends  Component {
     onClick(event, lat=0, lng=0) {
         event.stopPropagation();
         event.preventDefault();
-        // this.setState({
-        //     show:true,
-        // });
+
         if(this.props.onClick) return this.props.onClick(lat, lng);
 
 

@@ -14,6 +14,7 @@ export default class MapComponent extends Component {
             change:false,
         };
         this.makerClick = false;
+
     }
 
     getNumMarketVisible(){
@@ -52,6 +53,9 @@ export default class MapComponent extends Component {
     }
 
     onBoundsChange(center, zoom){
+
+
+
         if( this.props.onBoundsChange){
             let numCount = this.getNumMarketVisible();
             this.props.onBoundsChange(numCount, center, zoom);
@@ -60,18 +64,21 @@ export default class MapComponent extends Component {
     }
 
     onClick(mouse){
+
         mouse.event.stopPropagation();
         mouse.event.preventDefault();
-        if(this.makerClick == true){
-                this.makerClick = false;
+        
+           if(this.makerClick == true){
+               this.makerClick = false;
 
-        }else{
-            this.lat = 0;
-            this.lng = 0;
-            this.setState({
-                change:!this.state.change,
-            });
-        }
+           }else{
+               this.lat = 0;
+               this.lng = 0;
+               this.setState({
+                   change:!this.state.change,
+               });
+           }
+
 
     }
 
@@ -87,11 +94,25 @@ export default class MapComponent extends Component {
 
     }
 
+    onChildClick(event){
+        console.log('event' + event);
+    }
+
     onNext(){
 
         if(this.props.onNext) return this.props.onNext();
     }
 
+
+    componentWillReceiveProps(nextProps){
+
+        this.lat = 0;
+        this.lng = 0;
+        this.setState({
+            change:!this.state.change,
+        });
+
+    }
 
     renderMarkers(){
         let showOne = false;
@@ -138,14 +159,16 @@ export default class MapComponent extends Component {
     renderGoogleMap(){
         const onBoundsChange = (center, zoom) => this.onBoundsChange(center, zoom );
         const onClick = (mouse) => this.onClick(mouse );
+        const onChildClick = (event) => this.onChildClick(event );
         return (
             <GoogleMapReact
                 onBoundsChange={onBoundsChange}
+                onChildClick={onChildClick}
                 onClick={onClick}
                 ref="mapGoogle"
                 defaultZoom = {this.props.zoom}
                 center = {this.props.center}
-                options = {{streetViewControl: true, mapTypeControl: false}}>
+                options = {{streetViewControl: true, mapTypeControl: false, zoomControl: false}}>
                 { this.renderMarkers() }
             </GoogleMapReact>
         );
