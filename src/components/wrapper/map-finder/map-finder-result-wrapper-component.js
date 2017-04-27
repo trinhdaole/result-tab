@@ -268,6 +268,7 @@ const css = `
         
     }
     @media all and (orientation:landscape) { 
+       
        .searchResultContainer {
             width:66%;
             float:right;
@@ -280,10 +281,13 @@ const css = `
         }
        
        
-       
       
      }
+     
+    
   
+  
+
 
   
     
