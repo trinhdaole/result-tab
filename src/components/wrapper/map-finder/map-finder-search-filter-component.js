@@ -232,7 +232,7 @@ export default class SearchFilterComponent extends Component {
 
         let inputStyle = {
             width:this.state.inputWidth,
-            height:'25px',
+            height:20,
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',

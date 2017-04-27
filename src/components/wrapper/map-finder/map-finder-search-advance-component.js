@@ -107,7 +107,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
     renderExpandedContent(){
         let inputStyle = {
             width:'90%',
-            height:25,
+            height:20,
             marginLeft:8,
             marginBottom:2,
             backgroundColor:'rgba(244,247,250,1)',
