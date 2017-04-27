@@ -58,7 +58,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         if(this.refs.inputSuburb.getInputValue().length >= 3){
             suburb = this.refs.inputSuburb.getInputValue();
         }
-        let sport =  'baseball';
+        let sport = this.props.query.sport? this.props.query.sport : 'baseball';
 
         Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
 
@@ -82,7 +82,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         let lat = temp.lat;
         let lon = temp.lon;
         let cat  = "club";
-        let sport= "baseball";
+        let sport = this.props.query.sport? this.props.query.sport : 'baseball';
         this.getData(arrayObject, currentIndex,lat, lon, cat, sport);
 
     }
@@ -260,6 +260,12 @@ MapFinderSearchAdvanceComponent.propTypes = {
     cellStyle: PropTypes.object,
     onSearchAdvanceClick: PropTypes.func,
     onSearchAdvanceStatus: PropTypes.func,
+    query: PropTypes.object
+
+};
+
+MapFinderSearchAdvanceComponent.defaultProps = {
+    query: {},
 
 };
 

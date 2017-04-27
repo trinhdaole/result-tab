@@ -59,7 +59,7 @@ export default class SearchFilterComponent extends Component {
         this.props.onSearchStatus('searching');
 
         let cat = 'club';
-        let sport =  'baseball';
+        let sport = this.props.query.sport ? this.props.query.sport : 'baseball';
 
         Service.getSearchNearByPlace(lat, lon, cat, sport).then(data => {
 
@@ -88,7 +88,7 @@ export default class SearchFilterComponent extends Component {
         let lat = temp.lat;
         let lon = temp.lon;
         let cat  = "club";
-        let sport= "baseball";
+        let sport = this.props.query.sport? this.props.query.sport : 'baseball';
         this.getData(arrayObject, currentIndex,lat, lon, cat, sport);
 
     }
@@ -169,7 +169,7 @@ export default class SearchFilterComponent extends Component {
 
             }
 
-            let sport =  'baseball';
+            let sport = this.props.query.sport? this.props.query.sport : 'baseball';
 
             Service.getSearchPlace(postcode, suburb, name, sport ).then(data => {
 
@@ -290,6 +290,7 @@ export default class SearchFilterComponent extends Component {
                  />**/}
                 <SearchAdvanceComponent
                     ref="searchAdvance"
+                    query={this.props.query}
                     onSearchAdvanceClick    = {onSearchAdvanceClick}
                     onSearchAdvanceStatus   = {(status)=> this.onSearchAdvanceStatus(status)}
                 />
@@ -304,10 +305,15 @@ export default class SearchFilterComponent extends Component {
 }
 SearchFilterComponent.propTypes = {
     onSearchClick : PropTypes.func,
-    onSearchStatus : PropTypes.func
+    onSearchStatus : PropTypes.func,
+    query: PropTypes.object
 
 };
 
+SearchFilterComponent.defaultProps = {
+    query: {},
+
+};
 
 const css = `
     .searchFilterContainer {

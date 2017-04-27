@@ -12,6 +12,7 @@ import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdo
 import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component';
 import MapFinder from '../wrapper/map-finder/map-finder-result-map-component';
 import  * as Service  from '../../services/map-finder-services';
+import * as URLUtils from  '../../utils/url-utils';
 
 export default class MapFinderPageComponent extends Component {
     constructor(props) {
@@ -25,8 +26,8 @@ export default class MapFinderPageComponent extends Component {
 
         };
         this.searchStatus = '';
-        this.onSearchStatus = this.onSearchStatus.bind(this);
-
+        this.onSearchStatus = this.onSearchStatus.bind(this); 
+        this.query = URLUtils.query();
     }
 
     componentDidMount() {
@@ -84,6 +85,7 @@ export default class MapFinderPageComponent extends Component {
                 <SearchFilterComponent
                     onSearchClick   = {(data)=> this.setState({resultData:data}) }
                     onSearchStatus  = {(dataObject)=> this.onSearchStatus(dataObject)}
+                    query={this.query}
                     ref             = "searchFilter"
                 />
                 <div className="clear">
