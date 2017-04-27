@@ -118,7 +118,8 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             border:'none',
             textAlign:'left',
             color: 'rgba(81,81,81,1)',
-            outline:'none'
+            outline:'none',
+            textOverflow: 'ellipsis',
 
         };
         let textStyle = {
