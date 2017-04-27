@@ -17,6 +17,7 @@ export default class MapFinderResultListComponent extends Component {
             currentPage:1,
             pagingList:[10],
             itemPerPage:10,
+            defaultItemPerPage:10,
 
 
 
@@ -134,13 +135,19 @@ export default class MapFinderResultListComponent extends Component {
             let tempCount   = ((resultData.length/this.state.itemPerPage) <= 0.8) ?  0.8 : resultData.length/this.state.itemPerPage ;
             let tempTotalPage   = Math.ceil(tempCount);
             for(var i = 1;i<= tempTotalPage;i++){
-                pagingList.push(i*this.state.itemPerPage);
+                pagingList.push(i*this.state.defaultItemPerPage);
 
             }
             totalItem = resultData.length;
             if(tempTotalPage > 3){
                 pagingList = [10,20,50];
             }
+
+            console.log('***  totalItem   ',totalItem)
+            console.log('***  tempTotalPage   ',tempTotalPage)
+            console.log('***  pagingList   ',pagingList)
+
+
 
         }
 
