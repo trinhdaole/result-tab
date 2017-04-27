@@ -349,11 +349,18 @@ const css = `
         
      }
      @media all and (orientation:landscape) { 
-       .searchFilterContainer {
-            width:30%;
-            float:left;
+         .searchFilterContainer {
+                width:30%;
+                float:left;
+           
+           }
+     
+     }
        
-       }
+       
+       
+        
+    
      
     
     
