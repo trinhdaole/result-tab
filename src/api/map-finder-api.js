@@ -14,19 +14,23 @@ export function getSearchPlace(postcode, suburb, name, sport) {
     let temp = "&";
     if(postcode == ''){
         path = path.replace("postcode={postcode}&", "");
-        temp = "";
+        temp = '';
     }
 
     if(suburb == ''){
-        path = path.replace(temp + "suburb={suburb}", "");
+        if(temp == ''){
+            path = path.replace( "suburb={suburb}&", "");
+        }else{
+            path = path.replace(temp + "suburb={suburb}", "");
+        }
 
     }
-    temp = "&";
 
+    temp = "&";
     if(name == ''){
         path = path.replace(temp + "name={name}", "");
+        path = path.replace( "name={name}", "");
     }
-
 
 
     const param = {

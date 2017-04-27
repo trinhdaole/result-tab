@@ -94,13 +94,20 @@ export default class MapComponent extends Component {
 
 
     renderMarkers(){
+        let showOne = false;
         return this.props.markers.map ((marker, i) => {
             if(this.props.usingInfoBox == true){
                 const onMakerClick = (lat,lng) => this.onMakerClick( lat,lng);
                 const onNext = () => this.onNext();
                 let show = false;
                 if(this.lat === marker.lat && this.lng === marker.lng){
-                    show = true;
+                    if(showOne){
+
+                    }else{
+                        show = true;
+                        showOne = true;
+                    }
+
                 }
 
                 return (
