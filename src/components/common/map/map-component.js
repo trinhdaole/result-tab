@@ -94,9 +94,7 @@ export default class MapComponent extends Component {
 
     }
 
-    onChildClick(event){
-        console.log('event' + event);
-    }
+
 
     onNext(){
 
@@ -159,11 +157,10 @@ export default class MapComponent extends Component {
     renderGoogleMap(){
         const onBoundsChange = (center, zoom) => this.onBoundsChange(center, zoom );
         const onClick = (mouse) => this.onClick(mouse );
-        const onChildClick = (event) => this.onChildClick(event );
+
         return (
             <GoogleMapReact
                 onBoundsChange={onBoundsChange}
-                onChildClick={onChildClick}
                 onClick={onClick}
                 ref="mapGoogle"
                 defaultZoom = {this.props.zoom}

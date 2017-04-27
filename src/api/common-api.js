@@ -6,7 +6,7 @@ const Config = require('../../config');
 
 export function httpGet(path, param) {
     return new Promise(function (resolve, reject) {
-        let url = actualUrlParse(createRootUrl(Config.LOCAL_URL, Config.LOCAL_PORT) + Config.API_GET + path, param);
+        let url = encodeURI(actualUrlParse(createRootUrl(Config.LOCAL_URL, Config.LOCAL_PORT) + Config.API_GET + path, param));
             console.log('url');
             console.log(url);
         request.get(  url ,{timeout: 12000}, function (error, response, body) {

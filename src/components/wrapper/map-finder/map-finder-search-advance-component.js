@@ -25,11 +25,12 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
         event.stopPropagation();
         event.preventDefault();
-
+        this.props.onSearchAdvanceExpand(!this.state.isExpand);
         this.setState({
             isExpand:!this.state.isExpand,
 
         });
+
     }
 
     clearFilter(){
@@ -260,6 +261,7 @@ MapFinderSearchAdvanceComponent.propTypes = {
     cellStyle: PropTypes.object,
     onSearchAdvanceClick: PropTypes.func,
     onSearchAdvanceStatus: PropTypes.func,
+    onSearchAdvanceExpand:  PropTypes.func,
     query: PropTypes.object
 
 };
