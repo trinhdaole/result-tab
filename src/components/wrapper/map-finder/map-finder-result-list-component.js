@@ -138,7 +138,7 @@ export default class MapFinderResultListComponent extends Component {
 
             }
             totalItem = resultData.length;
-            console.log('**** tempTotalPage   ',tempTotalPage)
+            //console.log('**** tempTotalPage   ',tempTotalPage)
             if(tempTotalPage > 3){
                 pagingList = [10,20,50];
             }
@@ -148,8 +148,8 @@ export default class MapFinderResultListComponent extends Component {
         if(searchStatus == 'searching'){
             return null;
         }
-        if(resultData){
-            //console.log('*** here 2 totalItem  ',this.state.totalItem)
+        if(resultData && resultData.length > 0){
+
             return (
                 <div className="pagingWrapper">
                     <Paging
