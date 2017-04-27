@@ -350,13 +350,19 @@ const css = `
         
      }
      @media all and (orientation:landscape) { 
-         .searchFilterContainer {
+         
+     
+     }
+     /* landscape styles here */
+     @media screen and (min-aspect-ratio: 13/9) { 
+     
+     .searchFilterContainer {
                 width:30%;
                 float:left;
            
            }
-     
      }
+
        
        
        
