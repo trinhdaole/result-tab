@@ -67,7 +67,7 @@ export default class MapComponent extends Component {
 
         mouse.event.stopPropagation();
         mouse.event.preventDefault();
-        
+
            if(this.makerClick == true){
                this.makerClick = false;
 
