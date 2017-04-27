@@ -26,7 +26,7 @@ export default class MapFinderPageComponent extends Component {
 
         };
         this.searchStatus = '';
-        this.onSearchStatus = this.onSearchStatus.bind(this); 
+        this.onSearchStatus = this.onSearchStatus.bind(this);
         this.query = URLUtils.query();
     }
 

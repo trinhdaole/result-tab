@@ -18,6 +18,7 @@ export default class SearchFilterComponent extends Component {
             searchNearbyData:null,
             searchStatus:'',
             isSearchVisible:true,
+            isShowAdvanceSearch:false,
 
         };
 
@@ -187,9 +188,14 @@ export default class SearchFilterComponent extends Component {
 
     onSearchAdvanceClick(data){
 
-
         this.props.onSearchClick(data);
 
+    }
+
+    onSearchAdvanceExpand(expand){
+        this.setState({
+            isShowAdvanceSearch: expand
+        });
     }
 
     onSearchAdvanceStatus(status){
@@ -226,9 +232,26 @@ export default class SearchFilterComponent extends Component {
         );
     }
 
-    render() {
+    renderDisableSearchButton(){
 
+        let iconSearchDisable = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAnCAYAAACbgcH8AAAAAXNSR0IArs4c6QAABGdJREFUWAnNmM1y2zYQx/8gSOorib9iO3Xr7zSe6Vv0AXr1JeNOm4tfw8/QQ2cynSQzTU9+gF77Aj310Jkklu0k/kqdNJFtKZIIEAUoEyAjURJJpfZeuCQXuz+CC2ABgiyy/boEzy+Cew4814bPOIjjwXVa2JhtgBCRxe2wbciwhvjpRQGTpWk0m+MQKCS2sywGi9RQqbzF+sxFol2OF4Oh/xA29qpfAGIanAy2j8I47gcIfogfl5vRx3n1/hAPj8pwP66CCTcWyKYcnF/Ij2ijTD14zAZ8B4RWumyJ7aNE9nF/8X3MR46bZOjt6hjO6AoEs7R/y7pAYewY9yfPE/M2+NDWDBif0u2U4ttH2Fw6jj3LeNMbWgWm7TUNLGTPOtiXv/nD0HEe/lkGGVuWH1fUbXz+Eptrb/V9RqUbWuXwzrNvANsJfBK0QOlOprzcFhT13RWZMrcCX1QI2Def4fs79Yy8QTPz60Mvz3fnNLDq4azAyt864fhhpSr9NQL3aiC3mgsQoruzwvhDXOPQT/aKcOht3a6TEvlGPiE+xharUAMyEFbGo4MJHSODEodu+zPgrNMLgpynyuF+wdflLEOsN9rEat7RegYlDm1549oH9UYy0rW/m/NvoHJaCSclbH8yjWrDwYqBVjNGOPjUqvZgbbSrmcpvn5xppGbVdJB+OJxioIu1km5CWPI8rI0yKC4MdNsy8VK6MtB+sTPFKQdqpfscwmnEr1xBM4qBdhy5FIcil+bPIY0G024pjcTTT4dSDLSQ5WUolk1DdaRXuxjx65t4KYMYaOqa3m3X4wVSSqfJ5iySEpaJl9yg5xsD7ddNvlG70tM670PqGL9+y8RL6ddA79y9ABGdVUsVOWp1HKWopZtE1gFnvJbVvYHeksstj0xJwp3O6rRnu0d/T8APB59MDbUtyygGOnBgRcrGxjR+l1usUUhQIBXmtCvmvUusx7VRshKH3lytwZU1hxJVkR2KFWyJuE2yr+Q3T3fn9b5SrbZT906SjQe/6QaaLB2A2pe7aauMhVdLuUrJX3Zn0ZL7y1AIPwpK1vA+w7Ub+rs5mWvea+2LexN4vHcPanOQRlRK/FpdkPusrzrNeFkeObh48PVpGje9bJOL8cc783JgzuhGQi4GxD7G4fIp1KDtJz//NQG3/KVOCUhgQqfAyAEI/sHm6qt+zQe9S4ZWLdWv1T116UrtxKk81/jYOkfFaqNeY7BvUIiKA96+gaC8vdyqhdGJUwRjctt2WZr65DQPeH9oFfS3F7fQJHKL1OeAJoT79Kr+TtE6wsbqKZ6+XEKLTWqTHOCDoVUUlZ9PTm7Dr88OBa9mCJ+/w+HBCba+7RRJyseIwIeD1t0jFXWO9/58HJZVhHAc2LYtT5FkvjMPtNQCq58FG4he53kjAk8PHf2ALPoIwP9/aPWhOcGvBjon+NVB5wC/WuiM4FcPnQH8ekCnBL8+0CnArxf0kODdpalqeJWiVtKNxX0U7H81RknETm7/A5f9xBZMR6S9AAAAAElFTkSuQmCC';
 
+        if(!this.state.isSearchVisible){
+            return null;
+        }
+        return(
+            <div>
+                <Icon
+                    src={iconSearchDisable}
+                    style={{width: 20,  position: 'absolute', top: 6, right: 10}}
+                />
+            </div>
+        );
+    }
+
+    renderQuickSearch() {
+
+        const onKeyPress = (id, event) => this.onKeyPress(id, event);
 
         let inputStyle = {
             width:this.state.inputWidth,
@@ -245,16 +268,64 @@ export default class SearchFilterComponent extends Component {
             textOverflow: 'ellipsis',
             paddingTop:6,
 
-
-        };
-        let cellStyle = {
-            borderRadius: '4px',
-            borderWidth:'0',
-
         };
 
-        const onKeyPress = (id, event) => this.onKeyPress(id, event);
+        let inputDisableStyle = {
+            width:this.state.inputWidth,
+            height:20,
+            paddingLeft:'12px',
+            backgroundColor:'rgba(244,247,250,0.2)',
+            borderRadius:'40px',
+            fontSize: '12px',
+            fontFamily: 'Roboto-Regular',
+            border:'none',
+            textAlign:'left',
+            color: 'rgba(81,81,81,0.2)',
+            outline:'none',
+            textOverflow: 'ellipsis',
+            paddingTop:6,
+
+
+        };
+
+        if(this.state.isShowAdvanceSearch){
+            return(
+                <div className="searchViewWrapper">
+                    <div className="searchView">
+                        <TextComponent
+                            style={inputDisableStyle}
+                            text={'Enter postcode or club name'}
+                        />
+                        {this.renderDisableSearchButton()}
+                    </div>
+                </div>
+            );
+        }else{
+            return(
+            <div className="searchViewWrapper">
+                <div className="searchView">
+                    <Input
+                        type="text"
+                        style={inputStyle}
+                        ref="inputSearch"
+                        placeholder={'Enter postcode or club name'}
+                        onChange={this.onChange}
+                        onKeyUp={this.onKeyUp}
+                        onKeyPress={onKeyPress}
+                    />
+                    {this.renderSearchButton()}
+                </div>
+            </div>
+            );
+        }
+    }
+
+    render() {
+
+
         const onSearchAdvanceClick = (data) => this.onSearchAdvanceClick(data);
+        const onSearchAdvanceExpand = (expand) => this.onSearchAdvanceExpand(expand);
+
         return (
             <div className="searchFilterContainer">
                 <div className="searchFilerChildElementWrapper">
@@ -265,38 +336,14 @@ export default class SearchFilterComponent extends Component {
                         />
                     </p>
                 </div>
-                <div className="searchViewWrapper">
-                    <div className="searchView">
-                        <Input
-                            type="text"
-                            style={inputStyle}
-                            ref="inputSearch"
-                            placeholder={'Enter postcode or club name'}
-                            onChange={this.onChange}
-                            onKeyUp={this.onKeyUp}
-                            onKeyPress={onKeyPress}
-                        />
-
-                        {this.renderSearchButton()}
-
-
-                    </div>
-
-                </div>
-
-                {/**<MapFinderDropdownComponent
-                 groupName="Programs & Competitions"
-                 arrObject={arrObject}
-                 />**/}
+                {this.renderQuickSearch()}
                 <SearchAdvanceComponent
                     ref="searchAdvance"
                     query={this.props.query}
                     onSearchAdvanceClick    = {onSearchAdvanceClick}
+                    onSearchAdvanceExpand = {onSearchAdvanceExpand}
                     onSearchAdvanceStatus   = {(status)=> this.onSearchAdvanceStatus(status)}
                 />
-
-
-
 
                 <style>{css}</style>
             </div>
