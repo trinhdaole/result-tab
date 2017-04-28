@@ -274,7 +274,7 @@ export default class SearchFilterComponent extends Component {
             width:this.state.inputWidth,
             height:20,
             paddingLeft:'12px',
-            backgroundColor:'rgba(244,247,250,0.2)',
+            backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
             fontSize: '12px',
             fontFamily: 'Roboto-Regular',
@@ -284,17 +284,21 @@ export default class SearchFilterComponent extends Component {
             outline:'none',
             textOverflow: 'ellipsis',
             paddingTop:6,
-
-
         };
 
         if(this.state.isShowAdvanceSearch){
             return(
                 <div className="searchViewWrapper">
                     <div className="searchView">
-                        <TextComponent
+                        <Input
+                            type="text"
                             style={inputDisableStyle}
-                            text={'Enter postcode or club name'}
+                            readOnly="readonly"
+                            ref="inputSearch"
+                            placeholder={'Enter postcode or club name'}
+                            onChange={this.onChange}
+                            onKeyUp={this.onKeyUp}
+                            onKeyPress={onKeyPress}
                         />
                         {this.renderDisableSearchButton()}
                     </div>

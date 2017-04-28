@@ -51,12 +51,12 @@ export default class InputComponent extends Component {
     }
 
     render() {
-        const {id,value, placeholder, style, type, maxLength} = this.props;
-
+        const {id,value, placeholder, style, type, maxLength ,readOnly} = this.props;
+        let read =  readOnly ? readOnly : '';
         const onKeyPress = ( event) => this.onKeyPress( event);
         return (
             <div>
-                <input type={type} id={id} ref="input" name="input" className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
+                <input type={type} id={id} ref="input" name="input" readOnly={read} className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
                        onChange={this.onChange} onKeyPress={onKeyPress} onKeyUp={this.onKeyUp}/>
                 <style>{css}</style>
             </div>
@@ -75,7 +75,8 @@ InputComponent.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.string,
     placeholder: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    readOnly: PropTypes.string,
 };
 
 const css = `
