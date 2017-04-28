@@ -122,7 +122,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             marginBottom:2,
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'4px',
-            fontSize: '12px',
+            fontSize: '14px',
             fontFamily: 'Roboto-Regular',
             border:'none',
             textAlign:'left',
@@ -133,7 +133,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         };
         let textStyle = {
             height:'16px',
-            fontSize: 10,
+            fontSize: 12,
             color: 'rgba(81,81,81,1)',
             fontFamily: 'Roboto-Regular',
             marginLeft: 8,
@@ -186,7 +186,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                     <Button
                         onClick={onSearchAdvanceClick}
                         text    = {'SEARCH'}
-                        style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:10,fontFamily:'Roboto-Medium',outlineStyle:'none'}}
+                        style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:12,fontFamily:'Roboto-Medium',outlineStyle:'none'}}
 
                     />
                 </div>
@@ -210,7 +210,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             top: 8,
             position: 'absolute',
             color:'rgba(81,81,81,1)',
-            fontSize: 12,
+            fontSize: 14,
         };
         let iconExpand = {
             width: '10px',
@@ -219,11 +219,11 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             top: 8,
             position: 'absolute',
             color:'rgba(0,154,222,1',
-            fontSize: 12,
+            fontSize: 14,
         };
         let searchTextNormal = {
             height:'16px',
-            fontSize: 10,
+            fontSize: 12,
             color: 'rgba(81,81,81,1)',
             fontFamily: 'Roboto-Medium',
             marginLeft: '8px',
@@ -232,7 +232,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
 
         let searchTextExpand = {
             height:'16px',
-            fontSize: 10,
+            fontSize: 12,
             color: 'rgba(0,154,222,1)',
             fontFamily: 'Roboto-Medium',
             marginLeft: '8px',

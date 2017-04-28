@@ -32,7 +32,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
 
     render() {
         let placeStyle = {
-                fontSize: 12,
+                fontSize: 14,
                 color: 'rgba(81,81,81,1)',
                 fontFamily: 'Roboto',
                 fontWeight: '600',
@@ -40,7 +40,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
 
         };
         let descriptionStyle = {
-            fontSize: 10,
+            fontSize: 12,
             color: 'rgba(81,81,81,1)',
             fontFamily: 'Roboto',
             paddingLeft:4,
@@ -90,7 +90,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
                         <Text
                             style={{
                                 color: 'rgba(255,185,74,1)',
-                                fontSize: 10,
+                                fontSize: 12,
                                 fontFamily: 'Roboto-Bold',
                                 height: 10,
                                 right: 20,

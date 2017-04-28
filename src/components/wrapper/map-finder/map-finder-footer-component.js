@@ -38,8 +38,8 @@ export default class MapFinderFooterComponent extends React.Component {
     render() {
 
 
-        let hrefStyle   = {color:'rgba(0,154,222,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'};
-        let textStyle   = {color:'rgba(155,155,155,1)', fontSize:10, fontFamily:'Roboto', fontWeight:'500'};
+        let hrefStyle   = {color:'rgba(0,154,222,1)', fontSize:12, fontFamily:'Roboto', fontWeight:'500'};
+        let textStyle   = {color:'rgba(155,155,155,1)', fontSize:12, fontFamily:'Roboto', fontWeight:'500'};
         const onClearFilter = (event) => this.onClearFilter(event);
         const onSearchAgain = (event) => this.onSearchAgain(event);
         return (

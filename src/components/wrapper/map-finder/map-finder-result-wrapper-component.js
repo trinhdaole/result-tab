@@ -191,7 +191,7 @@ export default class SearchResultComponent extends Component {
                     <div className="searchTextWrapper">
                         <TextComponent
                             text={resultStatusText}
-                            style={{fontSize:10, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
+                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </div>
                     {this.renderSliderButton()}
@@ -256,7 +256,7 @@ const css = `
         font-family:Roboto;
         font-weight:500;
        
-        font-size: 10px;
+        font-size: 12px;
         text-align: center;
         line-height: 25px;
         float: left;
@@ -270,7 +270,7 @@ const css = `
         border-radius: 40px;
         font-family:Roboto;
         font-weight:500;
-        font-size: 10px;
+        font-size: 12px;
         text-align: center;
         line-height: 25px;
         float: left;

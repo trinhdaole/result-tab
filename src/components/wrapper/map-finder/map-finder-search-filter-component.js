@@ -256,10 +256,10 @@ export default class SearchFilterComponent extends Component {
         let inputStyle = {
             width:this.state.inputWidth,
             height:20,
-            paddingLeft:'12px',
+            paddingLeft:'1px',
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
-            fontSize: '12px',
+            fontSize: '14px',
             fontFamily: 'Roboto-Regular',
             border:'none',
             textAlign:'left',
@@ -276,7 +276,7 @@ export default class SearchFilterComponent extends Component {
             paddingLeft:'12px',
             backgroundColor:'rgba(244,247,250,0.2)',
             borderRadius:'40px',
-            fontSize: '12px',
+            fontSize: '14px',
             fontFamily: 'Roboto-Regular',
             border:'none',
             textAlign:'left',
@@ -332,7 +332,7 @@ export default class SearchFilterComponent extends Component {
                     <p className="searchTextWrapper">
                         <TextComponent
                             text={'Search and filter'}
-                            style={{fontSize:12, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
+                            style={{fontSize:14, paddingLeft:8,color:'rgba(81,81,81,1)', fontFamily:'Roboto', fontWeight:'600'}}
                         />
                     </p>
                 </div>
