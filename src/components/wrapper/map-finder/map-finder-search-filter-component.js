@@ -130,12 +130,26 @@ export default class SearchFilterComponent extends Component {
     }
 
     focusSearch(){
-        this.refs.inputSearch.forceFocus();
+
+        if(  this.refs.inputSearch){
+            this.refs.inputSearch.forceFocus();
+        }
+
+        if(this.state.isShowAdvanceSearch){
+            this.refs.searchAdvance.forceFocusFirst();
+        }
     }
 
     clearSearch(){
-        this.refs.inputSearch.clearText();
-        this.refs.searchAdvance.clearFilter();
+        if(this.refs.searchAdvance){
+            this.refs.searchAdvance.clearFilter();
+        }
+
+        if(  this.refs.inputSearch){
+            this.refs.inputSearch.clearText();
+        }
+
+
 
     }
 
@@ -152,7 +166,6 @@ export default class SearchFilterComponent extends Component {
     }
 
     onSearchClick(){
-
 
         this.props.onSearchStatus('searching');
 
