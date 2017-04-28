@@ -46,12 +46,16 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         if( this.refs.inputSuburb){
             this.refs.inputSuburb.clearText();
         }
+        this.onTextChange();
     }
     onTextChange(){
+        let clubName = this.refs.inputClubName ? this.refs.inputClubName.getInputValue() : '';
+        let inputPostcode = this.refs.inputPostcode ? this.refs.inputPostcode.getInputValue() : '';
+        let inputSuburb = this.refs.inputSuburb ? this.refs.inputSuburb.getInputValue() : '';
         this.setState({
-            clubNameValue: this.refs.inputClubName.getInputValue(),
-            postCodeValue: this.refs.inputPostcode.getInputValue(),
-            suburbValue: this.refs.inputSuburb.getInputValue(),
+            clubNameValue: clubName,
+            postCodeValue: inputPostcode,
+            suburbValue: inputSuburb,
         })
     }
 
