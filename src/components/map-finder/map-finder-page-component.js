@@ -49,7 +49,7 @@ export default class MapFinderPageComponent extends Component {
         this.refs.searchFilter.focusSearch();
     }
     onSearchStatus(status){
-        this.setState({searchStatus:status})
+        this.setState({searchStatus:status});
     }
 
 

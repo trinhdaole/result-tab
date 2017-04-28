@@ -49,8 +49,6 @@ export default class MapFinderResultListComponent extends Component {
     }
     pagingClick(page,perPage){
 
-        console.log('*** pagingClick page  ',page)
-        console.log('*** pagingClick perPage  ',perPage)
 
         this.setState({
             currentPage:page,

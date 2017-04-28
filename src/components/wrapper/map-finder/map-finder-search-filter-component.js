@@ -44,10 +44,9 @@ export default class SearchFilterComponent extends Component {
                 this.setState({
                     isSearchVisible:true,
 
-                })
+                });
             },
             (error) => {
-                console.log('**** can not get the current location  ',error)
                 this.getAllData( this.lat,  this.lng);
                 //this.setState({isSearchVisible:false})
             }

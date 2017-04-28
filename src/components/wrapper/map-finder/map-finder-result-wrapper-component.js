@@ -185,9 +185,9 @@ export default class SearchResultComponent extends Component {
         if(resultData){
             numberOfResult = resultData.length;
             if(resultData.length >=2){
-                resultStatusText = resultData.length + ' results found'
+                resultStatusText = resultData.length + ' results found';
             }else{
-                resultStatusText = resultData.length + ' result found'
+                resultStatusText = resultData.length + ' result found';
             }
         }
 

@@ -56,7 +56,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             clubNameValue: clubName,
             postCodeValue: inputPostcode,
             suburbValue: inputSuburb,
-        })
+        });
     }
 
     forceFocusFirst(){
