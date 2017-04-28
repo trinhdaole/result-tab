@@ -129,7 +129,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'4px',
             fontSize: '14px',
-            fontFamily: 'Roboto-Regular',
+            fontFamily: 'Roboto',
             border:'none',
             textAlign:'left',
             color: 'rgba(81,81,81,1)',
@@ -141,7 +141,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             height:'16px',
             fontSize: 12,
             color: 'rgba(81,81,81,1)',
-            fontFamily: 'Roboto-Regular',
+            fontFamily: 'Roboto',
             marginLeft: 8,
 
         };
@@ -229,18 +229,20 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         };
         let searchTextNormal = {
             height:'16px',
-            fontSize: 12,
+            fontSize: 14,
             color: 'rgba(81,81,81,1)',
-            fontFamily: 'Roboto-Medium',
+            fontFamily: 'Roboto',
+            fontWeight:'500',
             marginLeft: '8px',
 
         };
 
         let searchTextExpand = {
             height:'16px',
-            fontSize: 12,
+            fontSize: 14,
             color: 'rgba(0,154,222,1)',
-            fontFamily: 'Roboto-Medium',
+            fontFamily: 'Roboto',
+            fontWeight:'500',
             marginLeft: '8px',
 
         };

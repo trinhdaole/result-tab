@@ -225,40 +225,9 @@ const css = `
     .nextText {
         display:none;
     }
-    .tableWrapper tbody tr:nth-child(odd) {background: #FFF}
-    
-    .tableWrapper tbody tr{
-        
-        
-        border-bottom:1px solid rgba(234,234,234,1);
-    
-  }
-    .tableWrapper tbody td{
-        padding:2px;
-       
-  }
-  .tableWrapper td:nth-child(1) {
-         width:80%;
-         padding: 20px 0;
-         text-align:left;
-         padding-left:10px;
-    }
-    .tableWrapper td:nth-child(2) {
-         width:20%;
-         
-    }
-    .pagingWrapper {
-        width:100%;
-        height:50px;
-        font-family:Roboto;
-        
-    }
+   
     .paging{
-        width:93%;
-    }
-    .tableCell{
-        width:100%;
-        height:40;
+        width:94%;
     }
   
   
@@ -268,7 +237,9 @@ const css = `
    .nextText {
         display:inline;
        
-    
+    }
+    .paging{
+        width:98%;
     }
       .tableWrapper td:nth-child(1) {
          width:70%;
