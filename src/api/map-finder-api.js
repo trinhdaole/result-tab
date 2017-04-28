@@ -33,28 +33,31 @@ export function getSearchPlace(postcode, suburb, name, sport) {
         path = path.replace( "name={name}", "");
     }
 
-    let dis = URLUtils.query().dis;
-    if(dis){
-        path = path.replace( "&dis={dis}", "");
-    }
 
     const param = {
         postcode: postcode,
         suburb: suburb,
         name: name,
-        sport: sport
+        sport: sport,
+
     };
 
     return CommonApi.httpGet(path, param);
 }
 
 export function getSearchNearByPlace(lat, lon, cat, sport) {
-    const path = Config.MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH;
+    let path = Config.MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH;
+    let dis = URLUtils.query().dis ?  URLUtils.query().dis : '';
+    if(dis == ''){
+        path = path.replace( "&dis={dis}", "");
+    }
+
     const param = {
         lat: lat,
         lon: lon,
         cat: cat,
-        sport: sport
+        sport: sport,
+        dis: dis,
     };
 
     return CommonApi.httpGet(path, param);
