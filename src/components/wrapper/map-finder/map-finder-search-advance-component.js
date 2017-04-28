@@ -45,6 +45,12 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         }
     }
 
+    forceFocusFirst(){
+        if( this.refs.inputClubName){
+            this.refs.inputClubName.forceFocus();
+        }
+    }
+
     onSearchAdvanceClick(){
         if(this.refs.inputPostcode.getInputValue().length <= 0 &&
             this.refs.inputClubName.getInputValue().length <= 0 &&
