@@ -7,6 +7,7 @@
 
 const Config = require('../../config');
 import * as CommonApi from "./common-api";
+import * as URLUtils from  '../utils/url-utils';
 
 export function getSearchPlace(postcode, suburb, name, sport) {
     let path = Config.MAP_FINDER_SEARCH_PLACE_PATH;
@@ -37,19 +38,26 @@ export function getSearchPlace(postcode, suburb, name, sport) {
         postcode: postcode,
         suburb: suburb,
         name: name,
-        sport: sport
+        sport: sport,
+
     };
 
     return CommonApi.httpGet(path, param);
 }
 
 export function getSearchNearByPlace(lat, lon, cat, sport) {
-    const path = Config.MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH;
+    let path = Config.MAP_FINDER_SEARCH_NEAR_BY_PLACE_PATH;
+    let dis = URLUtils.query().dis ?  URLUtils.query().dis : '';
+    if(dis == ''){
+        path = path.replace( "&dis={dis}", "");
+    }
+
     const param = {
         lat: lat,
         lon: lon,
         cat: cat,
-        sport: sport
+        sport: sport,
+        dis: dis,
     };
 
     return CommonApi.httpGet(path, param);
