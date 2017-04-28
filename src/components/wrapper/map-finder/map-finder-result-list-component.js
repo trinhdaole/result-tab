@@ -137,7 +137,6 @@ export default class MapFinderResultListComponent extends Component {
     renderPaging(){
 
         const onPagingClick = (page, perPage) => this.pagingClick(page, perPage);
-        let {currentpage}   = this.state;
 
         const {resultData,searchStatus} = this.props;
         let totalItem = 0;
@@ -153,6 +152,7 @@ export default class MapFinderResultListComponent extends Component {
             if(tempTotalPage > 3){
                 pagingList = [10,20,50];
             }
+
 
         }
 

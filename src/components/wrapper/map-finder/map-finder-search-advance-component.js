@@ -74,15 +74,17 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                  this.fetchDataRow(dataResult,0);
             }else{
                 this.props.onSearchAdvanceClick([]);
+                this.props.onSearchAdvanceStatus('finished');
             }
 
-            this.props.onSearchAdvanceStatus('finished')
+
         });
     }
 
     fetchDataRow(arrayObject, currentIndex){
         if(arrayObject.length <= 0 || currentIndex >= arrayObject.length){
             this.props.onSearchAdvanceClick([]);
+            this.props.onSearchAdvanceStatus('finished');
             return;
         }
         let temp = arrayObject[currentIndex];
@@ -101,6 +103,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             if(data && data.results.length > 0){
                 let dataResult = data.results ;
                 this.props.onSearchAdvanceClick(dataResult);
+                this.props.onSearchAdvanceStatus('finished');
             }else{
                 let index = currentIndex + 1;
                 this.fetchDataRow(arrayObject, index);

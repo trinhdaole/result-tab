@@ -341,8 +341,8 @@ export default class SearchFilterComponent extends Component {
                     ref="searchAdvance"
                     query={this.props.query}
                     onSearchAdvanceClick    = {onSearchAdvanceClick}
-                    onSearchAdvanceExpand = {onSearchAdvanceExpand}
-                    onSearchAdvanceStatus   = {(status)=> this.onSearchAdvanceStatus(status)}
+                    onSearchAdvanceExpand   = {onSearchAdvanceExpand}
+                    onSearchAdvanceStatus   = {(status)=> {this.props.onSearchStatus(status)}}
                 />
 
                 <style>{css}</style>
