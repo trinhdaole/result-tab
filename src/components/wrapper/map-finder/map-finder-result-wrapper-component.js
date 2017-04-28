@@ -121,7 +121,10 @@ export default class SearchResultComponent extends Component {
 
         let iconCheckStyle = {
             height: 150,
-            paddingTop:110,
+            paddingTop:100,
+            display:'block',
+            marginLeft:'auto',
+            marginRight:'auto',
 
         };
 
@@ -145,6 +148,10 @@ export default class SearchResultComponent extends Component {
             />
             </div>
         );
+
+
+
+
 
 
 
