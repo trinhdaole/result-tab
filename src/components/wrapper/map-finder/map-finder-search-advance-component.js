@@ -225,7 +225,8 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             height:'16px',
             fontSize: 14,
             color: 'rgba(81,81,81,1)',
-            fontFamily: 'Roboto-Medium',
+            fontFamily: 'Roboto',
+            fontWeight:'500',
             marginLeft: '8px',
 
         };
@@ -234,7 +235,8 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             height:'16px',
             fontSize: 14,
             color: 'rgba(0,154,222,1)',
-            fontFamily: 'Roboto-Medium',
+            fontFamily: 'Roboto',
+            fontWeight:'500',
             marginLeft: '8px',
 
         };
