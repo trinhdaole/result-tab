@@ -67,7 +67,7 @@ export default class CellMapFinderDropdownComponent extends React.Component {
 
         if(this.props.data){
             return (
-                <div  className="list-item-container" onClick={onClick}>
+                <div  className="list-item-container">
 
                     <div className="listItem-textWrapper">
                         <p>

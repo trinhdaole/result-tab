@@ -149,7 +149,8 @@ export default class MapFinderResultListComponent extends Component {
 
             }
             totalItem = resultData.length;
-            if(tempTotalPage > 3){
+
+            if(tempTotalPage >= 3){
                 pagingList = [10,20,50];
             }
 
