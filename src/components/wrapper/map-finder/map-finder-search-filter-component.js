@@ -277,7 +277,8 @@ export default class SearchFilterComponent extends Component {
             fontSize: '14px',
             fontFamily: 'Roboto-Regular',
             color: 'rgba(81,81,81,0.2)',
-            lineHeight:32
+            paddingTop:6,
+            lineHeight:'32px',
 
 
         };
