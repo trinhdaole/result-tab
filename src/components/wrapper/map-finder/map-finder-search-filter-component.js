@@ -256,7 +256,7 @@ export default class SearchFilterComponent extends Component {
         let inputStyle = {
             width:this.state.inputWidth,
             height:20,
-            paddingLeft:'1px',
+            paddingLeft:10,
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'40px',
             fontSize: '14px',
@@ -273,17 +273,11 @@ export default class SearchFilterComponent extends Component {
         let inputDisableStyle = {
             width:this.state.inputWidth,
             height:20,
-            paddingLeft:'12px',
-            backgroundColor:'rgba(244,247,250,0.2)',
-            borderRadius:'40px',
+            paddingLeft:10,
             fontSize: '14px',
             fontFamily: 'Roboto-Regular',
-            border:'none',
-            textAlign:'left',
             color: 'rgba(81,81,81,0.2)',
-            outline:'none',
-            textOverflow: 'ellipsis',
-            paddingTop:6,
+            lineHeight:32
 
 
         };
