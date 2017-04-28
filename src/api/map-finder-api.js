@@ -7,6 +7,7 @@
 
 const Config = require('../../config');
 import * as CommonApi from "./common-api";
+import * as URLUtils from  '../utils/url-utils';
 
 export function getSearchPlace(postcode, suburb, name, sport) {
     let path = Config.MAP_FINDER_SEARCH_PLACE_PATH;
@@ -32,6 +33,10 @@ export function getSearchPlace(postcode, suburb, name, sport) {
         path = path.replace( "name={name}", "");
     }
 
+    let dis = URLUtils.query().dis;
+    if(dis){
+        path = path.replace( "&dis={dis}", "");
+    }
 
     const param = {
         postcode: postcode,
