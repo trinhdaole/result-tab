@@ -227,7 +227,8 @@ const css = `
     }
    
     .paging{
-        width:94%;
+        width:calc(100% - 6px);
+        padding: 10px 6px 10px 0;
     }
   
   
@@ -238,27 +239,8 @@ const css = `
         display:inline;
        
     }
-    .paging{
-        width:98%;
-    }
-      .tableWrapper td:nth-child(1) {
-         width:70%;
-        
-         padding: 20px 0;
-         text-align:left;
-         padding-left:10px;
-         
-    }
-    .tableWrapper td:nth-child(2) {
-         width:30%;
-         display:table-cell;
-        
-         
-         border-left:2px solid white;
-         border-right:2px solid white;
-         
-         
-    }
+    
+   
     .mapFinderResultListContainer > div{
       
        overflow:hidden !important;

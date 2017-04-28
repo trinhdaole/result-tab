@@ -17,6 +17,9 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         super(props);
         this.state = {
             isExpand:false,
+            clubNameValue: '',
+            postCodeValue: '',
+            suburbValue: '',
 
         };
     }
@@ -43,6 +46,13 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
         if( this.refs.inputSuburb){
             this.refs.inputSuburb.clearText();
         }
+    }
+    onTextChange(){
+        this.setState({
+            clubNameValue: this.refs.inputClubName.getInputValue(),
+            postCodeValue: this.refs.inputPostcode.getInputValue(),
+            suburbValue: this.refs.inputSuburb.getInputValue(),
+        })
     }
 
     onSearchAdvanceClick(){
@@ -122,7 +132,7 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
             marginBottom:2,
             backgroundColor:'rgba(244,247,250,1)',
             borderRadius:'4px',
-            fontSize: '14px',
+            fontSize: 12,
             fontFamily: 'Roboto',
             border:'none',
             textAlign:'left',
@@ -153,38 +163,41 @@ export default class MapFinderSearchAdvanceComponent extends React.Component {
                 <div className="searchAdvanceElement">
                     <Text text  = {'Club name'} style={textStyle}/>
                     <Input
-                        ref="inputClubName"
-                        style={inputStyle}
-                        placeholder={''}
-                        onChange={this.onChange}
-                        onKeyUp={this.onKeyUp}
+                        ref             = "inputClubName"
+                        style           = {inputStyle}
+                        placeholder     = {''}
+                        value           = {this.state.clubNameValue}
+                        onChange        = {()=> this.onTextChange()}
+                        onKeyUp         = {this.onKeyUp}
                     />
                 </div>
                 <div className="searchAdvanceElement">
                 <Text text  = {'Postcode'} style={textStyle}/>
                 <Input
-                    ref="inputPostcode"
-                    style={inputStyle}
-                    placeholder={''}
-                    onChange={this.onChange}
-                    onKeyUp={this.onKeyUp}
+                    ref         = "inputPostcode"
+                    style       = {inputStyle}
+                    placeholder = {''}
+                    value       = {this.state.postCodeValue}
+                    onChange    = {()=> this.onTextChange()}
+                    onKeyUp     = {this.onKeyUp}
                 />
                 </div>
 
                 <div className="searchAdvanceElement">
                     <Text text  = {'Suburb'} style={textStyle}/>
                     <Input
-                        ref="inputSuburb"
-                        style={inputStyle}
-                        placeholder={''}
-                        onChange={this.onChange}
-                        onKeyUp={this.onKeyUp}
+                        ref         = "inputSuburb"
+                        style       = {inputStyle}
+                        placeholder = {''}
+                        onChange    = {()=> this.onTextChange()}
+                        value       = {this.state.suburbValue}
+                        onKeyUp     = {this.onKeyUp}
                     />
                 </div>
 
                 <div className="buttonSearchWrapper">
                     <Button
-                        onClick={onSearchAdvanceClick}
+                        onClick = {onSearchAdvanceClick}
                         text    = {'SEARCH'}
                         style   = {{height:24,backgroundColor:'rgba(0,151,222,1)',borderRadius:40,fontSize:12,fontFamily:'Roboto-Medium',outlineStyle:'none'}}
 

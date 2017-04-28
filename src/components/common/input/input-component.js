@@ -56,7 +56,7 @@ export default class InputComponent extends Component {
         const onKeyPress = ( event) => this.onKeyPress( event);
         return (
             <div>
-                <input type={type} id={id} ref="input" name="input" readOnly={read} className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
+                <input type={type} id={id} ref="input" name="input" value = {value} readOnly={read} className="inputWrapper" maxLength={maxLength} style={style} placeholder={placeholder}
                        onChange={this.onChange} onKeyPress={onKeyPress} onKeyUp={this.onKeyUp}/>
                 <style>{css}</style>
             </div>
