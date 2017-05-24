@@ -11,7 +11,6 @@ import SearchFilterComponent from '../wrapper/map-finder/map-finder-search-filte
 import MapFinderDropdownComponent from  '../wrapper/map-finder/map-finder-dropdown-component';
 import SearchResultComponent  from '../wrapper/map-finder/map-finder-result-wrapper-component';
 import MapFinder from '../wrapper/map-finder/map-finder-result-map-component';
-import  * as Service  from '../../services/map-finder-services';
 import * as URLUtils from  '../../utils/url-utils';
 
 export default class MapFinderPageComponent extends Component {
@@ -23,14 +22,61 @@ export default class MapFinderPageComponent extends Component {
             resultData:null,
             searchStatus:'',
             isSearching:false,
-
+            person: null
         };
         this.searchStatus = '';
         this.onSearchStatus = this.onSearchStatus.bind(this);
-        this.query = URLUtils.query();
+        this.query = null
     }
 
     componentDidMount() {
+
+        let that = this;
+        let url = 'https://mapfinder-staging.herokuapp.com/mapfinder/postcode?postcode=30&sport=baseball&orderby=dis';
+        // let url = 'http://128.199.90.210:8083/team/a0Rp0000004AIsVEAW';
+
+        fetch(url, {
+            'mode': 'no-cors',
+            method:"HEAD",
+            'Accept': '*/*',
+            // 'Content-Type' : 'application/json; charset=utf-8',
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'Access-Control-Request-Method': "GET",
+        })
+            .then(function (response) {
+                console.log("===== response:", response);
+
+                if (response.status >= 400) {
+                    throw new Error("Bad response from server");
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                console.log("=====data:", data);
+
+            });
+
+        // var data = null;
+        //
+        // var xhr = new XMLHttpRequest();
+        // xhr.withCredentials = true;
+        //
+        // xhr.addEventListener("readystatechange", function () {
+        //     if (this.readyState === 4) {
+        //         console.log(this.responseText);
+        //     }
+        // });
+        //
+        // xhr.open("GET", "https://mapfinder-staging.herokuapp.com/mapfinder/postcode?postcode=30&sport=baseball&orderby=dis");
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // xhr.setRequestHeader("Accept", "application/json");
+        // // xhr.setRequestHeader("Authorization", "Basic ZGV2OmRldjIwMTY=");
+        // // xhr.setRequestHeader("x_api_key", "XrVL2DyqsA3hIF3oIfbQU7bAF7EtfRSH1ln6RL22");
+        // xhr.setRequestHeader("cache-control", "no-cache");
+        // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+        // xhr.setRequestHeader("Access-Control-Allow-Headers", "*");
+        //
+        // xhr.send(data);
 
     }
 
@@ -82,6 +128,7 @@ export default class MapFinderPageComponent extends Component {
                         </p>
                     </div>
                 </div>
+                <div>{this.state.person}</div>
                 <SearchFilterComponent
                     onSearchClick   = {(data)=> this.setState({resultData:data}) }
                     onSearchStatus  = {(dataObject)=> this.onSearchStatus(dataObject)}

@@ -1,8 +1,8 @@
 {
-    "LOCAL_URL": "http://192.168.161.182",
+    "LOCAL_URL": "http://localhost",
     "LOCAL_PORT": "3002",
     "API_GET": "/api/get",
-    "SERVER_URL": "https://mapfinder-staging.herokuapp.com",
+    "MAP_FINER_SERVER_URL": "https://mapfinder-staging.herokuapp.com",
 
     "AUTHORIZATION": "Basic ZGV2OmRldjIwMTY=",
     "X_API_KEY": "XrVL2DyqsA3hIF3oIfbQU7bAF7EtfRSH1ln6RL22",

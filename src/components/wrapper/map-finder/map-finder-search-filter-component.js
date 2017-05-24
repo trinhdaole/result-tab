@@ -6,7 +6,6 @@ import Button from '../../common/button/button-component';
 import Icon from '../../common/icon/icon-component';
 import  MapFinderDropdownComponent from  './map-finder-dropdown-component';
 import SearchAdvanceComponent from './map-finder-search-advance-component';
-import  * as Service  from '../../../services/map-finder-services';
 
 
 export default class SearchFilterComponent extends Component {

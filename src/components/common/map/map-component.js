@@ -120,9 +120,7 @@ export default class MapComponent extends Component {
                 const onNext = () => this.onNext();
                 let show = false;
                 if(this.lat === marker.lat && this.lng === marker.lng){
-                    if(showOne){
-
-                    }else{
+                    if(!showOne){
                         show = true;
                         showOne = true;
                     }

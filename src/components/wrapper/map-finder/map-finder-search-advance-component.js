@@ -10,7 +10,6 @@ import Text from   '../../common/text/text-component';
 import Icon from   '../../common/icon/icon-component';
 import Input from '../../common/input/input-component';
 import Button from '../../common/button/button-component';
-import  * as Service  from '../../../services/map-finder-services';
 
 export default class MapFinderSearchAdvanceComponent extends React.Component {
     constructor(props) {
