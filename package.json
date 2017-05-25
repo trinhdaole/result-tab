@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rocachien/neptune-map-finder"
+    "url": "https://github.com/trinhdaole/result-tab"
   },
   "peerDependencies": {
     "react": "^15.1.0",
